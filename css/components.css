@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Components (Minimalist Luxury & Interactive Meditation)
+   ========================================================================== */
+
+/* ==========================================================================
+   Section 2: What is Shri Moksham?
+   ========================================================================== */
+
+.about-narrative-box {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 24px;
+  padding: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  position: relative;
+  box-shadow: var(--shadow-card);
+}
+
+.about-narrative-box .lead-text {
+  font-family: var(--font-serif-quote);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  line-height: 1.65;
+  color: var(--gold-primary);
+  margin-bottom: 1.5rem;
+}
+
+.about-body-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  max-width: 760px;
+  margin: 0 auto 2.5rem auto;
+}
+
+/* 3-Step Awakening */
+.awakening-progression {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 2.8rem;
+  position: relative;
+}
+
+.awakening-step-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 16px;
+  padding: 2rem 1.4rem;
+  text-align: center;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-subtle);
+}
+
+.awakening-step-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.awakening-step-num {
+  font-family: var(--font-serif-heading);
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  color: var(--gold-rich);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.awakening-step-title {
+  font-family: var(--font-serif-heading);
+  font-size: 1.2rem;
+  color: var(--text-heading);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.awakening-step-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Section 3: The Three Paths
+   ========================================================================== */
+
+.paths-master-banner {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  border: 1px solid var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+}
+
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.path-chapter-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-card);
+}
+
+.path-chapter-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.path-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.path-image-wrapper img,
+.path-image-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-quint);
+}
+
+.path-chapter-card:hover .path-image-wrapper img,
+.path-chapter-card:hover .path-image-wrapper video {
+  transform: scale(1.05);
+}
+
+.path-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border-gold);
+  padding: 0.28rem 0.8rem;
+  border-radius: 50px;
+  font-family: var(--font-serif-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.path-content-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.path-title {
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+  color: var(--text-heading);
+}
+
+.path-subtitle {
+  font-family: var(--font-serif-quote);
+  font-size: 1rem;
+  color: var(--gold-primary);
+  font-style: italic;
+  margin-bottom: 0.9rem;
+}
+
+.path-description {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+
+.path-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+}
+
+.path-tag {
+  background: rgba(184, 134, 11, 0.08);
+  border: 1px solid rgba(184, 134, 11, 0.15);
+  padding: 0.22rem 0.6rem;
+  border-radius: 14px;
+  font-size: 0.74rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.path-card-action {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   Section 4: Jyotish — A Directional Science
+   ========================================================================== */
+
+.jyotish-hero-banner {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 22px;
+  padding: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 3.5rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+}
+
+.jyotish-video-side {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold-subtle);
+  height: 230px;
+}
+
+.jyotish-video-side video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.paradigm-shift-box {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 16px;
+  padding: 1.8rem;
+}
+
+.shift-label-old {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-subtle);
+  margin-bottom: 0.3rem;
+}
+
+.shift-query-old {
+  font-family: var(--font-serif-quote);
+  font-size: 1.25rem;
+  color: #B25345;
+  text-decoration: line-through;
+  opacity: 0.8;
+  margin-bottom: 1.2rem;
+}
+
+.shift-divider-sacred {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  color: var(--gold-primary);
+  font-family: var(--font-serif-heading);
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+}
+
+.shift-divider-sacred::before,
+.shift-divider-sacred::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-gold-subtle);
+}
+
+.shift-label-new {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.shift-query-new {
+  font-family: var(--font-serif-heading);
+  font-size: 1.3rem;
+  color: var(--text-heading);
+  line-height: 1.35;
+}
+
+/* 01-06 Step Interactive Workflow */
+.jyotish-steps-nav {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-nav-btn {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 12px;
+  padding: 0.95rem 0.55rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.step-nav-btn:hover {
+  border-color: var(--gold-rich);
+  background: #FFFFFF;
+}
+
+.step-nav-btn.is-active {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, #FFFFFF 100%);
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 14px var(--gold-glow);
+}
+
+.step-nav-num {
+  font-family: var(--font-serif-heading);
+  font-size: 1rem;
+  color: var(--gold-primary);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.step-nav-title {
+  font-family: var(--font-serif-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.jyotish-step-details-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold);
+  border-radius: 18px;
+  padding: 2.2rem 2.4rem;
+  min-height: 160px;
+  box-shadow: var(--shadow-card);
+}
+
+.step-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.step-badge-large {
+  font-family: var(--font-serif-heading);
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-cream);
+}
+
+.step-detail-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  color: var(--text-heading);
+}
+
+.step-detail-body {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.free-will-affirmation {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px dashed var(--border-gold);
+  border-radius: 16px;
+  padding: 1.8rem 2.4rem;
+  text-align: center;
+}
+
+.free-will-affirmation p {
+  font-family: var(--font-serif-quote);
+  font-size: 1.25rem;
+  color: var(--gold-dark);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Section 5: Certified Jyotish Course (4–5 Months)
+   ========================================================================== */
+
+.course-feature-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 24px;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  box-shadow: var(--shadow-card);
+}
+
+.course-highlights-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 2.8rem;
+}
+
+.course-highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-serif-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 600;
+}
+
+.course-highlight-item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gold-primary);
+}
+
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 2.8rem;
+}
+
+.curriculum-module {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 16px;
+  padding: 1.8rem;
+  transition: all var(--transition-smooth);
+}
+
+.curriculum-module:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.module-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.module-tag {
+  font-family: var(--font-serif-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.module-name {
+  font-size: 1.15rem;
+  color: var(--text-heading);
+}
+
+.curriculum-topics-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.topic-chip {
+  background: var(--bg-cream);
+  border: 1px solid rgba(184, 134, 11, 0.12);
+  padding: 0.28rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   Section 6: Interactive Meditation Suite
+   ========================================================================== */
+
+.meditation-suite-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Breath Ripple Sphere */
+.breath-sphere-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 24px;
+  padding: 2.6rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.breath-sphere-wrap {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+}
+
+.breath-sphere-ripple {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-light);
+  opacity: 0.5;
+  animation: pulseRipple 4s infinite ease-out;
+}
+
+@keyframes pulseRipple {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.2); opacity: 0; }
+}
+
+.breath-sphere-circle {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFFFFF 0%, var(--bg-cream) 70%, var(--gold-champagne) 100%);
+  border: 2px solid var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px var(--gold-glow);
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 4s ease;
+}
+
+.breath-sphere-circle.is-inhaling {
+  transform: scale(1.52);
+  box-shadow: 0 8px 36px var(--gold-glow);
+}
+
+.breath-sphere-circle.is-holding {
+  transform: scale(1.52);
+  box-shadow: 0 8px 40px var(--gold-rich);
+}
+
+.breath-sphere-circle.is-exhaling {
+  transform: scale(1);
+  box-shadow: 0 4px 14px var(--gold-glow);
+}
+
+.breath-sphere-label {
+  font-family: var(--font-serif-heading);
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.breath-timer-num {
+  font-family: var(--font-serif-heading);
+  font-size: 1.7rem;
+  color: var(--gold-primary);
+  margin-bottom: 0.3rem;
+}
+
+/* Chakra Tuner */
+.chakra-tuner-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.chakra-nav-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border-gold-subtle);
+}
+
+.chakra-tab-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-gold-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--bg-cream);
+  color: var(--text-heading);
+  font-weight: 600;
+}
+
+.chakra-tab-btn.is-active,
+.chakra-tab-btn:hover {
+  border-color: var(--gold-primary);
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+.chakra-active-display {
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+.chakra-energy-title {
+  font-size: 1.35rem;
+  color: var(--text-heading);
+  margin-bottom: 0.3rem;
+}
+
+.chakra-energy-hz {
+  font-family: var(--font-serif-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  color: var(--gold-primary);
+  margin-bottom: 0.7rem;
+}
+
+.chakra-energy-desc {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto 1.4rem auto;
+}
+
+/* 1-Minute Mindful Pause */
+.mindful-pause-banner {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #FFFFFF 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  padding: 1.8rem 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* ==========================================================================
+   Section 7: Seva & Social Initiatives
+   ========================================================================== */
+
+.seva-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.seva-item-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-smooth);
+  box-shadow: var(--shadow-card);
+}
+
+.seva-item-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.seva-item-card.is-wide {
+  grid-column: span 2;
+}
+
+.seva-image-wrap {
+  height: 210px;
+  position: relative;
+  overflow: hidden;
+}
+
+.seva-item-card.is-wide .seva-image-wrap {
+  height: 260px;
+}
+
+.seva-image-wrap img,
+.seva-image-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out-quint);
+}
+
+.seva-item-card:hover .seva-image-wrap img,
+.seva-item-card:hover .seva-image-wrap video {
+  transform: scale(1.05);
+}
+
+.seva-card-body {
+  padding: 1.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.seva-category-tag {
+  font-family: var(--font-serif-heading);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.seva-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-heading);
+}
+
+.seva-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.3rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   Section 8: The Dream — Rishikesh
+   ========================================================================== */
+
+.rishikesh-dream-section {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  padding: clamp(3.8rem, 6vw, 6rem) clamp(1.5rem, 4vw, 3.5rem);
+  margin: 3.5rem 0;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card);
+  background: #FFFFFF;
+}
+
+.rishikesh-bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.rishikesh-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(250, 247, 242, 0.6) 0%, rgba(250, 247, 242, 0.92) 100%);
+  z-index: 1;
+}
+
+.rishikesh-content-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rishikesh-narrative {
+  font-family: var(--font-serif-quote);
+  font-size: clamp(1.2rem, 1.7vw, 1.45rem);
+  line-height: 1.8;
+  color: var(--text-main);
+  margin-bottom: 2.8rem;
+}
+
+.rishikesh-staggered-mantras {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: 2.8rem;
+}
+
+.rishikesh-mantra-line {
+  font-family: var(--font-serif-heading);
+  font-size: clamp(0.95rem, 1.35vw, 1.3rem);
+  letter-spacing: 0.08em;
+  color: var(--text-heading);
+  padding: 0.7rem 1.4rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  display: inline-block;
+  margin: 0 auto;
+  box-shadow: 0 4px 14px rgba(24, 34, 47, 0.04);
+}
+
+/* ==========================================================================
+   Section 9: Philosophy Sequence
+   ========================================================================== */
+
+.storyboard-strip-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold-subtle);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 3.5rem;
+}
+
+.philosophy-scroll-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.philosophy-scroll-chain::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, var(--gold-primary) 15%, var(--gold-primary) 85%, transparent);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.philosophy-node-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 18px;
+  padding: 1.8rem 2.2rem;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-smooth);
+}
+
+.philosophy-node-card:hover {
+  border-color: var(--gold-primary);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+}
+
+.philosophy-pillar-term {
+  font-family: var(--font-serif-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.14em;
+  color: var(--gold-primary);
+  margin-bottom: 0.35rem;
+}
+
+.philosophy-pillar-insight {
+  font-family: var(--font-serif-quote);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   Section 10: Donate / Seva
+   ========================================================================== */
+
+.donate-causes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.donate-cause-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 18px;
+  padding: 2.2rem 1.6rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-smooth);
+}
+
+.donate-cause-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.donate-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-cream);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  color: var(--gold-primary);
+}
+
+.donate-cause-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-heading);
+}
+
+.donate-cause-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+
+/* ==========================================================================
+   Final CTA & Footer
+   ========================================================================== */
+
+.final-cta-section {
+  text-align: center;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 1.5rem;
+  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-cream) 100%);
+  border-top: 1px solid var(--border-gold-subtle);
+}
+
+.final-cta-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.site-footer {
+  background: #FFFFFF;
+  border-top: 1px solid var(--border-gold-subtle);
+  padding: 4.5rem 1.5rem 2.5rem 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  max-width: var(--container-max);
+  margin: 0 auto 3.5rem auto;
+}
+
+.footer-brand-col .brand-logo {
+  margin-bottom: 1rem;
+}
+
+.footer-motto {
+  font-family: var(--font-serif-quote);
+  font-size: 1.1rem;
+  color: var(--gold-dark);
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+
+.footer-col-title {
+  font-family: var(--font-serif-heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-nav-list a {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-nav-list a:hover {
+  color: var(--gold-primary);
+  padding-left: 3px;
+}
+
+.footer-institutional-notice {
+  background: var(--bg-cream);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 12px;
+  padding: 1.1rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.footer-bottom-bar {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-gold-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.82rem;
+  color: var(--text-subtle);
+}

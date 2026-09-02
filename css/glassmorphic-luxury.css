@@ -1,0 +1,604 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Luxury Glassmorphism & Crystal Spiritual Aesthetics
+   Features: 1-Liner Grand Pathways, Crystal Chakra Gems, Lotus Breath, Heritage Review
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Glassmorphic Core Tokens & Panels
+   -------------------------------------------------------------------------- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.76) !important;
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 
+    0 24px 64px rgba(24, 34, 47, 0.08),
+    0 4px 20px rgba(197, 158, 63, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+  border-radius: 28px;
+  transition: all var(--transition-smooth);
+}
+
+.glass-panel:hover {
+  background: rgba(255, 255, 255, 0.88) !important;
+  border-color: var(--gold-primary) !important;
+  box-shadow: 
+    0 32px 80px rgba(24, 34, 47, 0.12),
+    0 8px 28px rgba(197, 158, 63, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 1) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. GRAND 4-WAY PATHWAYS (1-LINER TEXT & MAXIMUM VISUAL IMPACT)
+   -------------------------------------------------------------------------- */
+.grand-pathways-container {
+  width: 96%;
+  max-width: 96vw;
+  margin: 0 auto;
+}
+
+.grand-pathways-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.2rem;
+  width: 100%;
+}
+
+.grand-pathway-card {
+  position: relative;
+  height: 480px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 28px 70px rgba(24, 34, 47, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  transition: all var(--transition-smooth);
+}
+
+.grand-pathway-card:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-6px);
+  box-shadow: 0 36px 90px rgba(197, 158, 63, 0.25), inset 0 1px 2px #FFFFFF;
+}
+
+.grand-pathway-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.grand-pathway-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.96) contrast(1.04);
+}
+
+.grand-pathway-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(234, 225, 210, 0.1) 0%,
+    rgba(234, 225, 210, 0.3) 40%,
+    rgba(255, 255, 255, 0.85) 75%,
+    rgba(255, 255, 255, 0.96) 100%
+  );
+  pointer-events: none;
+}
+
+.grand-pathway-top-badge {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.6rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  padding: 0.45rem 1.1rem;
+  border-radius: 40px;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(24, 34, 47, 0.08);
+}
+
+.grand-pathway-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 12px 36px rgba(24, 34, 47, 0.06);
+}
+
+.grand-pathway-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.8vw, 1.6rem);
+  color: var(--text-dark);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.grand-pathway-desc-oneliner {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grand-pathway-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. EXTRAORDINARY GORGEOUS GLASSMORPHIC SPIRITUAL SUITE
+   -------------------------------------------------------------------------- */
+.cymatic-sanctuary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+  width: 96%;
+  max-width: 96vw;
+  margin: 0 auto;
+}
+
+.cymatic-glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 32px;
+  padding: 2.8rem;
+  box-shadow: 0 24px 70px rgba(24, 34, 47, 0.08), inset 0 1px 2px #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Glowing Sacred Lotus Breath Visualizer */
+.sacred-lotus-wrap {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sacred-lotus-aurora {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.05) 60%, transparent 80%);
+  filter: blur(14px);
+  animation: pulseAurora 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseAurora {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+.sacred-lotus-sphere {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #F5ECCE 55%, #D4AF37 100%);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4), inset 0 -4px 12px rgba(184, 134, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   3. 7 CRYSTAL CHAKRA SEED MANTRAS (BĪJA DHWANI)
+   -------------------------------------------------------------------------- */
+.crystal-chakra-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+  flex-wrap: wrap;
+}
+
+.crystal-gem-btn {
+  min-width: 48px;
+  height: 48px;
+  padding: 0.2rem 0.4rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(197, 158, 63, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(24, 34, 47, 0.04), inset 0 1px 1px #FFFFFF;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.crystal-gem-btn .gem-num {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.crystal-gem-btn .gem-mantra {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.crystal-gem-btn:hover {
+  transform: translateY(-2px) scale(1.06);
+  border-color: var(--gold-primary);
+  box-shadow: 0 8px 20px rgba(197, 158, 63, 0.25);
+}
+
+.crystal-gem-btn.is-active {
+  transform: translateY(-2px) scale(1.12);
+  color: #FFFFFF;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.crystal-gem-btn.is-active .gem-num {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.crystal-gem-btn.is-active .gem-mantra {
+  color: #FFFFFF;
+}
+
+/* Specific Chakra Glowing Gradients */
+.crystal-gem-btn[data-chakra="root"].is-active {
+  background: linear-gradient(135deg, #E11D48, #BE123C);
+  border-color: #FDA4AF;
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.45);
+}
+.crystal-gem-btn[data-chakra="sacral"].is-active {
+  background: linear-gradient(135deg, #EA580C, #C2410C);
+  border-color: #FDBA74;
+  box-shadow: 0 0 20px rgba(234, 88, 12, 0.45);
+}
+.crystal-gem-btn[data-chakra="solar"].is-active {
+  background: linear-gradient(135deg, #D97706, #B45309);
+  border-color: #FDE68A;
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.45);
+}
+.crystal-gem-btn[data-chakra="heart"].is-active {
+  background: linear-gradient(135deg, #059669, #047857);
+  border-color: #A7F3D0;
+  box-shadow: 0 0 20px rgba(5, 150, 105, 0.45);
+}
+.crystal-gem-btn[data-chakra="throat"].is-active {
+  background: linear-gradient(135deg, #0284C7, #0369A1);
+  border-color: #BAE6FD;
+  box-shadow: 0 0 20px rgba(2, 132, 199, 0.45);
+}
+.crystal-gem-btn[data-chakra="thirdeye"].is-active {
+  background: linear-gradient(135deg, #4F46E5, #3730A3);
+  border-color: #C7D2FE;
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.45);
+}
+.crystal-gem-btn[data-chakra="crown"].is-active {
+  background: linear-gradient(135deg, #9333EA, #7E22CE);
+  border-color: #E9D5FF;
+  box-shadow: 0 0 20px rgba(147, 51, 234, 0.45);
+}
+
+/* Chakra Mantra Detail Box */
+.chakra-mantra-detail-box {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 16px;
+  padding: 1.1rem 1.3rem;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(24, 34, 47, 0.04);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.chakra-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.chakra-mantra-callout {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(197, 158, 63, 0.1);
+  border: 1px solid rgba(197, 158, 63, 0.3);
+  border-radius: 10px;
+}
+
+.chakra-devanagari {
+  font-family: 'Plus Jakarta Sans', var(--font-display), serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  line-height: 1;
+}
+
+.chakra-mantra-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: 0.08em;
+}
+
+.chakra-detail-meta {
+  flex: 1;
+  min-width: 180px;
+}
+
+.chakra-meta-title {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.2rem;
+}
+
+.chakra-meta-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.chakra-badge-hz,
+.chakra-badge-element {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(24, 34, 47, 0.04);
+  color: var(--text-muted);
+  border: 1px solid rgba(24, 34, 47, 0.08);
+}
+
+.chakra-badge-hz {
+  color: var(--gold-dark);
+  background: rgba(197, 158, 63, 0.08);
+  border-color: rgba(197, 158, 63, 0.25);
+}
+
+.chakra-detail-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+.chakra-voice-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.btn-chakra-voice {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, rgba(197, 158, 63, 0.15), rgba(184, 134, 11, 0.08));
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-chakra-voice:hover {
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(197, 158, 63, 0.35);
+}
+
+.voice-sound-icon {
+  flex-shrink: 0;
+}
+
+.voice-wave-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+}
+
+.voice-wave-bars span {
+  width: 2.5px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 1px;
+  transition: height 0.2s ease;
+}
+
+.btn-chakra-voice.is-chanting .voice-wave-bars span:nth-child(1) {
+  animation: voiceWaveBounce 0.6s infinite ease-in-out;
+}
+.btn-chakra-voice.is-chanting .voice-wave-bars span:nth-child(2) {
+  animation: voiceWaveBounce 0.6s infinite ease-in-out 0.15s;
+}
+.btn-chakra-voice.is-chanting .voice-wave-bars span:nth-child(3) {
+  animation: voiceWaveBounce 0.6s infinite ease-in-out 0.3s;
+}
+.btn-chakra-voice.is-chanting .voice-wave-bars span:nth-child(4) {
+  animation: voiceWaveBounce 0.6s infinite ease-in-out 0.45s;
+}
+
+@keyframes voiceWaveBounce {
+  0%, 100% {
+    height: 4px;
+  }
+  50% {
+    height: 14px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. SHRI MOKSHAM INSTITUTIONAL HERITAGE REVIEW CARD
+   -------------------------------------------------------------------------- */
+.heritage-review-card {
+  width: 96%;
+  max-width: 96vw;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 32px;
+  padding: 3.2rem;
+  box-shadow: 0 28px 70px rgba(24, 34, 47, 0.08), inset 0 1px 2px #FFFFFF;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.heritage-brand-display {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.heritage-logo-frame {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-primary);
+  overflow: hidden;
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.35);
+  background: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.heritage-logo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heritage-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.heritage-stat-box {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(24, 34, 47, 0.04);
+}
+
+.heritage-stat-num {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  display: block;
+}
+
+.heritage-stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   5. Minimal Three-Dot Header Menu Button
+   -------------------------------------------------------------------------- */
+.three-dot-menu-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(24, 34, 47, 0.06);
+  transition: all var(--transition-fast);
+}
+
+.three-dot-menu-btn:hover {
+  background: var(--gold-primary);
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  transform: scale(1.08);
+}
+
+/* Responsive */
+@media (max-width: 990px) {
+  .grand-pathways-grid,
+  .cymatic-sanctuary-grid,
+  .heritage-review-card {
+    grid-template-columns: 1fr;
+  }
+  .grand-pathway-card {
+    height: 400px;
+    padding: 1.6rem;
+  }
+  .grand-pathway-desc-oneliner {
+    white-space: normal;
+  }
+}

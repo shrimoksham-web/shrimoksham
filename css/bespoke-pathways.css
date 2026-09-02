@@ -1,0 +1,825 @@
+/* ==========================================================================
+   SHRI MOKSHAM — 4-Way Offerings & Core Pathways
+   Theme: Ivory/Cream Silk Cards, Radiant Burnished Gold Badges, Editorial Serifs
+   Matching Reference Design: "Guidance for Every Step of Your Journey"
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Offerings Section Container & Header
+   -------------------------------------------------------------------------- */
+.what-we-offer-section {
+  position: relative;
+  padding: 5.5rem 0 4.5rem 0;
+  background-color: var(--bg-main, #EAE1D2);
+  z-index: 10;
+}
+
+.offerings-container {
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.offerings-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.offerings-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #A87932;
+  margin-bottom: 0.5rem;
+}
+
+.offerings-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  color: #121A24;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+}
+
+.golden-flourish-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.flourish-line {
+  width: 50px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #C59B4E, transparent);
+}
+
+.flourish-icon {
+  color: #C59B4E;
+  font-size: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. 4 Cards Horizontal Grid
+   -------------------------------------------------------------------------- */
+.offerings-4grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.offering-card {
+  background: #FCFBF7;
+  border: 1px solid rgba(197, 155, 78, 0.28);
+  border-radius: 18px;
+  padding: 2.4rem 1.6rem 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(24, 34, 47, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.offering-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #C59B4E, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.offering-card:hover {
+  transform: translateY(-8px);
+  border-color: #C59B4E;
+  box-shadow: 0 18px 45px rgba(184, 134, 11, 0.14);
+  background: #FFFFFF;
+}
+
+.offering-card:hover::before {
+  opacity: 1;
+}
+
+/* Circular Gold Icon Badge */
+.offering-icon-circle {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  border: 1.5px solid #C59B4E;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FAF3E0 100%);
+  box-shadow: 0 4px 18px rgba(197, 155, 78, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.offering-icon-circle::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(197, 155, 78, 0.35);
+}
+
+.offering-card:hover .offering-icon-circle {
+  transform: scale(1.08) rotate(4deg);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+
+.offering-svg {
+  width: 44px;
+  height: 44px;
+  color: #B8860B;
+}
+
+/* Card Content */
+.offering-card-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #121A24;
+  margin-bottom: 0.85rem;
+  line-height: 1.25;
+}
+
+.offering-card-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  color: #5A6A7D;
+  line-height: 1.65;
+  margin-bottom: 1.6rem;
+  flex: 1;
+}
+
+.offering-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A87932;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  padding: 0.2rem 0;
+}
+
+.arrow-glyph {
+  font-size: 0.95rem;
+  transition: transform 0.25s ease;
+}
+
+.offering-learn-more:hover {
+  color: #8C6615;
+}
+
+.offering-learn-more:hover .arrow-glyph {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   3. Dark Midnight Obsidian Stats Counter Bar
+   -------------------------------------------------------------------------- */
+.master-stats-strip {
+  background: #03080F; /* Deep clean midnight obsidian navy */
+  border-top: 1px solid rgba(197, 155, 78, 0.35);
+  border-bottom: 1px solid rgba(197, 155, 78, 0.35);
+  padding: 2.2rem 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+  position: relative;
+  z-index: 10;
+}
+
+.stats-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.stats-metric-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(197, 155, 78, 0.12);
+  transition: all 0.3s ease;
+}
+
+.stats-metric-box:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(197, 155, 78, 0.35);
+  transform: translateY(-2px);
+}
+
+.stats-metric-icon {
+  font-size: 1.75rem;
+  color: #E8C87A;
+  filter: drop-shadow(0 2px 8px rgba(232, 200, 122, 0.35));
+}
+
+.stats-metric-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-metric-num {
+  font-family: 'Cinzel', serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.stats-metric-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #B2C4D8;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Quote & Testimonials Section (Matching Reference)
+   -------------------------------------------------------------------------- */
+.quote-testimonial-section {
+  padding: 4.8rem 0;
+  background-color: var(--bg-main, #EAE1D2);
+}
+
+.quote-testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.moksham-quote-card {
+  position: relative;
+  padding: 2.2rem 2.5rem;
+}
+
+.golden-quote-mark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: #C59B4E;
+  margin-bottom: -1rem;
+}
+
+.moksham-quote-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-style: italic;
+  font-weight: 600;
+  color: #121A24;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.moksham-quote-author {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #A87932;
+  letter-spacing: 0.06em;
+}
+
+.lotus-watermark {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 7rem;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* Testimonial Slider Card */
+.testimonial-showcase-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 155, 78, 0.25);
+  border-radius: 20px;
+  padding: 2.4rem 2.5rem;
+  box-shadow: 0 12px 35px rgba(24, 34, 47, 0.06);
+  position: relative;
+}
+
+.testimonial-stars-rating {
+  color: #D4AF37;
+  font-size: 1.15rem;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.testimonial-body-quote {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #4A5A6D;
+  margin-bottom: 1.8rem;
+  min-height: 52px;
+}
+
+.testimonial-client-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.testimonial-client-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.testimonial-client-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid #C59B4E;
+  box-shadow: 0 2px 8px rgba(197, 155, 78, 0.25);
+  flex-shrink: 0;
+}
+
+.testimonial-client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-client-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-client-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #121A24;
+}
+
+.testimonial-client-city {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #7D90A6;
+}
+
+.testimonial-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.t-control-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 155, 78, 0.4);
+  background: #FCFBF7;
+  color: #121A24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.t-control-btn:hover {
+  background: #C59B4E;
+  color: #FFFFFF;
+  border-color: #C59B4E;
+}
+
+.testimonial-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 1.4rem;
+}
+
+.t-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #D9D2C5;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.t-dot.is-active {
+  width: 18px;
+  border-radius: 10px;
+  background: #C59B4E;
+}
+
+/* --------------------------------------------------------------------------
+   5. Grand Animated 4-Way Pathways (Top Section)
+   -------------------------------------------------------------------------- */
+.grand-pathways-section {
+  position: relative;
+  padding: 5rem 0 4.5rem 0;
+  background-color: var(--bg-main, #EAE1D2);
+  z-index: 10;
+}
+
+.grand-pathways-container {
+  max-width: 1280px;
+  width: 94%;
+  margin: 0 auto;
+}
+
+.grand-pathways-121-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+.grand-pathway-card {
+  position: relative;
+  min-height: 420px;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem 1.8rem;
+  border: 1.5px solid rgba(197, 155, 78, 0.28);
+  background: #0D1B2A;
+  box-shadow: 0 16px 40px rgba(24, 34, 47, 0.08);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grand-pathway-card.is-full-width {
+  grid-column: 1 / -1;
+  min-height: 380px;
+  padding: 2.5rem 2.8rem;
+}
+
+.grand-pathway-card.is-full-width .grand-pathway-body {
+  max-width: 720px;
+}
+
+.grand-pathway-card.is-full-width .grand-pathway-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+}
+
+.grand-pathway-card.is-full-width .grand-pathway-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.grand-pathway-card.is-full-width .btn-grand-pathway {
+  width: auto;
+  min-width: 240px;
+  padding: 0.75rem 1.6rem;
+}
+
+.grand-pathway-card.is-half-width {
+  grid-column: span 1;
+  min-height: 420px;
+}
+
+.grand-pathway-card:hover {
+  transform: translateY(-8px);
+  border-color: #C59B4E;
+  box-shadow: 0 24px 60px rgba(184, 134, 11, 0.25);
+}
+
+.grand-pathway-bg-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.grand-pathway-bg-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.grand-pathway-card:hover .grand-pathway-bg-media img {
+  transform: scale(1.08);
+}
+
+.grand-pathway-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(7, 17, 30, 0.15) 0%, rgba(7, 17, 30, 0.45) 45%, rgba(7, 17, 30, 0.92) 80%, #07111E 100%);
+  pointer-events: none;
+}
+
+.grand-pathway-top-badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(7, 17, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 155, 78, 0.45);
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E8C87A;
+}
+
+.grand-pathway-body {
+  position: relative;
+  z-index: 2;
+}
+
+.grand-pathway-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin-bottom: 0.45rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.grand-pathway-desc {
+  font-size: 0.82rem;
+  color: #D2DCE6;
+  line-height: 1.45;
+  margin-bottom: 1.1rem;
+}
+
+.btn-grand-pathway {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(197, 155, 78, 0.9) 0%, rgba(212, 175, 55, 0.9) 100%);
+  color: #07111E !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #E8C87A;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-grand-pathway:hover {
+  background: #FFFFFF;
+  color: #07111E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   6. Course Enrollment Floating Hover Popover Card (Non-Fullscreen)
+   -------------------------------------------------------------------------- */
+.course-modal-overlay {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  top: auto;
+  left: auto;
+  width: auto;
+  height: auto;
+  z-index: 999999;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  display: block !important;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.96);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s ease;
+}
+
+.course-modal-overlay.is-active-modal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.course-modal-window {
+  position: relative;
+  width: 380px;
+  max-width: calc(100vw - 2.5rem);
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: rgba(10, 22, 38, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(197, 155, 78, 0.55);
+  border-radius: 20px;
+  padding: 1.3rem 1.4rem 1.2rem 1.4rem;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.75), 0 0 30px rgba(197, 155, 78, 0.2);
+  text-align: left;
+}
+
+.course-modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(197, 155, 78, 0.3);
+  color: #FFFFFF;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.course-modal-close:hover {
+  background: #C59B4E;
+  color: #07111E;
+}
+
+.course-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-modal-emblem {
+  font-size: 1.4rem;
+}
+
+.course-modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.course-modal-sub {
+  font-size: 0.72rem;
+  color: #C59B4E;
+  margin: 0;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 0.65rem;
+}
+
+.modal-form-group label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #A6B8CD;
+  margin-bottom: 0.2rem;
+}
+
+.modal-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.modal-input {
+  background: rgba(7, 17, 30, 0.75);
+  border: 1px solid rgba(197, 155, 78, 0.35);
+  border-radius: 8px;
+  padding: 0.48rem 0.75rem;
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.modal-input:focus {
+  border-color: #C59B4E;
+  box-shadow: 0 0 10px rgba(197, 155, 78, 0.35);
+}
+
+.modal-input option {
+  background: #07111E;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .course-modal-overlay {
+    bottom: 1.2rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+  }
+  .course-modal-window {
+    width: 100%;
+    padding: 1.1rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .grand-pathways-4grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+  .offerings-4grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+  }
+  .stats-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+  }
+  .quote-testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grand-pathways-4grid {
+    grid-template-columns: 1fr;
+  }
+  .offerings-4grid {
+    grid-template-columns: 1fr;
+  }
+  .stats-strip-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .moksham-quote-card {
+    padding: 1.5rem 1rem;
+  }
+  .testimonial-showcase-card {
+    padding: 1.8rem 1.4rem;
+  }
+  .modal-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -1,0 +1,8 @@
+# Scratch and temporary directories
+scratch/
+*.log
+*.tmp
+*.pyc
+__pycache__/
+.DS_Store
+Thumbs.db

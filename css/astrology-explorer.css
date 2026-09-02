@@ -1,0 +1,315 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Vedic Synthesis, 9 Grahas Explorer, Curriculum & Heritage
+   Compact, Highly Refined & Radiant Styling
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Sacred Vedic Synthesis Bridge
+   -------------------------------------------------------------------------- */
+.vedic-synthesis-bridge {
+  width: 96%;
+  max-width: 96vw;
+  margin: 2rem auto 0.5rem auto;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(28px) saturate(170%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  box-shadow: 0 16px 48px rgba(24, 34, 47, 0.05), inset 0 1px 2px #FFFFFF;
+}
+
+.vedic-om-symbol {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--gold-dark);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+  animation: pulseOm 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseOm {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.06); opacity: 1; text-shadow: 0 0 24px rgba(212, 175, 55, 0.8); }
+}
+
+.vedic-synthesis-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.vedic-synthesis-quote {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-style: italic;
+  color: var(--text-dark);
+  max-width: 680px;
+  margin: 0 auto 1rem auto;
+  line-height: 1.35;
+}
+
+.vedic-triad-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-gold);
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(24, 34, 47, 0.04);
+}
+
+.triad-dot {
+  color: var(--gold-primary);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Interactive Explorer: 9 Grahas & 12 Rashis (Smaller & Compact)
+   -------------------------------------------------------------------------- */
+.grahas-explorer-container {
+  width: 96%;
+  max-width: 96vw;
+  margin: 0 auto;
+}
+
+.grahas-grid-stage {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  overflow-x: auto;
+  padding-bottom: 0.3rem;
+}
+
+.graha-cell-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(16px);
+  border: 1.2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  padding: 0.65rem 0.35rem;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(24, 34, 47, 0.03);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.graha-cell-card:hover,
+.graha-cell-card.is-selected {
+  background: #FFFFFF;
+  border-color: var(--gold-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.35);
+}
+
+.graha-symbol {
+  font-size: 1.3rem;
+  color: var(--gold-dark);
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}
+
+.graha-name-en {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.graha-name-sa {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+}
+
+/* Selected Graha Lens Detail Card (Compact) */
+.graha-detail-lens-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 1.6rem 2.2rem;
+  box-shadow: 0 16px 44px rgba(24, 34, 47, 0.06), inset 0 1px 2px #FFFFFF;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.graha-lens-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  color: var(--text-dark);
+  margin-bottom: 0.3rem;
+}
+
+.graha-lens-archetype {
+  font-size: 0.86rem;
+  color: var(--gold-dark);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.graha-lens-action {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. Curriculum Breakdown (Smaller & Sleeker Accordion)
+   -------------------------------------------------------------------------- */
+.curriculum-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1.2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.curriculum-module-card {
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 0.9rem 1.4rem;
+  box-shadow: 0 4px 16px rgba(24, 34, 47, 0.03);
+  transition: all var(--transition-fast);
+}
+
+.curriculum-module-card:hover {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: var(--gold-primary);
+  box-shadow: 0 8px 24px rgba(197, 158, 63, 0.12);
+}
+
+.curriculum-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.module-num-badge {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  margin-right: 0.8rem;
+}
+
+.module-title-text {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.module-toggle-icon {
+  font-size: 1.1rem;
+  color: var(--gold-dark);
+  transition: transform 0.2s ease;
+}
+
+.curriculum-body-content {
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-gold-subtle);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   4. Highlighting & Radiant "The Journey of Shri Moksham" (Centerpiece)
+   -------------------------------------------------------------------------- */
+.heritage-review-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(252, 248, 240, 0.95) 100%) !important;
+  border: 2px solid rgba(212, 175, 55, 0.6) !important;
+  box-shadow: 
+    0 0 50px rgba(212, 175, 55, 0.22),
+    0 24px 64px rgba(24, 34, 47, 0.1),
+    inset 0 1px 2px #FFFFFF !important;
+}
+
+.heritage-review-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #FFFFFF, #D4AF37, #FFFFFF, #D4AF37);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+/* --------------------------------------------------------------------------
+   5. Compact Footer & Zero-Waste Spacing
+   -------------------------------------------------------------------------- */
+.site-footer {
+  padding: 2.2rem 0 1rem 0 !important;
+  margin-top: 1.5rem !important;
+}
+
+.footer-top-grid {
+  gap: 1.4rem !important;
+  margin-bottom: 1.4rem !important;
+}
+
+.footer-motto {
+  margin-bottom: 0.6rem !important;
+  font-size: 0.85rem !important;
+}
+
+.footer-institutional-notice {
+  font-size: 0.72rem !important;
+  line-height: 1.4 !important;
+}
+
+.footer-col-title {
+  margin-bottom: 0.6rem !important;
+  font-size: 0.82rem !important;
+}
+
+.footer-nav-list li {
+  margin-bottom: 0.35rem !important;
+}
+
+.footer-nav-list a {
+  font-size: 0.78rem !important;
+}
+
+.footer-bottom-bar {
+  padding-top: 1rem !important;
+  font-size: 0.72rem !important;
+}
+
+/* Responsive */
+@media (max-width: 990px) {
+  .grahas-grid-stage {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .graha-detail-lens-card {
+    grid-template-columns: 1fr;
+    padding: 1.4rem;
+  }
+}

@@ -1,0 +1,612 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Heavenly Cloud Door Parting & ॐ OM Climax Banner
+   Matching Reference Design: Parting mist revealing the sacred ॐ OM Sri Yantra
+   and the Shri Moksham Call-to-Action with "Join Course"
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Heaven Door Parting Clouds (Left & Right Billowing Gates)
+   -------------------------------------------------------------------------- */
+.heaven-doors-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.heaven-door-cloud {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 65vw;
+  height: 100vh;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: transform 0.1s linear, opacity 0.1s linear;
+}
+
+.heaven-door-left {
+  left: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(250, 247, 242, 0.95) 0%, rgba(250, 247, 242, 0.85) 45%, rgba(250, 247, 242, 0.4) 75%, transparent 100%);
+  filter: blur(24px);
+}
+
+.heaven-door-right {
+  right: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(250, 247, 242, 0.95) 0%, rgba(250, 247, 242, 0.85) 45%, rgba(250, 247, 242, 0.4) 75%, transparent 100%);
+  filter: blur(24px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Small Cloud-Shaped Floating Text Badges (Scroll 0% to 60%)
+   -------------------------------------------------------------------------- */
+.cloud-narrative-stage-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 900px;
+  pointer-events: none;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.cloud-text-pill {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(197, 155, 78, 0.4);
+  padding: 0.85rem 1.8rem;
+  border-radius: 60px;
+  box-shadow: 
+    0 12px 36px rgba(24, 34, 47, 0.08),
+    0 0 20px rgba(212, 175, 55, 0.25),
+    inset 0 0 16px rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(4px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+  white-space: nowrap;
+}
+
+.cloud-text-pill.is-active-cloud {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+.cloud-text-pill.is-dissolved-cloud {
+  opacity: 0;
+  transform: translateY(-20px);
+  filter: blur(6px);
+}
+
+.cloud-emoji {
+  font-size: 1.1rem;
+  animation: floatCloudIcon 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatCloudIcon {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+.cloud-text-msg {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.82rem, 1.3vw, 1.05rem);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #121A24;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   3. Grand Post-Cloud ॐ OM Climax Banner (Scroll 60% to 100%)
+   Exact match to user's reference mockup:
+   ॐ Emblem + "SHRI MOKSHAM" + "Ancient Wisdom. Inner Transformation." + "Join Course"
+   -------------------------------------------------------------------------- */
+.cloud-om-climax-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 780px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1.5px solid rgba(197, 155, 78, 0.45);
+  border-radius: 28px;
+  padding: 2.2rem 2.8rem;
+  box-shadow: 
+    0 24px 60px rgba(24, 34, 47, 0.12),
+    0 0 40px rgba(212, 175, 55, 0.3),
+    inset 0 1px 3px #FFFFFF;
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  filter: blur(6px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.cloud-om-climax-card.is-active-cloud {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+.cloud-om-climax-card.is-dissolved-cloud {
+  opacity: 0;
+  transform: translateY(-20px) scale(0.96);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* Sacred ॐ OM Glowing Emblem */
+.om-climax-emblem {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FAF3E0 100%);
+  border: 1.5px solid #C59B4E;
+  box-shadow: 0 0 24px rgba(197, 155, 78, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  position: relative;
+}
+
+.om-climax-emblem::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(197, 155, 78, 0.45);
+  animation: rotateEmblemOrbit 15s linear infinite;
+}
+
+.om-symbol-glyph {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  color: #B8860B;
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* Climax Headlines */
+.om-climax-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  color: #121A24;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+}
+
+.om-climax-subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  font-style: italic;
+  color: #A87932;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+
+.om-climax-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  color: #4A5A6D;
+  line-height: 1.65;
+  max-width: 620px;
+  margin-bottom: 1.5rem;
+}
+
+/* Climax CTAs */
+.om-climax-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.btn-climax-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #07111E;
+  color: #FFFFFF !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 1px solid #07111E;
+  box-shadow: 0 4px 18px rgba(7, 17, 30, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* --------------------------------------------------------------------------
+   4. Hero Brand Overlay & Scroll Indicator (Ultra-Luxurious Master Badge)
+   -------------------------------------------------------------------------- */
+.hero-minimal-overlay {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+  text-align: center;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-brand-glass-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(13, 27, 42, 0.82) 0%, rgba(7, 17, 30, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(197, 155, 78, 0.52);
+  padding: 1.2rem 3.6rem 1.1rem 3.6rem;
+  border-radius: 50px;
+  box-shadow: 
+    0 16px 45px rgba(0, 0, 0, 0.72), 
+    0 0 35px rgba(197, 155, 78, 0.22),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25),
+    inset 0 0 18px rgba(197, 155, 78, 0.08);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-brand-glass-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #FFFFFF, #F5E6BE, transparent);
+  opacity: 0.9;
+}
+
+.hero-badge-top-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.badge-gold-line {
+  width: 36px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C59B4E);
+}
+
+.badge-gold-line:last-child {
+  background: linear-gradient(90deg, #C59B4E, transparent);
+}
+
+.badge-om-symbol {
+  font-size: 0.95rem;
+  color: #E8C87A;
+  filter: drop-shadow(0 2px 6px rgba(232, 200, 122, 0.6));
+}
+
+.hero-minimal-brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.55rem, 2.7vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  background: linear-gradient(135deg, #FFFFFF 20%, #F5E6BE 60%, #E8C87A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.15rem 0;
+  line-height: 1.15;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.9));
+}
+
+.hero-minimal-brand-tagline {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 1.6vw, 1.42rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #F3EBD8;
+  margin: 0 0 0.65rem 0;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero-scroll-indicator-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(197, 155, 78, 0.14);
+  border: 1px solid rgba(197, 155, 78, 0.38);
+  padding: 0.28rem 1.1rem;
+  border-radius: 30px;
+  animation: floatScrollHint 2s ease-in-out infinite alternate;
+}
+
+.scroll-chevron-arrow {
+  color: #E8C87A;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-block;
+  animation: pulseArrow 1.5s ease-in-out infinite alternate;
+}
+
+.scroll-text-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E2EAF2;
+}
+
+@keyframes pulseArrow {
+  0% { transform: translateY(-1px); }
+  100% { transform: translateY(2px); }
+}
+
+@keyframes floatScrollHint {
+  0% { transform: translateY(0); opacity: 0.88; }
+  100% { transform: translateY(4px); opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Left & Right Side Animated Floating Flanks
+   -------------------------------------------------------------------------- */
+.hero-scroll-flanks {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.5vw;
+}
+
+.hero-flank-side {
+  width: 320px;
+  max-width: 28vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.hero-flank-left {
+  transform: translate3d(-50px, 0, 0);
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-flank-right {
+  transform: translate3d(50px, 0, 0);
+  align-items: flex-end;
+  text-align: right;
+}
+
+.hero-flank-side.is-visible-flank {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: auto;
+}
+
+.hero-flank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(7, 17, 30, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(197, 155, 78, 0.45);
+  padding: 0.35rem 0.9rem;
+  border-radius: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E8C87A;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-flank-card {
+  background: rgba(7, 17, 30, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(197, 155, 78, 0.45);
+  border-radius: 20px;
+  padding: 1.5rem 1.4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 30px rgba(197, 155, 78, 0.12);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-flank-card:hover {
+  border-color: #C59B4E;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(197, 155, 78, 0.25);
+  transform: translateY(-4px);
+}
+
+.hero-flank-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-flank-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #E8C87A;
+  margin-bottom: 0.6rem;
+}
+
+.hero-flank-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #D2DCE6;
+  line-height: 1.5;
+  margin-bottom: 1.1rem;
+}
+
+.hero-flank-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.hero-flank-btn-gold {
+  background: linear-gradient(135deg, #C59B4E 0%, #D4AF37 100%);
+  color: #07111E !important;
+  border: 1px solid #E8C87A;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+}
+
+.hero-flank-btn-gold:hover {
+  background: #FFFFFF;
+  color: #07111E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.5);
+}
+
+.hero-flank-btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF !important;
+  border: 1px solid #25D366;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+}
+
+.hero-flank-btn-whatsapp:hover {
+  background: #25D366;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+}
+
+.hero-flank-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(7, 17, 30, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 155, 78, 0.25);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  color: #CAD5E2;
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .hero-flank-side {
+    width: 260px;
+    max-width: 32vw;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Clean Hero Climax Action Pill
+   -------------------------------------------------------------------------- */
+.hero-climax-action-pill {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  z-index: 6;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-climax-action-pill.is-active-pill {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .hero-minimal-overlay {
+    bottom: 0.5rem;
+  }
+  .hero-bottom-two-lines {
+    padding: 0.35rem 1.2rem;
+  }
+  .hero-climax-action-pill {
+    bottom: 1.2rem;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
+
+
+

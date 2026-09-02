@@ -1,0 +1,361 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Luxury Masterpiece Footer & Newsletter Banner
+   Theme: Deep Midnight Navy (#07111E), Burnished Gold Accents, Amber Newsletter
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. "Stay Inspired" Golden Amber Newsletter Banner
+   -------------------------------------------------------------------------- */
+.stay-inspired-banner {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(90deg, #A87932 0%, #C59B4E 40%, #B88A44 100%);
+  padding: 1.6rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stay-inspired-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stay-inspired-content {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.stay-inspired-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #07111E;
+  color: #C59B4E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+
+.stay-inspired-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.stay-inspired-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 2px;
+}
+
+.stay-inspired-form {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: 1;
+  max-width: 480px;
+  min-width: 280px;
+}
+
+.stay-inspired-input {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding: 0.65rem 1.1rem;
+  border-radius: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  color: #121A24;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.stay-inspired-input::placeholder {
+  color: #8C9CAE;
+}
+
+.stay-inspired-input:focus {
+  border-color: #07111E;
+  box-shadow: 0 0 0 2px rgba(7, 17, 30, 0.2);
+}
+
+.btn-stay-inspired-submit {
+  background: #07111E;
+  color: #FFFFFF;
+  border: 1px solid #07111E;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.4rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-stay-inspired-submit:hover {
+  background: #0D2038;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Midnight Navy Master Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  width: 100%;
+  background: #07111E !important;
+  color: #D9E2EC;
+  padding: 3.8rem 0 1.5rem 0 !important;
+  border-top: 1px solid rgba(197, 155, 78, 0.25) !important;
+  z-index: 10;
+}
+
+.footer-midnight-container {
+  max-width: 1240px;
+  width: 92%;
+  margin: 0 auto;
+}
+
+/* 4-Column Grid */
+.footer-master-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 2.8rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid rgba(197, 155, 78, 0.2);
+}
+
+/* Col 1: Brand */
+.footer-brand-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.1rem;
+  text-decoration: none;
+}
+
+.footer-emblem-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid #C59B4E;
+  box-shadow: 0 0 16px rgba(197, 155, 78, 0.4);
+  background: #0A1424;
+  flex-shrink: 0;
+}
+
+.footer-emblem-ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.footer-brand-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.72rem;
+  color: #C59B4E;
+  letter-spacing: 0.1em;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+.footer-mission-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  color: #9AAEC4;
+  line-height: 1.65;
+  margin-bottom: 1.3rem;
+  max-width: 320px;
+}
+
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.footer-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(197, 155, 78, 0.3);
+  color: #D9E2EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  background: #C59B4E;
+  color: #07111E;
+  border-color: #E8C87A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(197, 155, 78, 0.4);
+}
+
+/* Col 2, 3, 4 Headings */
+.footer-section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links-list a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  color: #9AAEC4;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links-list a:hover {
+  color: #E8C87A;
+  transform: translateX(3px);
+}
+
+/* Contact List */
+.footer-contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  color: #9AAEC4;
+  line-height: 1.5;
+}
+
+.footer-contact-list a {
+  color: #9AAEC4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact-list a:hover {
+  color: #E8C87A;
+}
+
+.contact-icon {
+  font-size: 0.95rem;
+  color: #C59B4E;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Footer Bottom Flex Bar
+   -------------------------------------------------------------------------- */
+.footer-bottom-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: #7D90A6;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-center-lotus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #C59B4E;
+}
+
+.footer-center-lotus svg {
+  animation: gentlePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 6px rgba(197, 155, 78, 0.6)); }
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .footer-master-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-master-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .stay-inspired-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .stay-inspired-form {
+    width: 100%;
+  }
+  .footer-bottom-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+}

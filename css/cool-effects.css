@@ -1,0 +1,157 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Cool Interactive Animations & High-End Visual Effects
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Custom Celestial Cursor Follower
+   -------------------------------------------------------------------------- */
+.celestial-cursor,
+.celestial-cursor-aura,
+.celestial-cursor-dot {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. 3D Tilt Cards with Dynamic Specular Glare
+   -------------------------------------------------------------------------- */
+.tilt-card-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease;
+}
+
+.tilt-card-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  mix-blend-mode: overlay;
+}
+
+.tilt-card-3d:hover .tilt-card-glare {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Animated Shimmering Gold Border Gleam
+   -------------------------------------------------------------------------- */
+.gold-gleam-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.gold-gleam-border::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent, 
+    rgba(212, 175, 55, 0.35), 
+    transparent 30%
+  );
+  animation: rotateGleam 8s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes rotateGleam {
+  100% { transform: rotate(360deg); }
+}
+
+.gold-gleam-inner {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card-solid);
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Video Static Layer Alignment (No Scale Zoom)
+   -------------------------------------------------------------------------- */
+.layer-video-bg {
+  transform: translate(-50%, -50%);
+  transition: opacity 0.8s ease;
+}
+
+.scroll-layer-section.is-active-layer .layer-video-bg {
+  transform: translate(-50%, -50%);
+}
+
+/* --------------------------------------------------------------------------
+   5. Dynamic Sound Wave Pulses
+   -------------------------------------------------------------------------- */
+.sound-wave-bars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 14px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.sound-wave-bar {
+  width: 2.5px;
+  height: 100%;
+  background: var(--gold-primary);
+  border-radius: 2px;
+  animation: soundWave 1.2s ease-in-out infinite alternate;
+}
+
+.sound-wave-bar:nth-child(1) { animation-delay: 0.1s; height: 40%; }
+.sound-wave-bar:nth-child(2) { animation-delay: 0.3s; height: 90%; }
+.sound-wave-bar:nth-child(3) { animation-delay: 0.2s; height: 60%; }
+.sound-wave-bar:nth-child(4) { animation-delay: 0.4s; height: 100%; }
+
+@keyframes soundWave {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* --------------------------------------------------------------------------
+   6. Subtle Shimmering Text Highlights
+   -------------------------------------------------------------------------- */
+.text-shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    #8C6615 0%,
+    #D4AF37 35%,
+    #FFF2B2 50%,
+    #D4AF37 65%,
+    #8C6615 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 5s linear infinite;
+}
+
+@keyframes textShimmer {
+  to { background-position: 200% center; }
+}
+
+/* --------------------------------------------------------------------------
+   7. Glowing Lotus Floating Radiance
+   -------------------------------------------------------------------------- */
+.radiance-halo {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 50%, transparent 70%);
+  animation: haloBreath 6s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes haloBreath {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.15); opacity: 0.85; }
+}

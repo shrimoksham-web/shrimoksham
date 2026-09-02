@@ -1,0 +1,155 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Full-Bleed 100vw/100vh Video Scrubbing (Zero Black / Blank Gaps)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Seamless Full-Bleed Scroll Track & Viewport
+   -------------------------------------------------------------------------- */
+.hero-scroll-track {
+  position: relative;
+  width: 100%;
+  height: 360vh; /* Ultra-slow 0.3x relaxed scroll travel for peaceful cloud parting & video scrub */
+  z-index: 10;
+  background-color: var(--bg-main);
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.hero-sticky-frame {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 0 2.5rem 0;
+  margin: 0 !important;
+}
+
+/* Scrub Video Element (100vw x 100vh Edge-to-Edge Full Bleed) */
+.hero-scrub-video-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.hero-scrub-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+  image-rendering: auto;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+.hero-scrub-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+}
+
+/* --------------------------------------------------------------------------
+   2. Minimal Clean Floating Brand Overlay
+   -------------------------------------------------------------------------- */
+.hero-minimal-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  pointer-events: auto;
+  margin-bottom: 0.5rem;
+}
+
+.hero-minimal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  padding: 0.45rem 1.3rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(24, 34, 47, 0.08);
+  margin-bottom: 0.9rem;
+}
+
+.hero-minimal-badge img {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-primary);
+}
+
+.hero-minimal-badge span {
+  font-family: var(--font-serif-heading);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+.hero-minimal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.hero-minimal-actions .btn {
+  padding: 0.65rem 1.4rem;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+}
+
+/* Minimal Scroll Hint */
+.hero-scroll-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-serif-heading);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-top: 0.8rem;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 0.3rem 0.9rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-gold-subtle);
+  animation: pulseHint 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseHint {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; color: var(--gold-primary); }
+}

@@ -1,0 +1,132 @@
+/* ==========================================================================
+   SHRI MOKSHAM — Scroll Animations & Cloud Parallax Stylesheet
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scroll Progress Bar
+   -------------------------------------------------------------------------- */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(184, 134, 11, 0.08);
+  z-index: 1200;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #C59E3F, #D4AF37, #EBD696, #C59E3F);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  transition: width 0.08s linear;
+}
+
+/* --------------------------------------------------------------------------
+   2. Parallax Drifting Clouds
+   -------------------------------------------------------------------------- */
+.parallax-clouds-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cloud-layer {
+  position: absolute;
+  width: 200vw;
+  height: 100vh;
+  left: -50vw;
+  top: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.cloud-layer-1 {
+  background-image: radial-gradient(ellipse at 25% 35%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+                    radial-gradient(ellipse at 75% 55%, rgba(255, 255, 255, 0.7) 0%, transparent 55%);
+  filter: blur(35px);
+}
+
+.cloud-layer-2 {
+  background-image: radial-gradient(ellipse at 50% 20%, rgba(255, 250, 240, 0.75) 0%, transparent 50%),
+                    radial-gradient(ellipse at 80% 70%, rgba(255, 245, 230, 0.65) 0%, transparent 50%);
+  filter: blur(45px);
+  opacity: 0.25;
+}
+
+/* --------------------------------------------------------------------------
+   3. Kinetic Headlines & Gold Sweeps
+   -------------------------------------------------------------------------- */
+.kinetic-headline {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-sweep-line {
+  position: relative;
+  display: inline-block;
+}
+
+.gold-sweep-line::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #B8860B, #D4AF37, #C59E3F);
+  transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gold-sweep-line.is-in-view::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Scroll-Rotating Sacred Geometries
+   -------------------------------------------------------------------------- */
+.scroll-zodiac-anchor {
+  position: fixed;
+  top: 15%;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  transition: transform 0.2s linear;
+}
+
+.scroll-lotus-anchor {
+  position: fixed;
+  bottom: 10%;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.14;
+  transition: transform 0.2s linear;
+}
+
+/* --------------------------------------------------------------------------
+   5. Parallax Cards Hover Effect
+   -------------------------------------------------------------------------- */
+.parallax-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+
+.parallax-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(184, 134, 11, 0.14), 0 4px 12px rgba(24, 34, 47, 0.04);
+  border-color: rgba(184, 134, 11, 0.38);
+}
