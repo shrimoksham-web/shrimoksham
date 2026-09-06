@@ -229,10 +229,65 @@
     });
   }
 
+  /* --------------------------------------------------------------------------
+     4. Upcoming Seva Drops Horizontal Swipe Carousel Controller
+     -------------------------------------------------------------------------- */
+  function initSevaCarousel() {
+    const track = document.getElementById('sevaSwipeTrack');
+    const prevBtn = document.getElementById('sevaSwipePrev');
+    const nextBtn = document.getElementById('sevaSwipeNext');
+
+    if (!track) return;
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -360, behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: 360, behavior: 'smooth' });
+      });
+    }
+
+    // Drag-to-scroll for desktop mouse users
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      track.style.cursor = 'grabbing';
+      track.style.userSelect = 'none';
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('mouseleave', () => {
+      isDown = false;
+      track.style.cursor = 'grab';
+    });
+
+    track.addEventListener('mouseup', () => {
+      isDown = false;
+      track.style.cursor = 'grab';
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      track.scrollLeft = scrollLeft - walk;
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initGrahasExplorer();
     initCurriculumAccordion();
     initTreatisesCarousel();
+    initSevaCarousel();
   });
 })();
 

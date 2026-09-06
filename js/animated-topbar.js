@@ -100,11 +100,11 @@
   }
 
   /* --------------------------------------------------------------------------
-     3. High-Fidelity 432Hz Sacred Meditation Soundscape Player
+     3. High-Fidelity 432Hz Sacred Meditation Soundscape Player & OMM Launcher
      -------------------------------------------------------------------------- */
   function initSoundscapeAudio() {
-    const toggleBtn = document.getElementById('soundscapeToggleBtn');
-    if (!toggleBtn) return;
+    const ommLauncher = document.getElementById('floatingOmmLauncher');
+    const mobileSoundscapeBtn = document.getElementById('mobileSoundscapeBtn');
 
     let audio = document.getElementById('globalSoundscapeAudio');
     if (!audio) {
@@ -113,8 +113,37 @@
     }
     let isPlaying = false;
 
+    // Harmonic Sacred Tibetan Singing Bowl Chime on click (Web Audio API)
+    function playHarmonicBowlChime() {
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(432, ctx.currentTime); // 432Hz Sacred tuning
+        osc.frequency.exponentialRampToValueAtTime(864, ctx.currentTime + 0.6);
+        osc.frequency.exponentialRampToValueAtTime(432, ctx.currentTime + 1.2);
+
+        gain.gain.setValueAtTime(0.28, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.2);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 2.3);
+      } catch (err) {
+        // Fallback gracefully
+      }
+    }
+
     function playAudio() {
-      audio.volume = 0.8;
+      audio.volume = 0.85;
       const promise = audio.play();
       if (promise !== undefined) {
         promise.catch((err) => {
@@ -130,22 +159,42 @@
       audio.pause();
     }
 
-    toggleBtn.addEventListener('click', (e) => {
-      e.preventDefault();
+    function toggleOmmChants(e) {
+      if (e) e.preventDefault();
       isPlaying = !isPlaying;
 
-      const label = toggleBtn.querySelector('.soundscape-label');
+      playHarmonicBowlChime();
 
       if (isPlaying) {
-        toggleBtn.classList.add('is-playing');
-        if (label) label.textContent = 'OMM Chants Active';
+        if (ommLauncher) {
+          ommLauncher.classList.add('is-playing');
+          ommLauncher.setAttribute('aria-pressed', 'true');
+        }
+        if (mobileSoundscapeBtn) {
+          mobileSoundscapeBtn.classList.add('is-playing');
+          mobileSoundscapeBtn.innerHTML = '<span>🔊 OMM Chants Active</span>';
+        }
         playAudio();
       } else {
-        toggleBtn.classList.remove('is-playing');
-        if (label) label.textContent = 'OMM Chants';
+        if (ommLauncher) {
+          ommLauncher.classList.remove('is-playing');
+          ommLauncher.setAttribute('aria-pressed', 'false');
+        }
+        if (mobileSoundscapeBtn) {
+          mobileSoundscapeBtn.classList.remove('is-playing');
+          mobileSoundscapeBtn.innerHTML = '<span>🎵 OMM Chants (432Hz)</span>';
+        }
         pauseAudio();
       }
-    });
+    }
+
+    if (ommLauncher) {
+      ommLauncher.addEventListener('click', toggleOmmChants);
+    }
+
+    if (mobileSoundscapeBtn) {
+      mobileSoundscapeBtn.addEventListener('click', toggleOmmChants);
+    }
   }
 
   /* --------------------------------------------------------------------------

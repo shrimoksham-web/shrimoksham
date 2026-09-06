@@ -507,6 +507,218 @@
 }
 
 /* ==========================================================================
+   HEADER JOIN 4-5 MONTH COURSE BUTTON
+   ========================================================================== */
+.btn-header-course {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-serif-heading, 'Cinzel', serif);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #07111E;
+  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #B38F26 100%);
+  border: 1px solid #FFE082;
+  border-radius: 30px;
+  padding: 0.5rem 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(212, 175, 55, 0.38), inset 0 1px 2px #FFFFFF;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-header-course:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D061 50%, #D4AF37 100%);
+  box-shadow: 0 6px 24px rgba(212, 175, 55, 0.55), inset 0 1px 2px #FFFFFF;
+}
+
+.btn-header-course .header-btn-icon {
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   FLOATING SACRED 432Hz OMM CHANTS CIRCULAR WIDGET (ABOVE SOHAM)
+   ========================================================================== */
+.floating-omm-container {
+  position: fixed;
+  bottom: 6.5rem;
+  left: 2rem;
+  z-index: 9998;
+}
+
+.floating-omm-only {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #1D2B3A 0%, #0F1722 75%, #070D14 100%);
+  border: 2px solid var(--gold-primary, #D4AF37);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.4), 0 0 15px rgba(212, 175, 55, 0.25), inset 0 1px 2px #FFFFFF;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  animation: floatOmmWidget 4.2s ease-in-out infinite alternate;
+  user-select: none;
+  outline: none;
+  padding: 0;
+}
+
+@keyframes floatOmmWidget {
+  0% { transform: translateY(0); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.4); }
+  100% { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(212, 175, 55, 0.6), 0 0 24px rgba(212, 175, 55, 0.35); }
+}
+
+.floating-omm-only:hover {
+  transform: translateY(-3px) scale(1.08);
+  border-color: #FFF3C4;
+  box-shadow: 0 16px 45px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.5);
+}
+
+.omm-aura-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.05) 65%, transparent 80%);
+  filter: blur(7px);
+  animation: pulseOmmAurora 3.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes pulseOmmAurora {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.22); opacity: 0.85; }
+}
+
+.omm-ring-halo {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px dashed rgba(212, 175, 55, 0.5);
+  animation: spinOmmHalo 24s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes spinOmmHalo {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.omm-icon-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.omm-icon-symbol {
+  font-size: 1.25rem;
+  color: #D4AF37;
+  font-weight: 800;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+  margin-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.omm-icon-text {
+  font-family: var(--font-sans);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #F5ECCE;
+  text-transform: uppercase;
+}
+
+.omm-equalizer-bars {
+  position: absolute;
+  bottom: 6px;
+  display: none;
+  gap: 2px;
+  align-items: flex-end;
+  height: 10px;
+  z-index: 3;
+}
+
+.omm-equalizer-bars span {
+  width: 2px;
+  background: #D4AF37;
+  border-radius: 1px;
+  animation: ommEqualizerPulse 0.8s ease-in-out infinite alternate;
+}
+
+.omm-equalizer-bars span:nth-child(1) { height: 4px; animation-delay: 0.1s; }
+.omm-equalizer-bars span:nth-child(2) { height: 9px; animation-delay: 0.3s; }
+.omm-equalizer-bars span:nth-child(3) { height: 6px; animation-delay: 0.2s; }
+.omm-equalizer-bars span:nth-child(4) { height: 8px; animation-delay: 0.4s; }
+
+@keyframes ommEqualizerPulse {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* Active / Playing state */
+.floating-omm-only.is-playing {
+  border-color: #FFF3C4;
+  box-shadow: 0 0 35px rgba(212, 175, 55, 0.85), 0 0 50px rgba(212, 175, 55, 0.4), inset 0 0 12px rgba(212, 175, 55, 0.5);
+  animation: floatOmmPlaying 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes floatOmmPlaying {
+  0% { transform: scale(1.02); }
+  100% { transform: scale(1.1); box-shadow: 0 0 45px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.6); }
+}
+
+.floating-omm-only.is-playing .omm-icon-symbol {
+  color: #FFFFFF;
+  text-shadow: 0 0 18px #D4AF37, 0 0 30px #F5D061;
+}
+
+.floating-omm-only.is-playing .omm-equalizer-bars {
+  display: flex;
+}
+
+.floating-omm-only.is-playing .omm-icon-text {
+  opacity: 0;
+}
+
+.omm-launcher-tooltip {
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+  background: rgba(7, 17, 30, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #F5ECCE;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.floating-omm-only:hover .omm-launcher-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ==========================================================================
    FLOATING SOHAM (SOHUM) AJAPA JAPA MEDITATION CIRCULAR WIDGET
    ========================================================================== */
 .floating-soham-container {
@@ -972,39 +1184,70 @@
 }
 
 /* --------------------------------------------------------------------------
-   UPCOMING SEVA DROPS (LUXURY RESPONSIVE GRID)
+   UPCOMING SEVA DROPS (LUXURY HORIZONTAL SWIPE CAROUSEL)
    -------------------------------------------------------------------------- */
-.seva-drops-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
+.seva-carousel-wrapper {
+  position: relative;
   width: 100%;
+  margin-top: 1.2rem;
+}
+
+.seva-swipe-track {
+  display: flex;
+  gap: 1.4rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0.8rem 0.4rem 1.6rem 0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.45) rgba(24, 34, 47, 0.04);
+}
+
+.seva-swipe-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.seva-swipe-track::-webkit-scrollbar-track {
+  background: rgba(24, 34, 47, 0.04);
+  border-radius: 10px;
+}
+
+.seva-swipe-track::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #D4AF37, #F5D061, #8C6615);
+  border-radius: 10px;
 }
 
 .seva-drop-card {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  flex: 0 0 340px;
+  width: 340px;
+  max-width: 360px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1.5px solid var(--border-gold-subtle);
-  border-radius: 24px;
+  border-radius: 22px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 16px 45px rgba(24, 34, 47, 0.06);
+  box-shadow: 0 14px 40px rgba(24, 34, 47, 0.06), inset 0 1px 2px #FFFFFF;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s ease,
               box-shadow 0.35s ease;
+  user-select: none;
 }
 
 .seva-drop-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--gold-primary);
-  box-shadow: 0 24px 60px rgba(212, 175, 55, 0.22);
+  box-shadow: 0 20px 50px rgba(212, 175, 55, 0.22);
 }
 
 .seva-card-media {
   position: relative;
-  height: 210px;
+  height: 200px;
   overflow: hidden;
   background: #0D1622;
 }
@@ -1039,7 +1282,7 @@
 }
 
 .seva-card-body {
-  padding: 1.5rem 1.4rem;
+  padding: 1.4rem 1.3rem;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -1058,26 +1301,9 @@
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.65;
-  margin: 0 0 1.3rem 0;
+  margin: 0;
   flex: 1;
   text-wrap: pretty;
-}
-
-.seva-card-footer {
-  margin-top: auto;
-}
-
-.btn-seva-whatsapp {
-  width: 100% !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 0.5rem !important;
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  padding: 0.75rem 1.2rem !important;
-  border-radius: 12px !important;
-  transition: all 0.3s ease !important;
 }
 
 /* --------------------------------------------------------------------------

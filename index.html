@@ -117,16 +117,12 @@
       <!-- Header Actions -->
       <div class="header-actions">
 
-        <!-- Ambient OMM Chants Toggle -->
-        <button class="soundscape-toggle-pill" id="soundscapeToggleBtn" type="button"
-          aria-label="Toggle OMM Chants Ambient Soundscape">
-          <div class="equalizer-bars" aria-hidden="true">
-            <span class="equalizer-bar"></span>
-            <span class="equalizer-bar"></span>
-            <span class="equalizer-bar"></span>
-            <span class="equalizer-bar"></span>
-          </div>
-          <span class="soundscape-label">Omm Chants</span>
+        <!-- Join 4-5 Month Course CTA Button (Direct Form Modal Trigger) -->
+        <button class="btn btn-gold-primary btn-header-course btn-open-course-modal" type="button"
+          data-course-track="4-5 Month Comprehensive Masterclass"
+          aria-label="Join 4-5 Month Comprehensive Masterclass">
+          <span class="header-btn-icon">🎓</span>
+          <span>Join 4-5 Month Course</span>
         </button>
 
         <!-- Book a Consultation CTA Button -->
@@ -169,13 +165,16 @@
         </ul>
 
         <div class="mobile-drawer-actions">
+          <button class="btn btn-gold-primary btn-mobile-course btn-open-course-modal" type="button"
+            data-course-track="4-5 Month Comprehensive Masterclass">
+            <span>🎓 Join 4-5 Month Course</span>
+            <span>➔</span>
+          </button>
           <a href="https://wa.me/919997066326?text=Hi%20Shri%20Moksham%2C%20I%20would%20like%20to%20book%20a%20personal%20Vedic%20Astrology%20Consultation."
             class="btn-mobile-consult" target="_blank" rel="noopener">
             <span>💬 Book Consultation</span>
+            <span>➔</span>
           </a>
-          <button class="btn-mobile-soundscape" id="mobileSoundscapeBtn" type="button">
-            <span>🎵 OMM Chants (432Hz)</span>
-          </button>
         </div>
       </div>
     </div>
@@ -992,7 +991,7 @@
             </p>
 
             <p class="heritage-sub-text">
-              Founded by <strong>Sandeep Kumar Shivhare</strong> in Rishikesh on the sacred Ganga, Shri Moksham is a sanctuary where timeless Vedic Jyotish, deep meditation, and conscious Seva converge to help seekers find lasting inner peace.
+              Founded by <strong>Sandeep Kumar Shivhare</strong>, Shri Moksham is a sanctuary where timeless Vedic Jyotish, deep meditation, and conscious Seva converge to help seekers find lasting inner peace.
             </p>
 
             <!-- Sacred Triad Banner -->
@@ -1214,7 +1213,7 @@
     </section>
 
     <!-- ==========================================================================
-         UPCOMING SEVA & CAUSES DROPS QUEUE
+         UPCOMING SEVA & CAUSES DROPS QUEUE (HORIZONTAL SWIPE CAROUSEL)
          ========================================================================== -->
     <section class="section-spacing" id="seva-drops">
       <div class="container" style="width:96%; max-width:96vw;">
@@ -1222,68 +1221,90 @@
         <div class="section-intro">
           <div class="eyebrow-label">Social Welfare Initiatives</div>
           <h2>Upcoming Seva <span class="text-gold-gradient">Drops</span></h2>
-          <p>Contribute directly toward our ongoing compassionate social and sanctuary initiatives.</p>
+          <p>Participate in our compassionate ongoing social welfare, nature stewardship, and sanctuary initiatives.</p>
+          <div class="treatise-swipe-hint">
+            <span>✦ SWIPE HORIZONTALLY TO EXPLORE ALL 5 SEVA INITIATIVES ✦</span>
+          </div>
+          <div class="treatise-swipe-buttons">
+            <button class="btn-treatise-arrow" id="sevaSwipePrev" type="button" aria-label="Swipe Previous Seva">❮</button>
+            <button class="btn-treatise-arrow" id="sevaSwipeNext" type="button" aria-label="Swipe Next Seva">❯</button>
+          </div>
         </div>
 
-        <div class="seva-drops-grid">
+        <div class="seva-carousel-wrapper">
+          <div class="seva-swipe-track" id="sevaSwipeTrack">
 
-          <div class="seva-drop-card glass-panel">
-            <div class="seva-card-media">
-              <img src="assets/seva-annadaan.jpg" alt="Annadaan Food Distribution" loading="lazy">
-              <span class="seva-card-badge">⚡ Daily Seva</span>
-            </div>
-            <div class="seva-card-body">
-              <h4 class="seva-card-title">Annadaan Drive</h4>
-              <p class="seva-card-desc">
-                Serving fresh, wholesome satvik meals to seekers, sadhus, and families in mountain villages.
-              </p>
-              <div class="seva-card-footer">
-                <button class="btn btn-whatsapp btn-seva-whatsapp" data-whatsapp-action="seva">
-                  <span>🌿 Sponsor Annadaan</span>
-                  <span>➔</span>
-                </button>
+            <!-- Card 1: Annadaan Drive -->
+            <div class="seva-drop-card glass-panel">
+              <div class="seva-card-media">
+                <img src="assets/seva-annadaan.jpg" alt="Annadaan Food Distribution" loading="lazy">
+                <span class="seva-card-badge">⚡ Daily Seva</span>
+              </div>
+              <div class="seva-card-body">
+                <h4 class="seva-card-title">Annadaan Drive</h4>
+                <p class="seva-card-desc">
+                  Serving fresh, wholesome satvik meals to seekers, sadhus, and families in mountain villages and sacred pilgrim trails.
+                </p>
               </div>
             </div>
-          </div>
 
-          <div class="seva-drop-card glass-panel">
-            <div class="seva-card-media">
-              <img src="assets/seva-elders.jpg" alt="Senior Elders Seva" loading="lazy">
-              <span class="seva-card-badge">❤️ Healthcare</span>
-            </div>
-            <div class="seva-card-body">
-              <h4 class="seva-card-title">Elders Health Seva</h4>
-              <p class="seva-card-desc">
-                Providing medical support, medicines, and companionship for senior citizens in ashrams.
-              </p>
-              <div class="seva-card-footer">
-                <button class="btn btn-whatsapp btn-seva-whatsapp" data-whatsapp-action="seva">
-                  <span>❤️ Support Elders</span>
-                  <span>➔</span>
-                </button>
+            <!-- Card 2: Elders Health Seva -->
+            <div class="seva-drop-card glass-panel">
+              <div class="seva-card-media">
+                <img src="assets/seva-elders.jpg" alt="Senior Elders Healthcare Seva" loading="lazy">
+                <span class="seva-card-badge">❤️ Healthcare Support</span>
+              </div>
+              <div class="seva-card-body">
+                <h4 class="seva-card-title">Elders Health Seva</h4>
+                <p class="seva-card-desc">
+                  Providing compassionate medical support, vital medicines, health checkups, and companionship for senior citizens in ashrams.
+                </p>
               </div>
             </div>
-          </div>
 
-          <div class="seva-drop-card glass-panel">
-            <div class="seva-card-media">
-              <img src="assets/rishikesh-retreat.jpg" alt="Rishikesh Sanctuary" loading="lazy">
-              <span class="seva-card-badge">🏔️ Permanent Retreat</span>
-            </div>
-            <div class="seva-card-body">
-              <h4 class="seva-card-title">Rishikesh Sanctuary</h4>
-              <p class="seva-card-desc">
-                Establishing a peaceful meditation and learning sanctuary on the sacred banks of the Ganga.
-              </p>
-              <div class="seva-card-footer">
-                <button class="btn btn-gold-primary btn-seva-whatsapp" data-whatsapp-action="rishikesh">
-                  <span>🏔️ Contribute Sanctuary</span>
-                  <span>➔</span>
-                </button>
+            <!-- Card 3: Sant Seva -->
+            <div class="seva-drop-card glass-panel">
+              <div class="seva-card-media">
+                <img src="assets/seva-sant.jpg" alt="Venerable Sant & Sadhu Seva" loading="lazy">
+                <span class="seva-card-badge">🪷 Spiritual Lineage</span>
+              </div>
+              <div class="seva-card-body">
+                <h4 class="seva-card-title">Sant Seva</h4>
+                <p class="seva-card-desc">
+                  Honoring and nurturing traditional ascetics, sadhus, and spiritual seekers through warm prasad, shelter support, and winter clothing.
+                </p>
               </div>
             </div>
-          </div>
 
+            <!-- Card 4: Green Seva -->
+            <div class="seva-drop-card glass-panel">
+              <div class="seva-card-media">
+                <img src="assets/seva-trees.jpg" alt="Green Seva Nature & Tree Plantation" loading="lazy">
+                <span class="seva-card-badge">🌿 Sacred Nature</span>
+              </div>
+              <div class="seva-card-body">
+                <h4 class="seva-card-title">Green Seva</h4>
+                <p class="seva-card-desc">
+                  Devoted ecological guardianship, planting sacred peepal, banyan, and neem trees along riverbanks, and promoting organic mountain habitats.
+                </p>
+              </div>
+            </div>
+
+            <!-- Card 5: Spiritual Sanctuary -->
+            <div class="seva-drop-card glass-panel">
+              <div class="seva-card-media">
+                <img src="assets/rishikesh-retreat.jpg" alt="Spiritual Sanctuary Meditation Retreat" loading="lazy">
+                <span class="seva-card-badge">🏔️ Sacred Sanctuary</span>
+              </div>
+              <div class="seva-card-body">
+                <h4 class="seva-card-title">Spiritual Sanctuary</h4>
+                <p class="seva-card-desc">
+                  Establishing a serene, permanent meditation haven, sacred library, and spiritual retreat for sincere seekers and meditation students.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </div>
@@ -1459,14 +1480,12 @@
             <div class="curriculum-header-row">
               <div style="display:flex; align-items:center;">
                 <span class="module-num-badge">05</span>
-                <span class="module-title-text">Spiritual Remedies, Meditation &amp; Integration</span>
+                <span class="module-title-text">Spiritual Remedies, Meditation, Personal Development &amp; Integration</span>
               </div>
               <span class="module-toggle-icon">+</span>
             </div>
             <div class="curriculum-body-content" style="display:none;">
-              Prescribe authentic Vedic mantras, yantras, gemstone harmony, and OMM Chants meditation practices for
-              spiritual
-              well-being.
+              Prescribe authentic Vedic mantras, yantras, gemstone harmony, personal transformation frameworks, and OMM Chants meditation practices for spiritual well-being.
             </div>
           </div>
 
@@ -1717,6 +1736,25 @@
         </button>
       </form>
     </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING SACRED 432Hz OMM CHANTS CIRCULAR LAUNCHER (JUST ABOVE SOHAM)
+       ========================================================================== -->
+  <div id="floatingOmmContainer" class="floating-omm-container">
+    <button id="floatingOmmLauncher" class="floating-omm-only" type="button"
+      aria-label="Toggle Sacred 432Hz OMM Chants Ambient Meditation" title="Sacred 432Hz OMM Chants Meditation">
+      <div class="omm-aura-pulse"></div>
+      <div class="omm-ring-halo"></div>
+      <div class="omm-icon-inner">
+        <span class="omm-icon-symbol">ॐ</span>
+        <span class="omm-icon-text">OMM</span>
+      </div>
+      <div class="omm-equalizer-bars" aria-hidden="true">
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <span class="omm-launcher-tooltip">✦ OMM Chants (432Hz)</span>
+    </button>
   </div>
 
   <!-- ==========================================================================

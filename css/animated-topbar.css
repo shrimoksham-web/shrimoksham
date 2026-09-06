@@ -307,6 +307,53 @@
   white-space: nowrap !important;
 }
 
+/* Join 4-5 Month Course Button in Topbar */
+.btn-header-course {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #B38F26 100%);
+  color: #07111E !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 0.48rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #FFE082;
+  box-shadow: 0 3px 12px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-header-course:hover {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5D061 50%, #D4AF37 100%);
+  transform: translateY(-1.5px) scale(1.02);
+  box-shadow: 0 5px 18px rgba(212, 175, 55, 0.65);
+}
+
+.btn-mobile-course {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #F5D061 0%, #D4AF37 50%, #B38F26 100%);
+  color: #07111E !important;
+  border: 1px solid #FFE082;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
 /* Consultation Button (Gold Solid with Navy Text & Shimmer Sweep) */
 .btn-header-consultation {
   display: inline-flex;

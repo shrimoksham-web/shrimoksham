@@ -78,6 +78,10 @@ button, a, input, select {
     display: flex !important;
   }
 
+  .btn-header-course {
+    display: none !important;
+  }
+
   .header-container {
     padding: 0.4rem 1rem;
     width: 95%;
@@ -173,17 +177,15 @@ button, a, input, select {
     gap: 0.75rem !important;
   }
 
-  /* Upcoming Seva Drops */
-  .seva-drops-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.4rem;
+  /* Upcoming Seva Drops Swipe Track */
+  .seva-swipe-track {
+    gap: 1.1rem;
+    padding: 0.6rem 0.3rem 1.4rem 0.3rem;
   }
 
-  .seva-drop-card:nth-child(3) {
-    grid-column: span 2;
-    max-width: 580px;
-    margin: 0 auto;
-    width: 100%;
+  .seva-drop-card {
+    flex: 0 0 310px;
+    width: 310px;
   }
 }
 
@@ -432,6 +434,24 @@ button, a, input, select {
     height: 50px;
   }
 
+  .floating-omm-container {
+    bottom: 5.2rem !important;
+    left: 1.2rem !important;
+  }
+
+  .floating-omm-only {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .floating-omm-only .omm-icon-symbol {
+    font-size: 1.1rem !important;
+  }
+
+  .floating-omm-only .omm-icon-text {
+    font-size: 0.46rem !important;
+  }
+
   .floating-soham-pod {
     position: fixed;
     left: 50%;
@@ -634,39 +654,33 @@ button, a, input, select {
     font-size: 16px !important;
   }
 
-  /* Upcoming Seva Drops */
-  .seva-drops-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.35rem !important;
+  /* Upcoming Seva Drops Horizontal Swipe */
+  .seva-swipe-track {
+    gap: 0.95rem !important;
+    padding: 0.4rem 0.2rem 1.2rem 0.2rem !important;
   }
 
-  .seva-drop-card:nth-child(3) {
-    grid-column: auto !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+  .seva-drop-card {
+    flex: 0 0 min(290px, 82vw) !important;
+    width: min(290px, 82vw) !important;
+    border-radius: 18px !important;
   }
 
   .seva-card-media {
-    height: 195px !important;
+    height: 180px !important;
   }
 
   .seva-card-body {
-    padding: 1.3rem 1.1rem !important;
+    padding: 1.2rem 1.1rem !important;
   }
 
   .seva-card-title {
-    font-size: 1.18rem !important;
+    font-size: 1.15rem !important;
   }
 
   .seva-card-desc {
-    font-size: 0.86rem !important;
-    line-height: 1.58 !important;
-    margin-bottom: 1.1rem !important;
-  }
-
-  .btn-seva-whatsapp {
-    font-size: 0.85rem !important;
-    padding: 0.72rem 1rem !important;
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
   }
 }
 
@@ -881,6 +895,16 @@ button, a, input, select {
     height: 44px;
   }
 
+  .floating-omm-container {
+    bottom: 4.4rem !important;
+    left: 1rem !important;
+  }
+
+  .floating-omm-only {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
   .floating-whatsapp-only {
     width: 44px;
     height: 44px;
@@ -934,24 +958,24 @@ button, a, input, select {
   }
 
   /* Ultra-Narrow: Upcoming Seva Drops */
+  .seva-drop-card {
+    flex: 0 0 84vw !important;
+    width: 84vw !important;
+  }
+
   .seva-card-media {
-    height: 170px !important;
+    height: 165px !important;
   }
 
   .seva-card-body {
-    padding: 1.1rem 0.85rem !important;
+    padding: 1rem 0.85rem !important;
   }
 
   .seva-card-title {
-    font-size: 1.1rem !important;
+    font-size: 1.08rem !important;
   }
 
   .seva-card-desc {
-    font-size: 0.82rem !important;
-  }
-
-  .btn-seva-whatsapp {
     font-size: 0.8rem !important;
-    padding: 0.65rem 0.8rem !important;
   }
 }
