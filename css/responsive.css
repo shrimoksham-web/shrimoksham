@@ -1081,3 +1081,50 @@ button, a, input, select {
     font-size: 0.65rem !important;
   }
 }
+
+/* ==========================================================================
+   LIVE PANCHANG (DUAL CHANDRA & SURYA) RESPONSIVE ENHANCEMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+  .panchang-widget-card {
+    padding: 1.25rem 0.9rem !important;
+  }
+  .panchang-dual-pillars {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .panchang-wing {
+    padding: 0.85rem !important;
+  }
+  .panchang-aux-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.45rem !important;
+  }
+  .panchang-muhurat-dual {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .panchang-widget-card {
+    padding: 1.1rem 0.75rem !important;
+  }
+  .cell-value-strong {
+    font-size: 0.88rem !important;
+  }
+  .cell-value {
+    font-size: 0.78rem !important;
+  }
+  .wing-grid-2 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.4rem !important;
+  }
+  .aux-val {
+    font-size: 0.74rem !important;
+  }
+  .muhurat-pill-time {
+    font-size: 0.82rem !important;
+  }
+}
+

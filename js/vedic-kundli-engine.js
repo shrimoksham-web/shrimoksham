@@ -398,12 +398,14 @@
     const sunRashiIdx = Math.floor(sunSid / 30) % 12;
     const sunDegInRashi = sunSid % 30;
     const sunNakIdx = Math.floor(sunSid / (360 / 27)) % 27;
+    const sunPada = Math.floor((sunSid % (360 / 27)) / (360 / 108)) + 1;
 
     return {
       jd,
       ayanamsha,
       lagna: {
         rashi: RASHIS[lagnaRashiIdx],
+        rashiIdx: lagnaRashiIdx,
         deg: ascSid,
         degInRashi: lagnaDegInRashi,
         nakshatra: NAKSHATRAS[lagnaNakIdx],
@@ -411,6 +413,7 @@
       },
       moon: {
         rashi: RASHIS[moonRashiIdx],
+        rashiIdx: moonRashiIdx,
         deg: moonSid,
         degInRashi: moonDegInRashi,
         nakshatra: NAKSHATRAS[moonNakIdx],
@@ -418,9 +421,11 @@
       },
       sun: {
         rashi: RASHIS[sunRashiIdx],
+        rashiIdx: sunRashiIdx,
         deg: sunSid,
         degInRashi: sunDegInRashi,
-        nakshatra: NAKSHATRAS[sunNakIdx]
+        nakshatra: NAKSHATRAS[sunNakIdx],
+        pada: sunPada
       }
     };
   }
@@ -540,7 +545,71 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
   }
 
   // ==========================================================================
-  // 5. REAL-TIME PANCHANG & ASTRONOMICAL MUHURAT ENGINE
+  // 5. HIGH-PRECISION ASTRONOMICAL DIURNAL ENGINE (RISHIKESH & WORLD)
+  // ==========================================================================
+  function computeSunriseSunset(date, lat = 30.0869, lon = 78.2676, tzOffset = 5.5) {
+    const startOfYear = new Date(date.getFullYear(), 0, 0);
+    const diff = date - startOfYear;
+    const dayOfYear = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const gamma = (2 * Math.PI / 365) * (dayOfYear - 1 + (date.getHours() - 12) / 24);
+
+    // Equation of time in minutes
+    const eqtime = 229.18 * (0.000075 + 0.001868 * Math.cos(gamma) - 0.032077 * Math.sin(gamma)
+      - 0.014615 * Math.cos(2 * gamma) - 0.040849 * Math.sin(2 * gamma));
+
+    // Solar declination in radians
+    const decl = 0.006918 - 0.399912 * Math.cos(gamma) + 0.070257 * Math.sin(gamma)
+      - 0.006758 * Math.cos(2 * gamma) + 0.000907 * Math.sin(2 * gamma)
+      - 0.002697 * Math.cos(3 * gamma) + 0.00148 * Math.sin(3 * gamma);
+
+    const latRad = (lat * Math.PI) / 180;
+    const zenithRad = (90.8333 * Math.PI) / 180; // Atmospheric refraction & solar disc
+
+    const cosHA = (Math.cos(zenithRad) - Math.sin(latRad) * Math.sin(decl)) / (Math.cos(latRad) * Math.cos(decl));
+    const clampedCosHA = Math.max(-1, Math.min(1, cosHA));
+    const haDeg = Math.acos(clampedCosHA) * (180 / Math.PI);
+
+    const solarNoonUTC = 720 - 4 * lon - eqtime;
+    const solarNoonLocal = solarNoonUTC + tzOffset * 60;
+
+    const sunriseMinutes = solarNoonLocal - haDeg * 4;
+    const sunsetMinutes = solarNoonLocal + haDeg * 4;
+
+    const formatMin = (m) => {
+      let hrs = Math.floor(m / 60);
+      let mins = Math.floor(m % 60);
+      let period = hrs >= 12 ? 'PM' : 'AM';
+      let displayHrs = hrs % 12 || 12;
+      return `${displayHrs}:${mins < 10 ? '0' : ''}${mins} ${period}`;
+    };
+
+    // Abhijit Muhurat: 8th Muhurat of daylight span (48 minutes)
+    const daySpan = sunsetMinutes - sunriseMinutes;
+    const oneMuhurat = daySpan / 15;
+    const abhijitStart = sunriseMinutes + 7 * oneMuhurat;
+    const abhijitEnd = sunriseMinutes + 8 * oneMuhurat;
+
+    // Rahu Kaal: 8 daytime divisions according to Day of Week
+    // Sun: 8th, Mon: 2nd, Tue: 7th, Wed: 5th, Thu: 6th, Fri: 4th, Sat: 3rd
+    const rahuParts = [8, 2, 7, 5, 6, 4, 3];
+    const dayOfWeek = date.getDay();
+    const rahuPartIdx = rahuParts[dayOfWeek] - 1;
+    const partDuration = daySpan / 8;
+    const rahuStart = sunriseMinutes + rahuPartIdx * partDuration;
+    const rahuEnd = rahuStart + partDuration;
+
+    return {
+      sunriseStr: formatMin(sunriseMinutes),
+      sunsetStr: formatMin(sunsetMinutes),
+      abhijitStr: `${formatMin(abhijitStart)} – ${formatMin(abhijitEnd)}`,
+      rahuKaalStr: `${formatMin(rahuStart)} – ${formatMin(rahuEnd)}`,
+      sunriseMinutes,
+      sunsetMinutes
+    };
+  }
+
+  // ==========================================================================
+  // 6. REAL-TIME PANCHANG (DUAL CHANDRA & SURYA MANA) ENGINE
   // ==========================================================================
   function initLivePanchang() {
     const now = new Date();
@@ -549,24 +618,35 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
     const panchangDateEl = document.getElementById('panchangDate');
     if (panchangDateEl) panchangDateEl.textContent = dateStr;
 
-    // Real-time Ephemeris for today's date & time
+    // Reference Coordinate: Sacred Rishikesh (30.0869° N, 78.2676° E, IST +5.5)
+    const rishiLat = 30.0869;
+    const rishiLon = 78.2676;
+    const rishiTz = 5.5;
+
+    // Real-time Sidereal Ephemeris for today's exact moment
     const chartToday = computeSiderealEphemeris(
       now.getFullYear(),
       now.getMonth() + 1,
       now.getDate(),
       now.getHours(),
       now.getMinutes(),
-      20.84, // Standard meridian reference
-      85.15,
-      5.5
+      rishiLat,
+      rishiLon,
+      rishiTz
     );
 
-    // Exact Tithi calculation based on angular separation (Moon - Sun)
+    // Diurnal Astronomical Timings (Sunrise, Sunset, Abhijit, Rahu Kaal)
+    const diurnal = computeSunriseSunset(now, rishiLat, rishiLon, rishiTz);
+
+    // ------------------------------------------------------------------------
+    // A. CHANDRA MANA (LUNAR TITHI & METRICS)
+    // ------------------------------------------------------------------------
     let angle = (chartToday.moon.deg - chartToday.sun.deg + 360) % 360;
     let tithiNum = Math.floor(angle / 12) + 1;
     let isShukla = tithiNum <= 15;
     let tithiIndexInPaksha = isShukla ? tithiNum : tithiNum - 15;
     let paksha = isShukla ? 'Shukla Paksha' : 'Krishna Paksha';
+    let tithiProgressPercent = Math.min(100, Math.max(1, Math.round(((angle % 12) / 12) * 100)));
 
     const tithiNames = [
       'Pratipada', 'Dwitiya', 'Tritiya', 'Chaturthi', 'Panchami',
@@ -574,16 +654,76 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
       'Ekadashi', 'Dwadashi', 'Trayodashi', 'Chaturdashi',
       isShukla ? 'Purnima' : 'Amavasya'
     ];
-    const currentTithi = `${paksha} ${tithiNames[tithiIndexInPaksha - 1] || 'Pratipada'}`;
+    const currentTithiName = tithiNames[tithiIndexInPaksha - 1] || 'Pratipada';
+    const currentFullTithi = `${paksha} ${currentTithiName}`;
 
+    // Amanta Lunar Months based on Sun's Sidereal Transit Sign
+    const CHANDRA_MAAS = [
+      'Mesha (Chaitra)', 'Vaishakha', 'Jyeshtha', 'Ashadha', 
+      'Shravana', 'Bhadrapada', 'Ashvina', 'Kartika', 
+      'Margashirsha', 'Pausha', 'Magha', 'Phalguna'
+    ];
+    const chandraMaasName = CHANDRA_MAAS[(chartToday.sun.rashiIdx + 1) % 12];
+
+    // Chandra UI bindings
+    const pPakshaBadge = document.getElementById('pPakshaBadge');
+    if (pPakshaBadge) pPakshaBadge.textContent = paksha;
+
+    const pChandraTithi = document.getElementById('pChandraTithi');
+    if (pChandraTithi) pChandraTithi.textContent = `${currentFullTithi} (${tithiIndexInPaksha})`;
+
+    const pChandraProgress = document.getElementById('pChandraProgress');
+    if (pChandraProgress) pChandraProgress.style.width = `${tithiProgressPercent}%`;
+
+    const pChandraProgressText = document.getElementById('pChandraProgressText');
+    if (pChandraProgressText) pChandraProgressText.textContent = `${tithiProgressPercent}% elapsed in current tithi`;
+
+    const pChandraMaas = document.getElementById('pChandraMaas');
+    if (pChandraMaas) pChandraMaas.textContent = `${chandraMaasName} Maas`;
+
+    const pChandraRashi = document.getElementById('pChandraRashi');
+    if (pChandraRashi) pChandraRashi.textContent = `${chartToday.moon.rashi.shortName} (${chartToday.moon.degInRashi.toFixed(1)}°)`;
+
+    const pChandraNakshatra = document.getElementById('pChandraNakshatra');
+    if (pChandraNakshatra) pChandraNakshatra.textContent = `${chartToday.moon.nakshatra.name} (Pada ${chartToday.moon.pada}, Lord: ${chartToday.moon.nakshatra.lord})`;
+
+    // Backward-compatibility fallback for pTithi / pNakshatra
     const tithiEl = document.getElementById('pTithi');
-    if (tithiEl) tithiEl.textContent = currentTithi;
-
-    // Exact Nakshatra today
+    if (tithiEl) tithiEl.textContent = currentFullTithi;
     const nakshatraEl = document.getElementById('pNakshatra');
     if (nakshatraEl) nakshatraEl.textContent = `${chartToday.moon.nakshatra.name} (Pada ${chartToday.moon.pada})`;
 
-    // Exact Astronomical Yoga (27 Yogas based on Sun + Moon)
+    // ------------------------------------------------------------------------
+    // B. SURYA MANA (SOLAR TITHI / SAUR PRAVISHTE & METRICS)
+    // ------------------------------------------------------------------------
+    const saurDay = Math.floor(chartToday.sun.degInRashi) + 1;
+    const solarMonthProgress = Math.min(100, Math.max(1, Math.round((chartToday.sun.degInRashi / 30) * 100)));
+    const saurTithiText = `${chartToday.sun.rashi.shortName} ${saurDay} Pravishte`;
+
+    const pSuryaBadge = document.getElementById('pSuryaBadge');
+    if (pSuryaBadge) pSuryaBadge.textContent = `Saur Day ${saurDay}`;
+
+    const pSuryaTithi = document.getElementById('pSuryaTithi');
+    if (pSuryaTithi) pSuryaTithi.textContent = saurTithiText;
+
+    const pSuryaProgress = document.getElementById('pSuryaProgress');
+    if (pSuryaProgress) pSuryaProgress.style.width = `${solarMonthProgress}%`;
+
+    const pSuryaProgressText = document.getElementById('pSuryaProgressText');
+    if (pSuryaProgressText) pSuryaProgressText.textContent = `Day ${saurDay} of 30 (${solarMonthProgress}% in ${chartToday.sun.rashi.shortName})`;
+
+    const pSuryaMaas = document.getElementById('pSuryaMaas');
+    if (pSuryaMaas) pSuryaMaas.textContent = `${chartToday.sun.rashi.shortName} Saur Maas`;
+
+    const pSuryaRashi = document.getElementById('pSuryaRashi');
+    if (pSuryaRashi) pSuryaRashi.textContent = `${chartToday.sun.rashi.name} (${chartToday.sun.degInRashi.toFixed(1)}°)`;
+
+    const pSuryaNakshatra = document.getElementById('pSuryaNakshatra');
+    if (pSuryaNakshatra) pSuryaNakshatra.textContent = `${chartToday.sun.nakshatra.name} (Pada ${chartToday.sun.pada}, Lord: ${chartToday.sun.nakshatra.lord})`;
+
+    // ------------------------------------------------------------------------
+    // C. COSMIC YOGA & ACTIVE KARANA
+    // ------------------------------------------------------------------------
     const YOGAS = [
       'Vishkumbha', 'Priti', 'Ayushman', 'Saubhagya', 'Shobhana',
       'Atiganda', 'Sukarma', 'Dhriti', 'Shoola', 'Ganda',
@@ -597,11 +737,34 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
     const yogaEl = document.getElementById('pYoga');
     if (yogaEl) yogaEl.textContent = `${YOGAS[yogaIdx]} Yoga`;
 
-    // Exact Karana (11 Karanas based on half-Tithis)
     const KARANAS = ['Bava', 'Balava', 'Kaulava', 'Taitila', 'Gara', 'Vanija', 'Vishti (Bhadra)', 'Shakuni', 'Chatushpada', 'Naga', 'Kimstughna'];
     const karanaIdx = Math.floor(angle / 6) % 11;
     const karanaEl = document.getElementById('pKarana');
     if (karanaEl) karanaEl.textContent = KARANAS[karanaIdx];
+
+    // ------------------------------------------------------------------------
+    // D. SUNRISE, SUNSET, ABHIJIT & RAHU KAAL
+    // ------------------------------------------------------------------------
+    const sunriseEl = document.getElementById('pSunrise');
+    if (sunriseEl) sunriseEl.textContent = diurnal.sunriseStr;
+
+    const sunsetEl = document.getElementById('pSunset');
+    if (sunsetEl) sunsetEl.textContent = diurnal.sunsetStr;
+
+    const abhijitEl = document.getElementById('pAbhijitTime');
+    if (abhijitEl) abhijitEl.textContent = diurnal.abhijitStr;
+
+    const rahuEl = document.getElementById('pRahuKaalTime');
+    if (rahuEl) rahuEl.textContent = diurnal.rahuKaalStr;
+
+    // ------------------------------------------------------------------------
+    // E. SYNC TOPBAR TICKER BROADCAST
+    // ------------------------------------------------------------------------
+    const tickerPanchangItems = document.querySelectorAll('.live-topbar-panchang');
+    const tickerBroadcast = `<span class="ticker-live-dot"></span> <b>LIVE PANCHANG:</b> Chandra: ${currentFullTithi} | Surya: ${chartToday.sun.rashi.shortName} Day ${saurDay} • ${chartToday.moon.nakshatra.name} Nakshatra`;
+    tickerPanchangItems.forEach(el => {
+      el.innerHTML = tickerBroadcast;
+    });
   }
 
   // Initialize upon document readiness
