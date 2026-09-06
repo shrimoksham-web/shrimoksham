@@ -1083,48 +1083,56 @@ button, a, input, select {
 }
 
 /* ==========================================================================
-   LIVE PANCHANG (DUAL CHANDRA & SURYA) RESPONSIVE ENHANCEMENTS
+   LIVE PANCHANG (DUAL CHANDRA & SURYA) COMPACT RESPONSIVE ENHANCEMENTS
    ========================================================================== */
 @media (max-width: 768px) {
   .panchang-widget-card {
-    padding: 1.25rem 0.9rem !important;
+    padding: 1.25rem 1rem !important;
   }
   .panchang-dual-pillars {
     grid-template-columns: 1fr !important;
-    gap: 0.75rem !important;
+    gap: 0.6rem !important;
   }
   .panchang-wing {
-    padding: 0.85rem !important;
+    padding: 0.65rem 0.75rem !important;
   }
   .panchang-aux-row {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.45rem !important;
+    gap: 0.35rem !important;
   }
   .panchang-muhurat-dual {
     grid-template-columns: 1fr !important;
-    gap: 0.5rem !important;
+    gap: 0.4rem !important;
   }
 }
 
 @media (max-width: 480px) {
   .panchang-widget-card {
-    padding: 1.1rem 0.75rem !important;
+    padding: 1rem 0.75rem !important;
   }
-  .cell-value-strong {
-    font-size: 0.88rem !important;
+  .panchang-title {
+    font-size: 1.05rem !important;
   }
-  .cell-value {
-    font-size: 0.78rem !important;
+  .wing-tithi-value {
+    font-size: 0.8rem !important;
   }
-  .wing-grid-2 {
+  .wing-compact-grid {
     grid-template-columns: 1fr 1fr !important;
-    gap: 0.4rem !important;
+    gap: 0.3rem !important;
+  }
+  .mini-label {
+    font-size: 0.5rem !important;
+  }
+  .mini-val {
+    font-size: 0.68rem !important;
   }
   .aux-val {
-    font-size: 0.74rem !important;
+    font-size: 0.68rem !important;
   }
+  .muhurat-pill-title,
   .muhurat-pill-time {
-    font-size: 0.82rem !important;
+    font-size: 0.68rem !important;
   }
 }
+
 

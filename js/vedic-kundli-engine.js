@@ -679,13 +679,13 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
     if (pChandraProgressText) pChandraProgressText.textContent = `${tithiProgressPercent}% elapsed in current tithi`;
 
     const pChandraMaas = document.getElementById('pChandraMaas');
-    if (pChandraMaas) pChandraMaas.textContent = `${chandraMaasName} Maas`;
+    if (pChandraMaas) pChandraMaas.textContent = chandraMaasName;
 
     const pChandraRashi = document.getElementById('pChandraRashi');
-    if (pChandraRashi) pChandraRashi.textContent = `${chartToday.moon.rashi.shortName} (${chartToday.moon.degInRashi.toFixed(1)}°)`;
+    if (pChandraRashi) pChandraRashi.textContent = `${chartToday.moon.rashi.shortName} ${chartToday.moon.degInRashi.toFixed(1)}°`;
 
     const pChandraNakshatra = document.getElementById('pChandraNakshatra');
-    if (pChandraNakshatra) pChandraNakshatra.textContent = `${chartToday.moon.nakshatra.name} (Pada ${chartToday.moon.pada}, Lord: ${chartToday.moon.nakshatra.lord})`;
+    if (pChandraNakshatra) pChandraNakshatra.textContent = `${chartToday.moon.nakshatra.name} (P${chartToday.moon.pada}, ${chartToday.moon.nakshatra.lord})`;
 
     // Backward-compatibility fallback for pTithi / pNakshatra
     const tithiEl = document.getElementById('pTithi');
@@ -713,13 +713,13 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
     if (pSuryaProgressText) pSuryaProgressText.textContent = `Day ${saurDay} of 30 (${solarMonthProgress}% in ${chartToday.sun.rashi.shortName})`;
 
     const pSuryaMaas = document.getElementById('pSuryaMaas');
-    if (pSuryaMaas) pSuryaMaas.textContent = `${chartToday.sun.rashi.shortName} Saur Maas`;
+    if (pSuryaMaas) pSuryaMaas.textContent = `${chartToday.sun.rashi.shortName} Maas`;
 
     const pSuryaRashi = document.getElementById('pSuryaRashi');
-    if (pSuryaRashi) pSuryaRashi.textContent = `${chartToday.sun.rashi.name} (${chartToday.sun.degInRashi.toFixed(1)}°)`;
+    if (pSuryaRashi) pSuryaRashi.textContent = `${chartToday.sun.rashi.shortName} ${chartToday.sun.degInRashi.toFixed(1)}°`;
 
     const pSuryaNakshatra = document.getElementById('pSuryaNakshatra');
-    if (pSuryaNakshatra) pSuryaNakshatra.textContent = `${chartToday.sun.nakshatra.name} (Pada ${chartToday.sun.pada}, Lord: ${chartToday.sun.nakshatra.lord})`;
+    if (pSuryaNakshatra) pSuryaNakshatra.textContent = `${chartToday.sun.nakshatra.name} (P${chartToday.sun.pada}, ${chartToday.sun.nakshatra.lord})`;
 
     // ------------------------------------------------------------------------
     // C. COSMIC YOGA & ACTIVE KARANA

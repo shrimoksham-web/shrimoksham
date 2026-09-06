@@ -465,10 +465,9 @@
                 <span class="concierge-status-dot"></span>
                 <span>Live Vedic Ephemeris (Rishikesh)</span>
               </div>
-              <h3 style="font-family:var(--font-display); font-size:1.35rem; color:var(--text-dark); margin-top:0.35rem; line-height:1.2;">
+              <h3 class="panchang-title">
                 Daily <span class="text-gold-gradient">Vedic Panchang</span>
               </h3>
-              <p class="panchang-subtext">Synchronized with Sidereal Drik Ganitha &amp; Surya Siddhanta</p>
             </div>
             <div id="panchangDate" class="panchang-current-date">
               Today
@@ -483,39 +482,32 @@
               <div class="wing-header">
                 <div class="wing-title-wrap">
                   <span class="wing-icon">🌙</span>
-                  <div>
-                    <h4 class="wing-title">Chandra Mana</h4>
-                    <span class="wing-subtitle">Lunar Tithi &amp; Transit</span>
-                  </div>
+                  <span class="wing-title">Chandra Mana</span>
                 </div>
                 <span class="wing-badge-paksha" id="pPakshaBadge">Shukla Paksha</span>
               </div>
 
-              <div class="wing-body">
-                <div class="panchang-cell highlight-cell">
-                  <span class="cell-label">Chandra Tithi (Lunar Day)</span>
-                  <div class="cell-value-strong" id="pChandraTithi">Shukla Dashami</div>
-                  <div class="progress-track" title="Tithi Progress">
-                    <div class="progress-fill chandra-fill" id="pChandraProgress" style="width: 65%;"></div>
-                  </div>
-                  <span class="cell-meta" id="pChandraProgressText">65% elapsed</span>
-                </div>
+              <div class="wing-tithi-value" id="pChandraTithi">Shukla Dashami (10)</div>
+              
+              <div class="progress-track" title="Tithi Progress">
+                <div class="progress-fill chandra-fill" id="pChandraProgress" style="width: 65%;"></div>
+              </div>
+              <div class="wing-progress-meta" id="pChandraProgressText">65% elapsed in current tithi</div>
 
-                <div class="wing-grid-2">
-                  <div class="panchang-cell">
-                    <span class="cell-label">Chandra Maas</span>
-                    <div class="cell-value" id="pChandraMaas">Bhadrapada Maas</div>
-                  </div>
-                  <div class="panchang-cell">
-                    <span class="cell-label">Chandra Rashi</span>
-                    <div class="cell-value" id="pChandraRashi">Mithuna 14.2°</div>
-                  </div>
+              <div class="wing-compact-grid">
+                <div class="wing-mini-item">
+                  <span class="mini-label">Chandra Maas</span>
+                  <span class="mini-val" id="pChandraMaas">Bhadrapada</span>
                 </div>
+                <div class="wing-mini-item">
+                  <span class="mini-label">Chandra Rashi</span>
+                  <span class="mini-val" id="pChandraRashi">Mithuna 21.8°</span>
+                </div>
+              </div>
 
-                <div class="panchang-cell">
-                  <span class="cell-label">Moon Nakshatra (Active)</span>
-                  <div class="cell-value" id="pChandraNakshatra">Ardra (Pada 3, Rahu)</div>
-                </div>
+              <div class="wing-mini-item wing-mini-full">
+                <span class="mini-label">Moon Nakshatra</span>
+                <span class="mini-val" id="pChandraNakshatra">Punarvasu (Pada 1, Jupiter)</span>
               </div>
             </div>
 
@@ -524,39 +516,32 @@
               <div class="wing-header">
                 <div class="wing-title-wrap">
                   <span class="wing-icon">☀️</span>
-                  <div>
-                    <h4 class="wing-title">Surya Mana</h4>
-                    <span class="wing-subtitle">Solar Tithi &amp; Transit</span>
-                  </div>
+                  <span class="wing-title">Surya Mana</span>
                 </div>
-                <span class="wing-badge-surya" id="pSuryaBadge">Saur Pravishte</span>
+                <span class="wing-badge-surya" id="pSuryaBadge">Saur Day 20</span>
               </div>
 
-              <div class="wing-body">
-                <div class="panchang-cell highlight-cell">
-                  <span class="cell-label">Saur Tithi (Solar Day / प्रविष्टे)</span>
-                  <div class="cell-value-strong" id="pSuryaTithi">Simha 22 Pravishte</div>
-                  <div class="progress-track" title="Solar Month Progress">
-                    <div class="progress-fill surya-fill" id="pSuryaProgress" style="width: 72%;"></div>
-                  </div>
-                  <span class="cell-meta" id="pSuryaProgressText">Day 22 of 30 in Simha Maas</span>
-                </div>
+              <div class="wing-tithi-value" id="pSuryaTithi">Simha 20 Pravishte</div>
 
-                <div class="wing-grid-2">
-                  <div class="panchang-cell">
-                    <span class="cell-label">Saur Maas</span>
-                    <div class="cell-value" id="pSuryaMaas">Simha Saur Maas</div>
-                  </div>
-                  <div class="panchang-cell">
-                    <span class="cell-label">Surya Rashi</span>
-                    <div class="cell-value" id="pSuryaRashi">Simha 21.4°</div>
-                  </div>
-                </div>
+              <div class="progress-track" title="Solar Month Progress">
+                <div class="progress-fill surya-fill" id="pSuryaProgress" style="width: 66%;"></div>
+              </div>
+              <div class="wing-progress-meta" id="pSuryaProgressText">Day 20 of 30 (66% in Simha)</div>
 
-                <div class="panchang-cell">
-                  <span class="cell-label">Sun Nakshatra &amp; Lord</span>
-                  <div class="cell-value" id="pSuryaNakshatra">Purva Phalguni (Pada 3, Venus)</div>
+              <div class="wing-compact-grid">
+                <div class="wing-mini-item">
+                  <span class="mini-label">Saur Maas</span>
+                  <span class="mini-val" id="pSuryaMaas">Simha Maas</span>
                 </div>
+                <div class="wing-mini-item">
+                  <span class="mini-label">Surya Rashi</span>
+                  <span class="mini-val" id="pSuryaRashi">Simha 19.9°</span>
+                </div>
+              </div>
+
+              <div class="wing-mini-item wing-mini-full">
+                <span class="mini-label">Sun Nakshatra</span>
+                <span class="mini-val" id="pSuryaNakshatra">Purva Phalguni (Pada 2, Venus)</span>
               </div>
             </div>
 
@@ -565,51 +550,44 @@
           <!-- Diurnal Vedic Anchors: Yoga, Karana, Sunrise, Sunset -->
           <div class="panchang-aux-row">
             <div class="aux-item">
-              <span class="aux-label">Cosmic Yoga (Sun+Moon)</span>
-              <span class="aux-val" id="pYoga">Siddhi Yoga</span>
+              <span class="aux-label">Yoga</span>
+              <span class="aux-val" id="pYoga">Vyatipata</span>
             </div>
             <div class="aux-item">
-              <span class="aux-label">Active Karana (Half-Tithi)</span>
-              <span class="aux-val" id="pKarana">Bava</span>
+              <span class="aux-label">Karana</span>
+              <span class="aux-val" id="pKarana">Vishti</span>
             </div>
             <div class="aux-item">
-              <span class="aux-label">Surya Udaya (Sunrise)</span>
+              <span class="aux-label">Sunrise</span>
               <span class="aux-val" id="pSunrise">05:56 AM</span>
             </div>
             <div class="aux-item">
-              <span class="aux-label">Surya Asta (Sunset)</span>
+              <span class="aux-label">Sunset</span>
               <span class="aux-val" id="pSunset">06:34 PM</span>
             </div>
           </div>
 
-          <!-- Auspicious & Inauspicious Dual Muhurat Box -->
+          <!-- Auspicious & Inauspicious Dual Muhurat Compact Row -->
           <div class="panchang-muhurat-dual">
             <div class="muhurat-card-pill muhurat-auspicious">
-              <div class="muhurat-pill-header">
-                <span class="muhurat-pill-icon">✨</span>
-                <div>
-                  <div class="muhurat-pill-title">Abhijit Muhurat</div>
-                  <span class="muhurat-pill-sub">Supreme Auspicious Window</span>
-                </div>
+              <span class="muhurat-pill-icon">✨</span>
+              <div class="muhurat-pill-content">
+                <span class="muhurat-pill-title">Abhijit:</span>
+                <span class="muhurat-pill-time" id="pAbhijitTime">11:50 AM – 12:40 PM</span>
               </div>
-              <div class="muhurat-pill-time" id="pAbhijitTime">11:50 AM – 12:40 PM</div>
             </div>
 
             <div class="muhurat-card-pill muhurat-inauspicious">
-              <div class="muhurat-pill-header">
-                <span class="muhurat-pill-icon">⚠️</span>
-                <div>
-                  <div class="muhurat-pill-title">Rahu Kaalam</div>
-                  <span class="muhurat-pill-sub">Inauspicious Span (Avoid Starts)</span>
-                </div>
+              <span class="muhurat-pill-icon">⚠️</span>
+              <div class="muhurat-pill-content">
+                <span class="muhurat-pill-title">Rahu Kaal:</span>
+                <span class="muhurat-pill-time" id="pRahuKaalTime">04:59 PM – 06:34 PM</span>
               </div>
-              <div class="muhurat-pill-time" id="pRahuKaalTime">04:59 PM – 06:34 PM</div>
             </div>
           </div>
 
           <a href="https://wa.me/919997066326?text=Hi%20Shri%20Moksham%2C%20I%20would%20like%20to%20know%20the%20best%20auspicious%20Muhurat%20for%20my%20upcoming%20event."
-            class="btn btn-gold-outline" target="_blank" rel="noopener"
-            style="width:100%; justify-content:center; font-size:0.78rem; margin-top:0.4rem;">
+            class="btn btn-gold-outline btn-panchang-cta" target="_blank" rel="noopener">
             Get Personalized Muhurat Guidance ➔
           </a>
         </article>
