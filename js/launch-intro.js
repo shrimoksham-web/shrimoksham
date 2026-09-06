@@ -16,38 +16,39 @@
     document.body.classList.add('intro-active');
 
     // SCENE TIMELINE (in milliseconds)
-    // 0: Absolute Darkness (Initial state)
-    // 800: SCENE 02 - The First Breath
-    // 1800: SCENE 03 - Awakening
-    // 2800: SCENE 04 - The Pull
-    // 3300: SCENE 05 - December 2026
-    // 4000: SCENE 06 - Shri Moksham (Date fades out)
-    // 4700: SCENE 07 - Silence (Fade back to deep darkness)
-    // 5000: SCENE 08 - Transition into Existing Clouds
+    // 0: Absolute Darkness
+    // 100: SCENE 02 - The First Breath
+    // 600: SCENE 03 - Awakening (Temple Doorway glows)
+    // 1200: SCENE 04 - The Pull (Viewer pulled through doorway)
+    // 1800: SCENE 05 - December 2026
+    // 3400: SCENE 06 - Shri Moksham (Date stays on longer, then fades out)
+    // 4400: SCENE 07 - Silence
+    // 4800: SCENE 08 - Transition
 
     setTimeout(() => {
       overlay.classList.add('phase-breath');
-    }, 800);
+    }, 100);
 
     setTimeout(() => {
       overlay.classList.add('phase-awakening');
-    }, 1800);
+    }, 600);
 
     setTimeout(() => {
       overlay.classList.add('phase-pull');
-    }, 2800);
+    }, 1200);
 
     setTimeout(() => {
       overlay.classList.add('phase-date');
-    }, 3300);
+    }, 1800);
 
+    // Keep DECEMBER 2026 longer (1.6 seconds gap)
     setTimeout(() => {
       overlay.classList.add('phase-brand');
-    }, 4000);
+    }, 3400);
 
     setTimeout(() => {
       overlay.classList.add('phase-silence');
-    }, 4700);
+    }, 4400);
 
     // Final Transition into existing clouds
     setTimeout(() => {
@@ -62,7 +63,7 @@
         overlay.remove();
       }, 1500); 
 
-    }, 5000);
+    }, 4800);
   }
 
   // Initialize once DOM is ready to avoid stalling

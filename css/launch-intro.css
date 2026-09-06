@@ -1,14 +1,12 @@
 /* ==========================================================================
-   CINEMATIC LAUNCH EXPERIENCE: THE FIRST BREATH
+   CINEMATIC LAUNCH EXPERIENCE: THE FIRST BREATH (v3)
    ========================================================================== */
 
-/* Prevent scroll during cinematic intro */
 body.intro-active {
   overflow: hidden !important;
   height: 100vh !important;
 }
 
-/* Master Overlay */
 .cinematic-launch-overlay {
   position: fixed;
   top: 0;
@@ -16,7 +14,7 @@ body.intro-active {
   width: 100vw;
   height: 100vh;
   z-index: 999999;
-  background-color: var(--text-heading, #121A24); /* Deep charcoal/indigo base */
+  background-color: #06090e; /* Extremely dark cinematic base */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +23,7 @@ body.intro-active {
   color: var(--gold-light, #EBD696);
 }
 
-/* SCENE 01: DARKNESS (Initial State) */
+/* SCENE 01: DARKNESS & ATMOSPHERE */
 .launch-atmosphere {
   position: absolute;
   top: 0;
@@ -33,18 +31,19 @@ body.intro-active {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 2s ease, transform 3s ease;
-  transform: scale(1.02);
+  transition: opacity 1.5s ease, transform 3.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: scale(1);
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
 }
 
-/* SCENE 02: THE FIRST BREATH */
 .phase-breath .launch-atmosphere {
   opacity: 1;
-  transform: scale(1);
 }
 
-/* SCENE 03: AWAKENING (Atmospheric layers and glowing depth) */
 .launch-ambient-light {
   position: absolute;
   top: 50%;
@@ -52,18 +51,35 @@ body.intro-active {
   width: 150vw;
   height: 150vh;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle at center, rgba(184, 134, 11, 0.15) 0%, rgba(18, 26, 36, 0) 50%);
+  background: radial-gradient(circle at center, rgba(255, 120, 0, 0.1) 0%, rgba(18, 26, 36, 0) 60%);
   opacity: 0;
   transition: opacity 2s ease, transform 4s ease;
 }
 
-.launch-depth-plane {
+/* THE TEMPLE DOORWAY (Creative interpretation of reference images) */
+.launch-temple-doorway {
   position: absolute;
-  top: 0;
-  left: 0;
+  width: 120px;
+  height: 320px;
+  background: #000;
+  border: 1px solid rgba(255, 150, 0, 0.2);
+  border-bottom: none;
+  box-shadow: 0 0 0px 0px rgba(255, 107, 0, 0);
+  opacity: 0;
+  transition: opacity 1s ease, box-shadow 2.5s ease, transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 2;
+  border-radius: 100px 100px 0 0; /* Arched temple doorway */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(-200px);
+}
+
+.launch-doorway-glow {
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at 50% 60%, transparent 20%, rgba(18, 26, 36, 0.95) 70%);
+  background: linear-gradient(180deg, rgba(255, 140, 0, 0.5) 0%, rgba(255, 60, 0, 0.1) 100%);
+  filter: blur(15px);
   opacity: 0;
   transition: opacity 2s ease;
 }
@@ -72,11 +88,26 @@ body.intro-active {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
 }
-.phase-awakening .launch-depth-plane {
+
+.phase-awakening .launch-temple-doorway {
+  opacity: 1;
+  box-shadow: 0 0 120px 40px rgba(255, 90, 0, 0.4), inset 0 0 60px rgba(255, 180, 0, 0.5);
+  transform: translateZ(0px);
+}
+
+.phase-awakening .launch-doorway-glow {
   opacity: 1;
 }
 
-/* SCENE 04: THE PULL */
+/* THE PULL: Rushing through the doorway */
+.phase-pull .launch-atmosphere {
+  transform: scale(4); /* Massive scale-up to pull viewer *through* the doorway */
+}
+.phase-pull .launch-temple-doorway {
+  box-shadow: 0 0 250px 80px rgba(255, 100, 0, 0.6), inset 0 0 100px rgba(255, 200, 0, 0.8);
+}
+
+/* SCENE CAMERA (Foreground Elements) */
 .launch-scene-camera {
   position: relative;
   z-index: 10;
@@ -88,111 +119,118 @@ body.intro-active {
   height: 100%;
   transform-style: preserve-3d;
   perspective: 1000px;
-  transform: translateZ(0) scale(0.95);
+  transform: translateZ(0) scale(0.9);
   opacity: 0;
-  filter: blur(4px);
-  transition: transform 3.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
-              opacity 1.5s ease, 
-              filter 2s ease;
+  filter: blur(8px);
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 1s ease, filter 1.5s ease;
 }
 
 .phase-pull .launch-scene-camera {
-  transform: translateZ(100px) scale(1.05); /* The subtle pull inwards */
+  transform: translateZ(150px) scale(1.05);
   opacity: 1;
   filter: blur(0px);
+}
+
+/* EMBLEM */
+.launch-mystic-emblem {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 0 40px rgba(255, 150, 0, 0.8));
+  animation: launch-pulse 3s infinite ease-in-out;
+}
+
+@keyframes launch-pulse {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 140, 0, 0.5)); transform: scale(1); }
+  50% { filter: drop-shadow(0 0 70px rgba(255, 200, 50, 0.9)); transform: scale(1.05); }
 }
 
 /* SCENE 05: DECEMBER 2026 */
 .launch-date-text {
   position: absolute;
+  top: 55%;
   text-align: center;
   font-family: var(--font-serif-display, 'Cinzel Decorative', 'Cinzel', serif);
-  font-size: 2.2rem;
+  font-size: 2.8rem;
   font-weight: 400;
-  letter-spacing: 0.25em;
-  line-height: 1.4;
-  color: var(--gold-light, #EBD696);
-  background: linear-gradient(180deg, var(--gold-champagne, #F5ECCE) 0%, var(--gold-primary, #B8860B) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.3em;
+  color: #FFF;
+  text-shadow: 0 0 20px rgba(255, 150, 0, 0.6);
   opacity: 0;
-  transform: translateY(10px) translateZ(50px);
-  transition: opacity 1.5s ease, transform 2s ease, filter 1s ease;
-  filter: blur(2px);
+  transform: translateY(15px);
+  transition: opacity 0.8s ease, transform 1s ease;
 }
 
 .phase-date .launch-date-text {
   opacity: 1;
-  transform: translateY(0) translateZ(50px);
-  filter: blur(0px);
+  transform: translateY(0);
 }
 
 /* SCENE 06: SHRI MOKSHAM transitions */
-/* We fade out the date when brand appears */
 .phase-brand .launch-date-text {
   opacity: 0;
-  transform: translateY(-10px) translateZ(50px);
+  transform: translateY(-20px);
   filter: blur(4px);
-  transition: opacity 1s ease, transform 1.5s ease, filter 1s ease;
+  transition: opacity 0.6s ease, transform 1s ease, filter 0.8s ease;
 }
 
 .launch-brand-group {
   position: absolute;
+  top: 55%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.8rem;
   opacity: 0;
-  transform: translateY(10px) translateZ(80px);
-  transition: opacity 1.5s ease, transform 2s ease, filter 1.5s ease;
-  filter: blur(4px);
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.5s ease;
 }
 
 .phase-brand .launch-brand-group {
   opacity: 1;
-  transform: translateY(0) translateZ(80px);
-  filter: blur(0px);
+  transform: translateY(0);
 }
 
 .launch-brand-title {
   font-family: var(--font-serif-display, 'Cinzel Decorative', 'Cinzel', serif);
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   color: var(--bg-main, #EAE1D2);
-  text-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
+  text-shadow: 0 4px 30px rgba(255, 150, 0, 0.6);
 }
 
 .launch-brand-subtitle {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: 0.3em;
-  color: var(--gold-rich, #C59E3F);
+  letter-spacing: 0.4em;
+  color: var(--gold-light, #EBD696);
   text-transform: uppercase;
 }
 
 /* SCENE 07: SILENCE */
 .phase-silence .launch-atmosphere {
-  opacity: 0; /* Plunge back into darkness */
-  transition: opacity 0.5s ease;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .phase-silence .launch-scene-camera {
-  transform: translateZ(150px) scale(1.1);
+  transform: translateZ(250px) scale(1.15);
   transition: transform 1s ease;
 }
 
-/* SCENE 08: TRANSITION */
-/* The final dissolve handled by JS directly targeting the overlay opacity */
 .cinematic-launch-overlay.is-finished {
   opacity: 0;
   pointer-events: none;
 }
 
-/* Responsive adjustments */
+/* Responsive Scaling for Mobile */
 @media (max-width: 768px) {
-  .launch-date-text { font-size: 1.5rem; }
-  .launch-brand-title { font-size: 1.8rem; letter-spacing: 0.1em; }
-  .launch-brand-subtitle { font-size: 0.6rem; letter-spacing: 0.2em; }
+  .launch-temple-doorway { width: 90px; height: 260px; }
+  .launch-mystic-emblem { width: 100px; height: 100px; }
+  .launch-date-text { font-size: 1.8rem; top: 60%; }
+  .launch-brand-title { font-size: 2rem; letter-spacing: 0.15em; }
+  .launch-brand-subtitle { font-size: 0.6rem; letter-spacing: 0.3em; }
+  .launch-brand-group { top: 60%; }
 }
