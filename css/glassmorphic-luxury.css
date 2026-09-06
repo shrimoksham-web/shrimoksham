@@ -1186,10 +1186,117 @@
 /* --------------------------------------------------------------------------
    UPCOMING SEVA DROPS (LUXURY HORIZONTAL SWIPE CAROUSEL)
    -------------------------------------------------------------------------- */
+.seva-container {
+  width: 96%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.seva-swipe-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.seva-swipe-hint {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  user-select: none;
+}
+
+.seva-swipe-hint .seva-swipe-icon {
+  font-size: 1.1rem;
+  display: inline-block;
+  animation: sevaSwipeHandPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes sevaSwipeHandPulse {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+
+.seva-nav-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.seva-swipe-pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid var(--border-gold-subtle);
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(24, 34, 47, 0.05);
+}
+
+.seva-pagination-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.seva-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.28);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+
+.seva-dot:hover {
+  background: var(--gold-primary);
+  transform: scale(1.25);
+}
+
+.seva-dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #D4AF37, #F5D061);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.seva-counter-pill {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  letter-spacing: 0.08em;
+  padding-left: 0.45rem;
+  border-left: 1px solid rgba(212, 175, 55, 0.35);
+  user-select: none;
+}
+
+.seva-swipe-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
 .seva-carousel-wrapper {
   position: relative;
   width: 100%;
-  margin-top: 1.2rem;
+  margin-top: 0.8rem;
 }
 
 .seva-swipe-track {
@@ -1202,6 +1309,14 @@
   padding: 0.8rem 0.4rem 1.6rem 0.4rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(212, 175, 55, 0.45) rgba(24, 34, 47, 0.04);
+  overscroll-behavior-x: contain;
+  cursor: grab;
+}
+
+.seva-swipe-track:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 4px;
+  border-radius: 20px;
 }
 
 .seva-swipe-track::-webkit-scrollbar {
@@ -1219,12 +1334,12 @@
 }
 
 .seva-drop-card {
-  flex: 0 0 340px;
-  width: 340px;
+  flex: 0 0 350px;
+  width: 350px;
   max-width: 360px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1.5px solid var(--border-gold-subtle);
@@ -1240,14 +1355,14 @@
 }
 
 .seva-drop-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--gold-primary);
-  box-shadow: 0 20px 50px rgba(212, 175, 55, 0.22);
+  box-shadow: 0 22px 55px rgba(212, 175, 55, 0.22);
 }
 
 .seva-card-media {
   position: relative;
-  height: 200px;
+  height: 210px;
   overflow: hidden;
   background: #0D1622;
 }
@@ -1257,16 +1372,26 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
 .seva-drop-card:hover .seva-card-media img {
   transform: scale(1.06);
 }
 
+.seva-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 17, 30, 0.55) 0%, transparent 55%);
+  pointer-events: none;
+}
+
 .seva-card-badge {
   position: absolute;
   top: 14px;
   left: 14px;
+  z-index: 2;
   background: rgba(7, 17, 30, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1281,11 +1406,40 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+.seva-card-num {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  background: rgba(7, 17, 30, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #F5D061;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
 .seva-card-body {
-  padding: 1.4rem 1.3rem;
+  padding: 1.4rem 1.35rem 1.3rem 1.35rem;
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.seva-card-category {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
 }
 
 .seva-card-title {
@@ -1304,6 +1458,67 @@
   margin: 0;
   flex: 1;
   text-wrap: pretty;
+}
+
+.seva-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.15);
+  font-size: 0.78rem;
+}
+
+.seva-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.seva-meta-status {
+  color: #1b8146;
+  font-weight: 700;
+  background: rgba(39, 174, 96, 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(39, 174, 96, 0.2);
+}
+
+.seva-live-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #27ae60;
+  display: inline-block;
+  box-shadow: 0 0 6px #27ae60;
+  animation: sevaLivePulse 2s infinite ease-in-out;
+}
+
+@keyframes sevaLivePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.seva-carousel-progress {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: 4px;
+  background: rgba(24, 34, 47, 0.06);
+  border-radius: 4px;
+  margin: 0.6rem auto 0 auto;
+  overflow: hidden;
+}
+
+.seva-carousel-progress-bar {
+  height: 100%;
+  width: 20%;
+  background: linear-gradient(90deg, #D4AF37, #F5D061, #8C6615);
+  border-radius: 4px;
+  transition: width 0.25s ease-out;
 }
 
 /* --------------------------------------------------------------------------

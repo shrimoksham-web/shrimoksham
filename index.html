@@ -1213,98 +1213,192 @@
     </section>
 
     <!-- ==========================================================================
-         UPCOMING SEVA & CAUSES DROPS QUEUE (HORIZONTAL SWIPE CAROUSEL)
+         UPCOMING SEVA & CAUSES DROPS QUEUE (PERFECT HORIZONTAL SWIPE CAROUSEL)
          ========================================================================== -->
-    <section class="section-spacing" id="seva-drops">
-      <div class="container" style="width:96%; max-width:96vw;">
+    <section class="section-spacing" id="seva-drops" style="padding-top: 2rem; padding-bottom: 3rem;">
+      <div class="seva-container">
 
-        <div class="section-intro">
-          <div class="eyebrow-label">Social Welfare Initiatives</div>
-          <h2>Upcoming Seva <span class="text-gold-gradient">Drops</span></h2>
-          <p>Participate in our compassionate ongoing social welfare, nature stewardship, and sanctuary initiatives.</p>
-          <div class="treatise-swipe-hint">
-            <span>✦ SWIPE HORIZONTALLY TO EXPLORE ALL 5 SEVA INITIATIVES ✦</span>
+        <!-- Section Header Block -->
+        <div class="section-header-block" style="text-align: center; margin-bottom: 1.5rem;">
+          <div class="section-eyebrow" style="color: var(--gold-dark); font-family: var(--font-display); font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 800; margin-bottom: 0.4rem;">
+            ✦ COMPASSIONATE DHARMA &amp; SACRED CHARITY ✦
           </div>
-          <div class="treatise-swipe-buttons">
-            <button class="btn-treatise-arrow" id="sevaSwipePrev" type="button" aria-label="Swipe Previous Seva">❮</button>
-            <button class="btn-treatise-arrow" id="sevaSwipeNext" type="button" aria-label="Swipe Next Seva">❯</button>
+          <h2 class="section-master-title" style="font-family: var(--font-heading); font-size: clamp(1.6rem, 3.2vw, 2.4rem); color: var(--text-dark); margin-bottom: 0.6rem; font-weight: 700;">
+            Upcoming Seva <span class="gold-shimmer">Drops Queue</span>
+          </h2>
+          <p class="section-subtitle" style="font-family: var(--font-serif); font-style: italic; font-size: 1.15rem; color: var(--text-muted); max-width: 820px; margin: 0 auto; line-height: 1.5;">
+            Participate in our compassionate ongoing social welfare, nature stewardship, and sanctuary initiatives across the sacred Himalayan foothills.
+          </p>
+        </div>
+
+        <!-- Dedicated Seva Swipe Navigation Bar with Hint, Pagination Dots, and Arrows -->
+        <div class="seva-swipe-nav-bar">
+          <div class="seva-swipe-hint">
+            <span class="seva-swipe-icon" aria-hidden="true">👉</span>
+            <span>✦ SWIPE TO EXPLORE 5 SEVA INITIATIVES ✦</span>
+          </div>
+
+          <div class="seva-nav-controls-group">
+            <!-- Interactive Dynamic Dots & Counter -->
+            <div class="seva-swipe-pagination" id="sevaSwipePagination">
+              <div class="seva-pagination-dots" id="sevaPaginationDots">
+                <button class="seva-dot active" data-index="0" type="button" aria-label="Go to Seva 1: Annadaan Drive"></button>
+                <button class="seva-dot" data-index="1" type="button" aria-label="Go to Seva 2: Elders Health Seva"></button>
+                <button class="seva-dot" data-index="2" type="button" aria-label="Go to Seva 3: Sant Seva"></button>
+                <button class="seva-dot" data-index="3" type="button" aria-label="Go to Seva 4: Green Seva"></button>
+                <button class="seva-dot" data-index="4" type="button" aria-label="Go to Seva 5: Spiritual Sanctuary"></button>
+              </div>
+              <span class="seva-counter-pill" id="sevaCounterPill">01 / 05</span>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="seva-swipe-buttons">
+              <button class="btn-treatise-arrow" id="sevaSwipePrev" type="button" aria-label="Swipe Previous Seva">❮</button>
+              <button class="btn-treatise-arrow" id="sevaSwipeNext" type="button" aria-label="Swipe Next Seva">❯</button>
+            </div>
           </div>
         </div>
 
+        <!-- 5 Upcoming Seva Initiatives Horizontal Swipe Track -->
         <div class="seva-carousel-wrapper">
-          <div class="seva-swipe-track" id="sevaSwipeTrack">
+          <div class="seva-swipe-track" id="sevaSwipeTrack" tabindex="0" aria-label="Upcoming Seva Initiatives Swipe Carousel">
 
             <!-- Card 1: Annadaan Drive -->
-            <div class="seva-drop-card glass-panel">
+            <div class="seva-drop-card glass-panel" data-index="0">
               <div class="seva-card-media">
-                <img src="assets/seva-annadaan.jpg" alt="Annadaan Food Distribution" loading="lazy">
+                <img src="assets/seva-annadaan.jpg" alt="Annadaan Satvik Food Distribution" loading="lazy">
                 <span class="seva-card-badge">⚡ Daily Seva</span>
+                <span class="seva-card-num">01 / 05</span>
               </div>
               <div class="seva-card-body">
+                <div class="seva-card-category">Himalayan Community • Satvik Annadaan</div>
                 <h4 class="seva-card-title">Annadaan Drive</h4>
                 <p class="seva-card-desc">
                   Serving fresh, wholesome satvik meals to seekers, sadhus, and families in mountain villages and sacred pilgrim trails.
                 </p>
+                <div class="seva-card-meta">
+                  <div class="seva-meta-item">
+                    <span class="seva-meta-icon">📍</span>
+                    <span class="seva-meta-text">Himalayan Valleys</span>
+                  </div>
+                  <div class="seva-meta-item seva-meta-status">
+                    <span class="seva-live-indicator"></span>
+                    <span class="seva-meta-text">Active Queue</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Card 2: Elders Health Seva -->
-            <div class="seva-drop-card glass-panel">
+            <div class="seva-drop-card glass-panel" data-index="1">
               <div class="seva-card-media">
-                <img src="assets/seva-elders.jpg" alt="Senior Elders Healthcare Seva" loading="lazy">
+                <img src="assets/seva-elders.jpg" alt="Senior Elders Healthcare Support Seva" loading="lazy">
                 <span class="seva-card-badge">❤️ Healthcare Support</span>
+                <span class="seva-card-num">02 / 05</span>
               </div>
               <div class="seva-card-body">
+                <div class="seva-card-category">Ashram Care • Compassionate Healing</div>
                 <h4 class="seva-card-title">Elders Health Seva</h4>
                 <p class="seva-card-desc">
                   Providing compassionate medical support, vital medicines, health checkups, and companionship for senior citizens in ashrams.
                 </p>
+                <div class="seva-card-meta">
+                  <div class="seva-meta-item">
+                    <span class="seva-meta-icon">📍</span>
+                    <span class="seva-meta-text">Rishikesh &amp; Haridwar</span>
+                  </div>
+                  <div class="seva-meta-item seva-meta-status">
+                    <span class="seva-live-indicator"></span>
+                    <span class="seva-meta-text">Active Queue</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Card 3: Sant Seva -->
-            <div class="seva-drop-card glass-panel">
+            <div class="seva-drop-card glass-panel" data-index="2">
               <div class="seva-card-media">
-                <img src="assets/seva-sant.jpg" alt="Venerable Sant & Sadhu Seva" loading="lazy">
+                <img src="assets/seva-sant.jpg" alt="Venerable Sant &amp; Sadhu Seva" loading="lazy">
                 <span class="seva-card-badge">🪷 Spiritual Lineage</span>
+                <span class="seva-card-num">03 / 05</span>
               </div>
               <div class="seva-card-body">
+                <div class="seva-card-category">Sadhu Seva • Vedic Dharma</div>
                 <h4 class="seva-card-title">Sant Seva</h4>
                 <p class="seva-card-desc">
                   Honoring and nurturing traditional ascetics, sadhus, and spiritual seekers through warm prasad, shelter support, and winter clothing.
                 </p>
+                <div class="seva-card-meta">
+                  <div class="seva-meta-item">
+                    <span class="seva-meta-icon">📍</span>
+                    <span class="seva-meta-text">Sacred Ashrams</span>
+                  </div>
+                  <div class="seva-meta-item seva-meta-status">
+                    <span class="seva-live-indicator"></span>
+                    <span class="seva-meta-text">Active Queue</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Card 4: Green Seva -->
-            <div class="seva-drop-card glass-panel">
+            <div class="seva-drop-card glass-panel" data-index="3">
               <div class="seva-card-media">
-                <img src="assets/seva-trees.jpg" alt="Green Seva Nature & Tree Plantation" loading="lazy">
+                <img src="assets/seva-trees.jpg" alt="Green Seva Nature &amp; Sacred Tree Plantation" loading="lazy">
                 <span class="seva-card-badge">🌿 Sacred Nature</span>
+                <span class="seva-card-num">04 / 05</span>
               </div>
               <div class="seva-card-body">
+                <div class="seva-card-category">River Ecology • Peepal &amp; Neem</div>
                 <h4 class="seva-card-title">Green Seva</h4>
                 <p class="seva-card-desc">
                   Devoted ecological guardianship, planting sacred peepal, banyan, and neem trees along riverbanks, and promoting organic mountain habitats.
                 </p>
+                <div class="seva-card-meta">
+                  <div class="seva-meta-item">
+                    <span class="seva-meta-icon">📍</span>
+                    <span class="seva-meta-text">Ganga Riverbanks</span>
+                  </div>
+                  <div class="seva-meta-item seva-meta-status">
+                    <span class="seva-live-indicator"></span>
+                    <span class="seva-meta-text">Active Queue</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             <!-- Card 5: Spiritual Sanctuary -->
-            <div class="seva-drop-card glass-panel">
+            <div class="seva-drop-card glass-panel" data-index="4">
               <div class="seva-card-media">
-                <img src="assets/rishikesh-retreat.jpg" alt="Spiritual Sanctuary Meditation Retreat" loading="lazy">
+                <img src="assets/rishikesh-retreat.jpg" alt="Spiritual Sanctuary Meditation Retreat Haven" loading="lazy">
                 <span class="seva-card-badge">🏔️ Sacred Sanctuary</span>
+                <span class="seva-card-num">05 / 05</span>
               </div>
               <div class="seva-card-body">
+                <div class="seva-card-category">Spiritual Haven • Meditation Hermitage</div>
                 <h4 class="seva-card-title">Spiritual Sanctuary</h4>
                 <p class="seva-card-desc">
                   Establishing a serene, permanent meditation haven, sacred library, and spiritual retreat for sincere seekers and meditation students.
                 </p>
+                <div class="seva-card-meta">
+                  <div class="seva-meta-item">
+                    <span class="seva-meta-icon">📍</span>
+                    <span class="seva-meta-text">Rishikesh Foothills</span>
+                  </div>
+                  <div class="seva-meta-item seva-meta-status">
+                    <span class="seva-live-indicator"></span>
+                    <span class="seva-meta-text">Active Queue</span>
+                  </div>
+                </div>
               </div>
             </div>
 
           </div>
+        </div>
+
+        <!-- Subtle Smooth Progress Bar Below Track -->
+        <div class="seva-carousel-progress" aria-hidden="true">
+          <div class="seva-carousel-progress-bar" id="sevaProgressBar"></div>
         </div>
 
       </div>

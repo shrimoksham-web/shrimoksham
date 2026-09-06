@@ -236,32 +236,132 @@
     const track = document.getElementById('sevaSwipeTrack');
     const prevBtn = document.getElementById('sevaSwipePrev');
     const nextBtn = document.getElementById('sevaSwipeNext');
+    const dotsContainer = document.getElementById('sevaPaginationDots');
+    const counterPill = document.getElementById('sevaCounterPill');
+    const progressBar = document.getElementById('sevaProgressBar');
 
     if (!track) return;
 
+    const cards = Array.from(track.querySelectorAll('.seva-drop-card'));
+    const dots = dotsContainer ? Array.from(dotsContainer.querySelectorAll('.seva-dot')) : [];
+
+    function getScrollStep() {
+      if (cards.length > 0) {
+        const style = window.getComputedStyle(track);
+        const gap = parseFloat(style.gap) || 20;
+        return cards[0].offsetWidth + gap;
+      }
+      return 360;
+    }
+
+    function scrollToCard(index) {
+      if (index < 0 || index >= cards.length) return;
+      const targetCard = cards[index];
+      const trackPaddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+      const targetLeft = targetCard.offsetLeft - track.offsetLeft - trackPaddingLeft;
+      track.scrollTo({ left: targetLeft, behavior: 'smooth' });
+    }
+
     if (prevBtn) {
       prevBtn.addEventListener('click', () => {
-        track.scrollBy({ left: -360, behavior: 'smooth' });
+        track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
       });
     }
 
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
-        track.scrollBy({ left: 360, behavior: 'smooth' });
+        track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
       });
     }
 
-    // Drag-to-scroll for desktop mouse users
+    // Interactive pagination dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        scrollToCard(index);
+      });
+    });
+
+    // Update active index, dots, counter, buttons, and progress line on scroll
+    let isTicking = false;
+    function updateCarouselState() {
+      const scrollLeft = track.scrollLeft;
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const trackPaddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+
+      // Find closest card to viewport start
+      let activeIndex = 0;
+      let minDistance = Infinity;
+      const trackLeftEdge = track.getBoundingClientRect().left + trackPaddingLeft;
+
+      cards.forEach((card, idx) => {
+        const cardLeft = card.getBoundingClientRect().left;
+        const distance = Math.abs(cardLeft - trackLeftEdge);
+        if (distance < minDistance) {
+          minDistance = distance;
+          activeIndex = idx;
+        }
+      });
+
+      // Update dots
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === activeIndex);
+      });
+
+      // Update counter pill
+      if (counterPill) {
+        counterPill.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(cards.length).padStart(2, '0')}`;
+      }
+
+      // Update progress bar
+      if (progressBar) {
+        const progress = maxScroll > 0 ? (scrollLeft / maxScroll) : 0;
+        const widthPercent = Math.max(20, Math.min(100, 20 + progress * 80));
+        progressBar.style.width = `${widthPercent}%`;
+      }
+
+      // Update arrow button disabled state
+      if (prevBtn) {
+        const isAtStart = scrollLeft <= 5;
+        prevBtn.style.opacity = isAtStart ? '0.35' : '1';
+        prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+        prevBtn.setAttribute('aria-disabled', isAtStart ? 'true' : 'false');
+      }
+      if (nextBtn) {
+        const isAtEnd = scrollLeft >= maxScroll - 5;
+        nextBtn.style.opacity = isAtEnd ? '0.35' : '1';
+        nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+        nextBtn.setAttribute('aria-disabled', isAtEnd ? 'true' : 'false');
+      }
+
+      isTicking = false;
+    }
+
+    track.addEventListener('scroll', () => {
+      if (!isTicking) {
+        window.requestAnimationFrame(updateCarouselState);
+        isTicking = true;
+      }
+    }, { passive: true });
+
+    // Initial state call
+    updateCarouselState();
+
+    // Resize observer to re-calculate state on viewport change
+    window.addEventListener('resize', () => {
+      updateCarouselState();
+    }, { passive: true });
+
+    // Mouse drag-to-scroll for desktop users
     let isDown = false;
     let startX;
-    let scrollLeft;
+    let initialScrollLeft;
 
     track.addEventListener('mousedown', (e) => {
       isDown = true;
       track.style.cursor = 'grabbing';
       track.style.userSelect = 'none';
       startX = e.pageX - track.offsetLeft;
-      scrollLeft = track.scrollLeft;
+      initialScrollLeft = track.scrollLeft;
     });
 
     track.addEventListener('mouseleave', () => {
@@ -279,7 +379,18 @@
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
       const walk = (x - startX) * 1.5;
-      track.scrollLeft = scrollLeft - walk;
+      track.scrollLeft = initialScrollLeft - walk;
+    });
+
+    // Keyboard navigation when track is focused
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+      }
     });
   }
 
