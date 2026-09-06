@@ -43,9 +43,37 @@
   <link rel="stylesheet" href="css/cool-effects.css">
   <link rel="stylesheet" href="css/scroll-animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/launch-intro.css?v=2">
 </head>
 
 <body>
+
+  <!-- ==========================================================================
+       CINEMATIC LAUNCH INTRO OVERLAY (DECEMBER 2026)
+       ========================================================================== -->
+  <script>
+    document.body.classList.add('intro-active');
+  </script>
+  <div class="cinematic-launch-overlay" id="cinematicLaunchOverlay">
+    
+    <!-- Atmospheric Layers -->
+    <div class="launch-atmosphere">
+      <div class="launch-ambient-light"></div>
+      <div class="launch-depth-plane"></div>
+    </div>
+
+    <!-- 3D Camera / Scene Subject -->
+    <div class="launch-scene-camera">
+      <div class="launch-date-text">
+        DECEMBER<br>2026
+      </div>
+      
+      <div class="launch-brand-group">
+        <div class="launch-brand-title">SHRI MOKSHAM</div>
+        <div class="launch-brand-subtitle">THE JOURNEY BEGINS</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Top Scroll Progress Bar -->
   <div class="scroll-progress-container">
@@ -2035,6 +2063,7 @@
   <script src="js/animated-topbar.js"></script>
   <script src="js/whatsapp-manager.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/launch-intro.js?v=2"></script>
 
 </body>
 

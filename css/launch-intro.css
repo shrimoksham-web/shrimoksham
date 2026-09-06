@@ -1,0 +1,198 @@
+/* ==========================================================================
+   CINEMATIC LAUNCH EXPERIENCE: THE FIRST BREATH
+   ========================================================================== */
+
+/* Prevent scroll during cinematic intro */
+body.intro-active {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* Master Overlay */
+.cinematic-launch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
+  background-color: var(--text-heading, #121A24); /* Deep charcoal/indigo base */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+  color: var(--gold-light, #EBD696);
+}
+
+/* SCENE 01: DARKNESS (Initial State) */
+.launch-atmosphere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease, transform 3s ease;
+  transform: scale(1.02);
+  pointer-events: none;
+}
+
+/* SCENE 02: THE FIRST BREATH */
+.phase-breath .launch-atmosphere {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* SCENE 03: AWAKENING (Atmospheric layers and glowing depth) */
+.launch-ambient-light {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
+  height: 150vh;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle at center, rgba(184, 134, 11, 0.15) 0%, rgba(18, 26, 36, 0) 50%);
+  opacity: 0;
+  transition: opacity 2s ease, transform 4s ease;
+}
+
+.launch-depth-plane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 60%, transparent 20%, rgba(18, 26, 36, 0.95) 70%);
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.phase-awakening .launch-ambient-light {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.phase-awakening .launch-depth-plane {
+  opacity: 1;
+}
+
+/* SCENE 04: THE PULL */
+.launch-scene-camera {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transform: translateZ(0) scale(0.95);
+  opacity: 0;
+  filter: blur(4px);
+  transition: transform 3.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              opacity 1.5s ease, 
+              filter 2s ease;
+}
+
+.phase-pull .launch-scene-camera {
+  transform: translateZ(100px) scale(1.05); /* The subtle pull inwards */
+  opacity: 1;
+  filter: blur(0px);
+}
+
+/* SCENE 05: DECEMBER 2026 */
+.launch-date-text {
+  position: absolute;
+  text-align: center;
+  font-family: var(--font-serif-display, 'Cinzel Decorative', 'Cinzel', serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  line-height: 1.4;
+  color: var(--gold-light, #EBD696);
+  background: linear-gradient(180deg, var(--gold-champagne, #F5ECCE) 0%, var(--gold-primary, #B8860B) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(10px) translateZ(50px);
+  transition: opacity 1.5s ease, transform 2s ease, filter 1s ease;
+  filter: blur(2px);
+}
+
+.phase-date .launch-date-text {
+  opacity: 1;
+  transform: translateY(0) translateZ(50px);
+  filter: blur(0px);
+}
+
+/* SCENE 06: SHRI MOKSHAM transitions */
+/* We fade out the date when brand appears */
+.phase-brand .launch-date-text {
+  opacity: 0;
+  transform: translateY(-10px) translateZ(50px);
+  filter: blur(4px);
+  transition: opacity 1s ease, transform 1.5s ease, filter 1s ease;
+}
+
+.launch-brand-group {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;
+  transform: translateY(10px) translateZ(80px);
+  transition: opacity 1.5s ease, transform 2s ease, filter 1.5s ease;
+  filter: blur(4px);
+}
+
+.phase-brand .launch-brand-group {
+  opacity: 1;
+  transform: translateY(0) translateZ(80px);
+  filter: blur(0px);
+}
+
+.launch-brand-title {
+  font-family: var(--font-serif-display, 'Cinzel Decorative', 'Cinzel', serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--bg-main, #EAE1D2);
+  text-shadow: 0 4px 20px rgba(184, 134, 11, 0.4);
+}
+
+.launch-brand-subtitle {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--gold-rich, #C59E3F);
+  text-transform: uppercase;
+}
+
+/* SCENE 07: SILENCE */
+.phase-silence .launch-atmosphere {
+  opacity: 0; /* Plunge back into darkness */
+  transition: opacity 0.5s ease;
+}
+
+.phase-silence .launch-scene-camera {
+  transform: translateZ(150px) scale(1.1);
+  transition: transform 1s ease;
+}
+
+/* SCENE 08: TRANSITION */
+/* The final dissolve handled by JS directly targeting the overlay opacity */
+.cinematic-launch-overlay.is-finished {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .launch-date-text { font-size: 1.5rem; }
+  .launch-brand-title { font-size: 1.8rem; letter-spacing: 0.1em; }
+  .launch-brand-subtitle { font-size: 0.6rem; letter-spacing: 0.2em; }
+}
