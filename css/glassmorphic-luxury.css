@@ -715,29 +715,35 @@
   width: 96%;
   max-width: 96vw;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
   border-radius: 32px;
-  padding: 3.2rem;
+  padding: 3rem 2.8rem;
   box-shadow: 0 28px 70px rgba(24, 34, 47, 0.08), inset 0 1px 2px #FFFFFF;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3rem;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 2.8rem;
   align-items: center;
+}
+
+.heritage-content-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .heritage-brand-display {
   display: flex;
   align-items: center;
-  gap: 1.4rem;
+  gap: 1.25rem;
   margin-bottom: 1.2rem;
 }
 
 .heritage-logo-frame {
-  width: 80px;
-  height: 80px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   border: 2px solid var(--gold-primary);
   overflow: hidden;
@@ -752,18 +758,106 @@
   object-fit: cover;
 }
 
+.heritage-title-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.heritage-main-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin: 0.2rem 0 0 0;
+}
+
+.heritage-lead-text {
+  font-size: 0.96rem;
+  color: var(--text-dark);
+  line-height: 1.75;
+  margin-bottom: 0.85rem;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+.heritage-sub-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 1.15rem;
+  text-wrap: pretty;
+}
+
+/* Sacred Triad Banner */
+.heritage-triad-banner {
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 14px;
+  padding: 0.85rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.heritage-triad-title {
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.heritage-triad-quote {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  margin: 0;
+  font-style: italic;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* Feature Chips */
+.heritage-feature-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.3rem;
+}
+
+.heritage-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 0.35rem 0.8rem;
+  border-radius: 24px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.heritage-chip:hover {
+  background: rgba(212, 175, 55, 0.16);
+  border-color: var(--gold-primary);
+}
+
+/* 3 Stat Boxes */
 .heritage-stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin: 1.8rem 0;
+  gap: 0.9rem;
+  margin: 1.4rem 0 1.6rem 0;
 }
 
 .heritage-stat-box {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid var(--border-gold-subtle);
   border-radius: 16px;
-  padding: 1rem;
+  padding: 0.9rem 0.6rem;
   text-align: center;
   box-shadow: 0 4px 16px rgba(24, 34, 47, 0.04);
 }
@@ -774,13 +868,195 @@
   font-weight: 700;
   color: var(--gold-dark);
   display: block;
+  line-height: 1.1;
 }
 
 .heritage-stat-label {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.heritage-cta-row {
+  margin-top: 0.4rem;
+}
+
+.btn-heritage-treatise {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+/* Right Action Card */
+.heritage-action-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid var(--border-gold);
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heritage-action-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.heritage-action-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.heritage-action-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+  text-wrap: pretty;
+}
+
+.heritage-action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.heritage-action-btns .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.86rem;
+}
+
+/* --------------------------------------------------------------------------
+   UPCOMING SEVA DROPS (LUXURY RESPONSIVE GRID)
+   -------------------------------------------------------------------------- */
+.seva-drops-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  width: 100%;
+}
+
+.seva-drop-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid var(--border-gold-subtle);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 16px 45px rgba(24, 34, 47, 0.06);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.seva-drop-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 24px 60px rgba(212, 175, 55, 0.22);
+}
+
+.seva-card-media {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #0D1622;
+}
+
+.seva-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.seva-drop-card:hover .seva-card-media img {
+  transform: scale(1.06);
+}
+
+.seva-card-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(7, 17, 30, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #F5ECCE;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  letter-spacing: 0.04em;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.seva-card-body {
+  padding: 1.5rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.seva-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 0.45rem 0;
+  line-height: 1.3;
+}
+
+.seva-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0 0 1.3rem 0;
+  flex: 1;
+  text-wrap: pretty;
+}
+
+.seva-card-footer {
+  margin-top: auto;
+}
+
+.btn-seva-whatsapp {
+  width: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.2rem !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease !important;
 }
 
 /* --------------------------------------------------------------------------
