@@ -154,8 +154,23 @@ button, a, input, select {
   /* The Journey of Shri Moksham */
   .heritage-review-card {
     grid-template-columns: 1fr;
-    gap: 2.2rem;
-    padding: 2.5rem 2rem;
+    gap: 1.5rem;
+    padding: 2rem 1.6rem;
+  }
+
+  .heritage-action-card {
+    display: none !important;
+  }
+
+  .btn-heritage-course-mobile,
+  .btn-heritage-whatsapp-mobile {
+    display: inline-flex !important;
+  }
+
+  .heritage-cta-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
   }
 
   /* Upcoming Seva Drops */
@@ -182,9 +197,9 @@ button, a, input, select {
     contain-intrinsic-size: none !important;
   }
 
-  /* Hero Section */
+  /* Hero Section: Snappy 125vh track for smooth mobile scrubbing without feeling trapped */
   .hero-scroll-track {
-    height: 185vh !important;
+    height: 125vh !important;
   }
 
   .hero-sticky-frame {
@@ -204,14 +219,14 @@ button, a, input, select {
   }
 
   .hero-brand-glass-badge {
-    padding: 0.85rem 1.4rem 0.8rem 1.4rem;
-    border-radius: 30px;
-    max-width: min(92vw, 360px);
+    padding: 0.75rem 1.2rem !important;
+    border-radius: 26px !important;
+    max-width: min(92vw, 340px) !important;
     margin: 0 auto;
   }
 
   .hero-minimal-brand-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem !important;
     letter-spacing: 0.12em;
   }
 
@@ -236,42 +251,117 @@ button, a, input, select {
     justify-content: center;
   }
 
-  /* Section Intros */
-  .section-intro h2,
-  .offerings-title {
-    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+  /* Universal Section Spacing & Anti-Gap Tightening on Mobile */
+  .section-spacing {
+    padding-top: 1.8rem !important;
+    padding-bottom: 1.8rem !important;
   }
 
-  .section-intro p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    padding: 0 0.5rem;
+  .grand-pathways-section {
+    padding: 2.2rem 0 1.8rem 0 !important;
   }
 
-  /* 4 Pathways */
+  .grand-pathways-container {
+    width: 95% !important;
+  }
+
+  .grand-pathways-121-grid {
+    gap: 1.1rem !important;
+    width: 100% !important;
+  }
+
   .grand-pathway-card {
-    min-height: 310px;
-    padding: 1.8rem 1.4rem;
-    border-radius: 20px;
+    min-height: auto !important;
+    padding: 1.4rem 1.15rem !important;
+    border-radius: 18px !important;
   }
 
   .grand-pathway-card.is-full-width {
-    min-height: 310px;
-    padding: 1.8rem 1.4rem;
+    min-height: auto !important;
+    padding: 1.4rem 1.15rem !important;
   }
 
   .grand-pathway-title {
-    font-size: 1.22rem;
+    font-size: 1.18rem !important;
+    margin-bottom: 0.35rem !important;
   }
 
   .grand-pathway-desc {
-    font-size: 0.84rem;
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.85rem !important;
   }
 
   .btn-grand-pathway {
     width: 100%;
     min-width: 0;
     justify-content: center;
+  }
+
+  .what-we-offer-section {
+    padding: 2.2rem 0 1.8rem 0 !important;
+  }
+
+  .offerings-header {
+    margin-bottom: 1.3rem !important;
+  }
+
+  .offerings-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem) !important;
+  }
+
+  .offerings-4grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+    margin-bottom: 1.4rem !important;
+  }
+
+  .offering-card {
+    padding: 1.3rem 0.85rem 1.1rem 0.85rem !important;
+    border-radius: 16px !important;
+  }
+
+  .offering-card:nth-child(5) {
+    grid-column: span 2 !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .offering-icon-circle {
+    width: 44px !important;
+    height: 44px !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .offering-card-title {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .offering-card-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.48 !important;
+    margin-bottom: 0.7rem !important;
+  }
+
+  .master-stats-strip {
+    padding: 2.2rem 0 !important;
+  }
+
+  .site-footer {
+    padding: 2.5rem 0 1.5rem 0 !important;
+  }
+
+  /* Section Intros */
+  .section-intro h2 {
+    font-size: clamp(1.5rem, 5vw, 1.9rem);
+  }
+
+  .section-intro p {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    padding: 0 0.5rem;
   }
 
   /* 9 Grahas Explorer */
@@ -406,109 +496,142 @@ button, a, input, select {
     border-radius: 20px !important;
   }
 
-  /* The Journey of Shri Moksham */
+  /* The Journey of Shri Moksham — Ultra-Compact & Gorgeous Mobile Card */
   .heritage-review-card {
     grid-template-columns: 1fr !important;
-    padding: 1.6rem 1.15rem !important;
-    border-radius: 22px !important;
-    gap: 1.6rem !important;
+    padding: 1.4rem 1.1rem !important;
+    border-radius: 20px !important;
+    gap: 0 !important;
+    box-shadow: 0 12px 36px rgba(212, 175, 55, 0.16) !important;
+  }
+
+  /* Completely hide the redundant second inner action card on mobile */
+  .heritage-action-card {
+    display: none !important;
   }
 
   .heritage-brand-display {
-    gap: 0.9rem !important;
-    align-items: flex-start !important;
-    margin-bottom: 1rem !important;
+    gap: 0.85rem !important;
+    align-items: center !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .heritage-logo-frame {
-    width: 56px !important;
-    height: 56px !important;
+    width: 50px !important;
+    height: 50px !important;
     flex-shrink: 0 !important;
   }
 
   .heritage-main-title {
-    font-size: clamp(1.3rem, 5vw, 1.65rem) !important;
+    font-size: clamp(1.22rem, 4.8vw, 1.55rem) !important;
     line-height: 1.25 !important;
   }
 
   .heritage-lead-text {
-    font-size: 0.9rem !important;
-    line-height: 1.65 !important;
-    margin-bottom: 0.8rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 0.55rem !important;
   }
 
   .heritage-sub-text {
-    font-size: 0.86rem !important;
-    line-height: 1.6 !important;
-    margin-bottom: 1rem !important;
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .heritage-triad-banner {
-    padding: 0.75rem 0.95rem !important;
+    padding: 0.65rem 0.85rem !important;
     border-radius: 12px !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .heritage-triad-title {
-    font-size: 0.76rem !important;
+    font-size: 0.72rem !important;
+    margin-bottom: 0.12rem !important;
   }
 
   .heritage-triad-quote {
-    font-size: 0.82rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.8rem !important;
+    line-height: 1.45 !important;
   }
 
   .heritage-feature-chips {
-    gap: 0.4rem !important;
-    margin-bottom: 1.1rem !important;
+    gap: 0.35rem !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .heritage-chip {
-    font-size: 0.74rem !important;
-    padding: 0.3rem 0.65rem !important;
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.6rem !important;
   }
 
   .heritage-stats-grid {
     grid-template-columns: repeat(3, 1fr) !important;
-    gap: 0.45rem !important;
-    margin: 1.1rem 0 1.3rem 0 !important;
+    gap: 0.4rem !important;
+    margin: 0.75rem 0 0.95rem 0 !important;
   }
 
   .heritage-stat-box {
-    padding: 0.7rem 0.3rem !important;
+    padding: 0.6rem 0.2rem !important;
     border-radius: 12px !important;
   }
 
   .heritage-stat-num {
     font-size: 1.15rem !important;
+    line-height: 1.1 !important;
   }
 
   .heritage-stat-label {
-    font-size: 0.62rem !important;
+    font-size: 0.58rem !important;
     letter-spacing: 0.04em !important;
-    margin-top: 0.2rem !important;
+    margin-top: 0.15rem !important;
+  }
+
+  /* Unified mobile CTA row */
+  .heritage-cta-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    margin-top: 0.6rem !important;
+  }
+
+  .btn-heritage-course-mobile {
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.84rem !important;
+    padding: 0.72rem 1rem !important;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35) !important;
+  }
+
+  .btn-heritage-whatsapp-mobile {
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    font-size: 0.84rem !important;
+    padding: 0.72rem 1rem !important;
+    background: #25D366 !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
   }
 
   .btn-heritage-treatise {
+    display: inline-flex !important;
     width: 100% !important;
     justify-content: center !important;
     font-size: 0.82rem !important;
-    padding: 0.75rem 1rem !important;
+    padding: 0.68rem 1rem !important;
     text-align: center !important;
+    background: transparent !important;
+    border: 1.5px solid var(--gold-primary) !important;
+    color: var(--text-dark) !important;
+    box-shadow: none !important;
   }
 
-  .heritage-action-card {
-    padding: 1.5rem 1.15rem !important;
-    border-radius: 20px !important;
-  }
-
-  .heritage-action-title {
-    font-size: 1.15rem !important;
-  }
-
-  .heritage-action-desc {
-    font-size: 0.84rem !important;
-    margin-bottom: 1.1rem !important;
+  /* iOS input auto-zoom prevention */
+  input, select, textarea, .kundli-input-field, .stay-inspired-input {
+    font-size: 16px !important;
   }
 
   /* Upcoming Seva Drops */
@@ -596,10 +719,19 @@ button, a, input, select {
     padding: 0.8rem 0.6rem;
   }
 
-  /* 4-Way Offerings */
+  /* 4-Way Offerings: 2 cols down to 420px, then 1 col below */
   .offerings-4grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 420px) {
+    .offerings-4grid {
+      grid-template-columns: 1fr;
+    }
+    .offering-card:nth-child(5) {
+      grid-column: auto !important;
+    }
   }
 
   .offering-card {
