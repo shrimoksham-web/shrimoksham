@@ -15,8 +15,8 @@
     let height = canvas.clientHeight || 380;
 
     function resize() {
-      width = canvas.parentElement.clientWidth;
-      height = 380;
+      width = canvas.parentElement.clientWidth || 320;
+      height = canvas.parentElement.clientHeight || 200;
       canvas.width = width * window.devicePixelRatio;
       canvas.height = height * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
@@ -82,9 +82,9 @@
 
     // Particles
     const particles = Array.from({ length: 40 }, () => ({
-      x: (Math.random() - 0.5) * 240,
-      y: (Math.random() - 0.5) * 240,
-      z: (Math.random() - 0.5) * 240,
+      x: (Math.random() - 0.5) * 200,
+      y: (Math.random() - 0.5) * 200,
+      z: (Math.random() - 0.5) * 200,
       radius: Math.random() * 2 + 1,
       speed: Math.random() * 0.02 + 0.01
     }));
@@ -97,12 +97,13 @@
       ctx.clearRect(0, 0, width, height);
       const cx = width / 2;
       const cy = height / 2;
+      const geomScale = Math.min(width / 320, height / 200, 0.95);
 
       // Draw Outer Golden Halo Ring
       ctx.save();
       ctx.translate(cx, cy);
 
-      const rad = 140;
+      const rad = 86 * geomScale;
       ctx.beginPath();
       ctx.arc(0, 0, rad, 0, Math.PI * 2);
       ctx.strokeStyle = 'rgba(212, 175, 55, 0.4)';
@@ -114,8 +115,8 @@
         const theta = (i * Math.PI / 6) + angleY;
         const x1 = Math.cos(theta) * rad;
         const y1 = Math.sin(theta) * rad;
-        const x2 = Math.cos(theta) * (rad - 8);
-        const y2 = Math.sin(theta) * (rad - 8);
+        const x2 = Math.cos(theta) * (rad - 6 * geomScale);
+        const y2 = Math.sin(theta) * (rad - 6 * geomScale);
 
         ctx.beginPath();
         ctx.moveTo(x1, y1);
@@ -131,14 +132,14 @@
         const rotY = Math.sin(angleY);
 
         ctx.strokeStyle = t.color;
-        ctx.lineWidth = 1.6;
+        ctx.lineWidth = 1.5;
         ctx.shadowColor = 'rgba(212, 175, 55, 0.5)';
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 6;
 
         const h = t.base * 0.86;
-        const topY = t.up ? t.yOffset - h * rotX : t.yOffset + h * rotX;
-        const botY = t.up ? t.yOffset + h * 0.5 * rotX : t.yOffset - h * 0.5 * rotX;
-        const halfB = (t.base / 2) * Math.cos(angleY * 0.5);
+        const topY = (t.up ? t.yOffset - h * rotX : t.yOffset + h * rotX) * geomScale * 0.72;
+        const botY = (t.up ? t.yOffset + h * 0.5 * rotX : t.yOffset - h * 0.5 * rotX) * geomScale * 0.72;
+        const halfB = (t.base / 2) * Math.cos(angleY * 0.5) * geomScale * 0.72;
 
         ctx.beginPath();
         ctx.moveTo(0, topY);
@@ -154,24 +155,25 @@
         p.y += Math.sin(angleY) * 0.5;
         const cosY = Math.cos(angleY);
         const sinY = Math.sin(angleY);
-        const px = p.x * cosY - p.z * sinY;
-        const pz = p.x * sinY + p.z * cosY;
+        const px = (p.x * cosY - p.z * sinY) * geomScale * 0.75;
+        const pz = (p.x * sinY + p.z * cosY) * geomScale * 0.75;
 
         const scaleFactor = 300 / (300 + pz);
         const finalX = px * scaleFactor;
-        const finalY = p.y * scaleFactor;
+        const finalY = p.y * scaleFactor * geomScale * 0.75;
 
         ctx.beginPath();
-        ctx.arc(finalX, finalY, p.radius * scaleFactor, 0, Math.PI * 2);
+        ctx.arc(finalX, finalY, Math.max(0.8, p.radius * scaleFactor * geomScale), 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(212, 175, 55, 0.7)';
         ctx.fill();
       });
 
       // Bindu (Central Point of Singularity)
       ctx.beginPath();
-      ctx.arc(0, 0, 4, 0, Math.PI * 2);
+      ctx.arc(0, 0, 3.5 * geomScale, 0, Math.PI * 2);
       ctx.fillStyle = '#D4AF37';
       ctx.shadowColor = '#FFFFFF';
+      ctx.fill();
       ctx.restore();
       if (isVisible) {
         animId = requestAnimationFrame(render);

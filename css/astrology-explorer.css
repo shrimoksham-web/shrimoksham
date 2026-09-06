@@ -303,6 +303,690 @@
   font-size: 0.72rem !important;
 }
 
+/* --------------------------------------------------------------------------
+   5. Lunar Essay / Blog Button (Ultra-Luxury Radiant Button)
+   -------------------------------------------------------------------------- */
+.btn-blog-lunar {
+  background: linear-gradient(135deg, #18222F 0%, #2A3B4C 50%, #151D28 100%) !important;
+  color: #FBF7EE !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.75) !important;
+  box-shadow: 0 4px 20px rgba(24, 34, 47, 0.25), 0 0 16px rgba(212, 175, 55, 0.3) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-lunar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.22) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-lunar:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #D4AF37 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45), 0 0 24px rgba(212, 175, 55, 0.5) !important;
+}
+
+.btn-blog-lunar:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   6. Solar Essay / Blog Button (Ultra-Luxury Radiant Gold Button)
+   -------------------------------------------------------------------------- */
+.btn-blog-solar {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #EBD696 100%) !important;
+  color: #0E1622 !important;
+  border: 1.5px solid rgba(255, 235, 160, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(184, 134, 11, 0.35), 0 0 16px rgba(212, 175, 55, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-solar::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-solar:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #FFFFFF !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6), 0 0 26px rgba(255, 215, 0, 0.7) !important;
+}
+
+.btn-blog-solar:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   7. Jupiter Essay / Blog Button (Ultra-Luxury Radiant Saffron-Amber Gold Button)
+   -------------------------------------------------------------------------- */
+.btn-blog-jupiter {
+  background: linear-gradient(135deg, #D48806 0%, #F5A623 50%, #FFD666 100%) !important;
+  color: #1A1305 !important;
+  border: 1.5px solid rgba(255, 241, 184, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(212, 136, 6, 0.35), 0 0 16px rgba(245, 166, 35, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-jupiter::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-jupiter:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #FFFFFF !important;
+  color: #000000 !important;
+  box-shadow: 0 8px 30px rgba(212, 136, 6, 0.6), 0 0 26px rgba(255, 214, 102, 0.7) !important;
+}
+
+.btn-blog-jupiter:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   8. Venus Essay / Blog Button (Ultra-Luxury Diamond & Rose Gold)
+   -------------------------------------------------------------------------- */
+.btn-blog-venus {
+  background: linear-gradient(135deg, #B5838D 0%, #E5989B 50%, #FFB4A2 100%) !important;
+  color: #2B151E !important;
+  border: 1.5px solid rgba(255, 235, 238, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(181, 131, 141, 0.35), 0 0 16px rgba(229, 152, 155, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-venus::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-venus:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #FFFFFF !important;
+  color: #1A0A10 !important;
+  box-shadow: 0 8px 30px rgba(181, 131, 141, 0.6), 0 0 26px rgba(255, 180, 162, 0.7) !important;
+}
+
+.btn-blog-venus:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. Mercury Essay / Blog Button (Ultra-Luxury Emerald & Mint Gold)
+   -------------------------------------------------------------------------- */
+.btn-blog-mercury {
+  background: linear-gradient(135deg, #134E5E 0%, #2A9D8F 50%, #71B280 100%) !important;
+  color: #F8FCF9 !important;
+  border: 1.5px solid rgba(200, 240, 220, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(19, 78, 94, 0.35), 0 0 16px rgba(42, 157, 143, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-mercury::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-mercury:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #D4AF37 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(42, 157, 143, 0.6), 0 0 26px rgba(113, 178, 128, 0.7) !important;
+}
+
+.btn-blog-mercury:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   10. Mars Essay / Blog Button (Ultra-Luxury Crimson & Coral Gold)
+   -------------------------------------------------------------------------- */
+.btn-blog-mars {
+  background: linear-gradient(135deg, #8B0000 0%, #C0392B 50%, #E67E22 100%) !important;
+  color: #FFF8F5 !important;
+  border: 1.5px solid rgba(255, 215, 180, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(139, 0, 0, 0.4), 0 0 16px rgba(192, 57, 43, 0.45) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-mars::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-mars:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #FFD700 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(192, 57, 43, 0.7), 0 0 26px rgba(255, 215, 0, 0.6) !important;
+}
+
+.btn-blog-mars:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   11. Saturn Essay / Blog Button (Ultra-Luxury Deep Obsidian & Midnight Gold)
+   -------------------------------------------------------------------------- */
+.btn-blog-saturn {
+  background: linear-gradient(135deg, #0B132B 0%, #1C2541 50%, #3A506B 100%) !important;
+  color: #EDF2F4 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.8) !important;
+  box-shadow: 0 4px 20px rgba(11, 19, 43, 0.5), 0 0 16px rgba(212, 175, 55, 0.35) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-saturn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-saturn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #D4AF37 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(11, 19, 43, 0.8), 0 0 26px rgba(212, 175, 55, 0.6) !important;
+}
+
+.btn-blog-saturn:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   12. Rahu Essay / Blog Button (Ultra-Luxury Shadow Nebula / Mystic Velvet)
+   -------------------------------------------------------------------------- */
+.btn-blog-rahu {
+  background: linear-gradient(135deg, #240046 0%, #3C096C 50%, #5A189A 100%) !important;
+  color: #F8F0FC !important;
+  border: 1.5px solid rgba(224, 170, 255, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(36, 0, 70, 0.45), 0 0 16px rgba(123, 44, 191, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-rahu::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-rahu:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #E0AAFF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(60, 9, 108, 0.7), 0 0 26px rgba(157, 78, 221, 0.7) !important;
+}
+
+.btn-blog-rahu:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   13. Ketu Essay / Blog Button (Ultra-Luxury Ascetic Ochre & Saffron Flame)
+   -------------------------------------------------------------------------- */
+.btn-blog-ketu {
+  background: linear-gradient(135deg, #5C2C16 0%, #8B4513 50%, #C36A2D 100%) !important;
+  color: #FFFDF9 !important;
+  border: 1.5px solid rgba(245, 208, 97, 0.85) !important;
+  box-shadow: 0 4px 20px rgba(92, 44, 22, 0.4), 0 0 16px rgba(195, 106, 45, 0.4) !important;
+  font-family: var(--font-serif-heading);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-blog-ketu::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.btn-blog-ketu:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: #F5D061 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 30px rgba(139, 69, 19, 0.7), 0 0 26px rgba(245, 208, 97, 0.65) !important;
+}
+
+.btn-blog-ketu:hover::before {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   14. Sacred Treatises Section & Horizontal Swipe Carousel
+   -------------------------------------------------------------------------- */
+.sacred-treatises-container {
+  width: 96%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.treatises-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.treatises-swipe-track {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0.8rem 0.4rem 1.6rem 0.4rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.45) rgba(24, 34, 47, 0.04);
+}
+
+.treatises-swipe-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.treatises-swipe-track::-webkit-scrollbar-track {
+  background: rgba(24, 34, 47, 0.04);
+  border-radius: 10px;
+}
+
+.treatises-swipe-track::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #D4AF37, #F5D061, #8C6615);
+  border-radius: 10px;
+}
+
+.treatise-card {
+  flex: 0 0 340px;
+  width: 340px;
+  max-width: 350px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 1.6rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 32px rgba(24, 34, 47, 0.05), inset 0 1px 2px #FFFFFF;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  user-select: none;
+}
+
+.treatise-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 18px 48px rgba(212, 175, 55, 0.28), inset 0 1px 2px #FFFFFF;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.treatise-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.treatise-symbol-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.04) 100%);
+  border: 1.2px solid rgba(212, 175, 55, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  color: var(--gold-dark);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+}
+
+.treatise-symbol-badge img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.treatise-read-time {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(24, 34, 47, 0.04);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+}
+
+.treatise-category-tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin-bottom: 0.4rem;
+}
+
+.treatise-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+
+.treatise-excerpt {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+  flex-grow: 1;
+}
+
+.treatise-quote-snip {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--gold-dark);
+  border-left: 2px solid var(--gold-primary);
+  padding-left: 0.65rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.45;
+}
+
+.treatise-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.78rem 1.2rem;
+  border-radius: 12px;
+  font-family: var(--font-serif-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Button Variants */
+.btn-treatise-stotram {
+  background: linear-gradient(135deg, #18222F 0%, #2B3A4A 100%);
+  color: #F8F5EC !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.75);
+  box-shadow: 0 4px 14px rgba(24, 34, 47, 0.2);
+}
+.btn-treatise-stotram:hover {
+  background: linear-gradient(135deg, #2B3A4A 0%, #18222F 100%);
+  border-color: #D4AF37;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 22px rgba(212, 175, 55, 0.4);
+}
+
+.btn-treatise-vishnu {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #F5D061 100%);
+  color: #121820 !important;
+  border: 1.5px solid rgba(255, 235, 160, 0.9);
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.3);
+}
+.btn-treatise-vishnu:hover {
+  border-color: #FFFFFF;
+  color: #000000 !important;
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.6);
+}
+
+.btn-treatise-charity {
+  background: linear-gradient(135deg, #1B4332 0%, #2D6A4F 50%, #52B788 100%);
+  color: #F4FBF7 !important;
+  border: 1.5px solid rgba(180, 240, 200, 0.8);
+  box-shadow: 0 4px 14px rgba(27, 67, 50, 0.3);
+}
+.btn-treatise-charity:hover {
+  border-color: #D4AF37;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(45, 106, 79, 0.6);
+}
+
+.btn-treatise-advaita {
+  background: linear-gradient(135deg, #3C096C 0%, #5A189A 50%, #7B2CBF 100%);
+  color: #FAF5FF !important;
+  border: 1.5px solid rgba(220, 180, 255, 0.8);
+  box-shadow: 0 4px 14px rgba(60, 9, 108, 0.35);
+}
+.btn-treatise-advaita:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(123, 44, 191, 0.6);
+}
+
+.btn-treatise-remedy {
+  background: linear-gradient(135deg, #8B4513 0%, #C36A2D 50%, #E07A5F 100%);
+  color: #FFFDF9 !important;
+  border: 1.5px solid rgba(255, 215, 170, 0.85);
+  box-shadow: 0 4px 14px rgba(139, 69, 19, 0.35);
+}
+.btn-treatise-remedy:hover {
+  border-color: #FFD700;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(195, 106, 45, 0.6);
+}
+
+.btn-treatise-godswill {
+  background: linear-gradient(135deg, #0A4D68 0%, #088395 50%, #05BFDB 100%);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(200, 245, 255, 0.9);
+  box-shadow: 0 4px 14px rgba(10, 77, 104, 0.35);
+}
+.btn-treatise-godswill:hover {
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(5, 191, 219, 0.6);
+}
+
+.btn-treatise-atmabodh {
+  background: linear-gradient(135deg, #78350F 0%, #B45309 50%, #D97706 100%);
+  color: #FFFDF9 !important;
+  border: 1.5px solid rgba(254, 243, 199, 0.85);
+  box-shadow: 0 4px 14px rgba(120, 53, 15, 0.3);
+}
+.btn-treatise-atmabodh:hover {
+  background: linear-gradient(135deg, #B45309 0%, #D97706 50%, #F59E0B 100%);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.55);
+}
+
+.btn-treatise-mind {
+  background: linear-gradient(135deg, #1E1B4B 0%, #312E81 50%, #4338CA 100%);
+  color: #EEF2FF !important;
+  border: 1.5px solid rgba(224, 231, 255, 0.85);
+  box-shadow: 0 4px 14px rgba(30, 27, 75, 0.35);
+}
+.btn-treatise-mind:hover {
+  background: linear-gradient(135deg, #312E81 0%, #4338CA 50%, #6366F1 100%);
+  border-color: #FFFFFF;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.55);
+}
+
+/* Swipe Controls & Navigation Header Bar */
+.treatise-swipe-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  padding: 0 0.5rem;
+}
+
+.treatise-swipe-hint {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.treatise-swipe-buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn-treatise-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  color: var(--gold-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(24, 34, 47, 0.06);
+  transition: all 0.25s ease;
+}
+
+.btn-treatise-arrow:hover {
+  background: #FFFFFF;
+  border-color: var(--gold-primary);
+  color: var(--text-dark);
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
 /* Responsive */
 @media (max-width: 990px) {
   .grahas-grid-stage {
@@ -312,4 +996,62 @@
     grid-template-columns: 1fr;
     padding: 1.4rem;
   }
+  .treatise-card {
+    flex: 0 0 300px;
+    width: 300px;
+    padding: 1.3rem 1.1rem;
+  }
 }
+
+@media (max-width: 680px) {
+  .grahas-grid-stage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  .graha-cell-card {
+    padding: 0.75rem 0.4rem;
+  }
+  .graha-detail-lens-card {
+    padding: 1.2rem 1rem;
+    border-radius: 16px;
+    gap: 1rem;
+  }
+  .treatise-card {
+    flex: 0 0 min(285px, 82vw);
+    width: min(285px, 82vw);
+    padding: 1.3rem 1rem;
+  }
+  .curriculum-module-card {
+    padding: 0.8rem 1rem;
+  }
+  .module-title-text {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .grahas-grid-stage {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.35rem;
+  }
+  .graha-cell-card {
+    padding: 0.6rem 0.25rem;
+  }
+  .graha-symbol {
+    font-size: 1.1rem;
+  }
+  .graha-name-en {
+    font-size: 0.66rem;
+  }
+  .graha-name-sa {
+    font-size: 0.58rem;
+  }
+  .treatise-card {
+    flex: 0 0 85vw;
+    width: 85vw;
+  }
+}
+
+
+
+

@@ -129,6 +129,32 @@
         osc3.stop(now + duration);
         noiseSource.stop(now + duration);
 
+      } else if (phase === 'hold') {
+        // "HOLD..." (Stillness / Retention): 432Hz Om drone + peaceful serene silence
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(432, now);
+
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(216, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.12, now + 0.3);
+        gain.gain.setValueAtTime(0.12, now + duration - 0.4);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + duration);
+        osc2.stop(now + duration);
+
       } else {
         // "HAM..." (Exhale): Grounding 216Hz -> 108Hz with settling Om hum
         const osc1 = ctx.createOscillator();
@@ -503,8 +529,21 @@
           synthGain.connect(ctx.destination);
         }
 
-        const freq = phase === 'so' ? 272 : 204;
+        let freq = 272;
+        if (phase === 'hold') {
+          freq = 432;
+        } else if (phase === 'ham') {
+          freq = 204;
+        }
         const now = ctx.currentTime;
+
+        if (synthGain) {
+          if (phase === 'hold') {
+            synthGain.gain.setValueAtTime(0.08, now);
+          } else {
+            synthGain.gain.setValueAtTime(0.24, now);
+          }
+        }
 
         if (synthOsc1) {
           synthOsc1.frequency.setValueAtTime(freq, now);
@@ -549,20 +588,33 @@
       if (!isPacing) return;
 
       const curTime = (sohamAudio && !isSynthRunning) ? (sohamAudio.currentTime || 0) : 0;
-      // Exact boundary matching for soham new voice.mp3:
-      // 0.0s - 10.7s: Tone 1 (SOOOO... Inhalation & Cosmic expansion)
-      // 10.7s - 19.58s: Tone 2 (HAAMM... Exhalation & Sacred Stillness)
-      if (curTime < 10.7) {
-        if (label.textContent !== 'SOOOO...') {
-          label.textContent = 'SOOOO...';
+      // Exact boundary matching for soham new voice.mp3 (Total: 19.58s):
+      // 0.0s - 4.0s: Phase 1 (SOOO... Inhalation & Cosmic expansion)
+      // 4.0s - 10.8s: Phase 2 (HOLD... Breath retention & Silent stillness)
+      // 10.8s - 19.58s: Phase 3 (HAM... Exhalation & Deep surrender)
+      if (curTime < 4.0) {
+        if (label.textContent !== 'SOOO...') {
+          label.textContent = 'SOOO...';
           if (subLabel) subLabel.textContent = 'Inhale • Universal Self';
-          sphere.style.transform = 'scale(1.38)';
+          sphere.style.transition = 'transform 3.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 3.8s ease';
+          sphere.style.transform = 'scale(1.42)';
+          sphere.style.boxShadow = '0 0 45px rgba(212, 175, 55, 0.8), 0 0 80px rgba(245, 208, 97, 0.5)';
+        }
+      } else if (curTime < 10.8) {
+        if (label.textContent !== 'HOLD...') {
+          label.textContent = 'HOLD...';
+          if (subLabel) subLabel.textContent = 'Hold • Silent Witness';
+          sphere.style.transition = 'transform 0.6s ease, box-shadow 0.6s ease';
+          sphere.style.transform = 'scale(1.42)';
+          sphere.style.boxShadow = '0 0 60px rgba(245, 208, 97, 1.0), 0 0 100px rgba(212, 175, 55, 0.7)';
         }
       } else {
-        if (label.textContent !== 'HAAMM...') {
-          label.textContent = 'HAAMM...';
+        if (label.textContent !== 'HAM...') {
+          label.textContent = 'HAM...';
           if (subLabel) subLabel.textContent = 'Exhale • Deep Surrender';
+          sphere.style.transition = 'transform 8.0s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 8.0s ease';
           sphere.style.transform = 'scale(1.0)';
+          sphere.style.boxShadow = '0 8px 32px rgba(212, 175, 55, 0.4)';
         }
       }
 
@@ -574,25 +626,41 @@
       function cycleFallback() {
         if (!isPacing) return;
 
-        // Phase 1: SOOOO (10.7s)
-        label.textContent = 'SOOOO...';
+        // Phase 1: SOOO (0.0s - 4.0s = 4.0s)
+        label.textContent = 'SOOO...';
         if (subLabel) subLabel.textContent = 'Inhale • Universal Self';
-        sphere.style.transform = 'scale(1.38)';
+        sphere.style.transition = 'transform 3.8s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 3.8s ease';
+        sphere.style.transform = 'scale(1.42)';
+        sphere.style.boxShadow = '0 0 45px rgba(212, 175, 55, 0.8), 0 0 80px rgba(245, 208, 97, 0.5)';
         startSynthFallback('so');
 
         fallbackTimer = setTimeout(() => {
           if (!isPacing) return;
 
-          // Phase 2: HAAMM (8.8s)
-          label.textContent = 'HAAMM...';
-          if (subLabel) subLabel.textContent = 'Exhale • Deep Surrender';
-          sphere.style.transform = 'scale(1.0)';
-          startSynthFallback('ham');
+          // Phase 2: HOLD (4.0s - 10.8s = 6.8s)
+          label.textContent = 'HOLD...';
+          if (subLabel) subLabel.textContent = 'Hold • Silent Witness';
+          sphere.style.transition = 'transform 0.6s ease, box-shadow 0.6s ease';
+          sphere.style.transform = 'scale(1.42)';
+          sphere.style.boxShadow = '0 0 60px rgba(245, 208, 97, 1.0), 0 0 100px rgba(212, 175, 55, 0.7)';
+          startSynthFallback('hold');
 
           fallbackTimer = setTimeout(() => {
-            if (isPacing) cycleFallback();
-          }, 8800);
-        }, 10700);
+            if (!isPacing) return;
+
+            // Phase 3: HAM (10.8s - 19.58s = 8.78s)
+            label.textContent = 'HAM...';
+            if (subLabel) subLabel.textContent = 'Exhale • Deep Surrender';
+            sphere.style.transition = 'transform 8.0s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 8.0s ease';
+            sphere.style.transform = 'scale(1.0)';
+            sphere.style.boxShadow = '0 8px 32px rgba(212, 175, 55, 0.4)';
+            startSynthFallback('ham');
+
+            fallbackTimer = setTimeout(() => {
+              if (isPacing) cycleFallback();
+            }, 8780);
+          }, 6800);
+        }, 4000);
       }
       cycleFallback();
     }
@@ -651,8 +719,47 @@
         toggleBtn.textContent = 'Begin Soham Meditation ➔';
         label.textContent = 'SO-HAM';
         if (subLabel) subLabel.textContent = 'Ajapa Japa';
+        sphere.style.transition = 'transform 1s ease, box-shadow 1s ease';
         sphere.style.transform = 'scale(1.0)';
+        sphere.style.boxShadow = '0 8px 32px rgba(212, 175, 55, 0.4)';
         stopAudio();
+      }
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     4. Floating Soham Meditation Launcher & Sanctuary Pod Controller
+     -------------------------------------------------------------------------- */
+  function initFloatingSohamWidget() {
+    const launcher = document.getElementById('floatingSohamLauncher');
+    const pod = document.getElementById('floatingSohamPod');
+    const closeBtn = document.getElementById('closeSohamPodBtn');
+
+    if (!launcher || !pod) return;
+
+    launcher.addEventListener('click', (e) => {
+      e.stopPropagation();
+      pod.classList.toggle('is-open');
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        pod.classList.remove('is-open');
+      });
+    }
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (pod.classList.contains('is-open') && !pod.contains(e.target) && !launcher.contains(e.target)) {
+        pod.classList.remove('is-open');
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && pod.classList.contains('is-open')) {
+        pod.classList.remove('is-open');
       }
     });
   }
@@ -681,6 +788,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     initCrystalChakraSuite();
     initLotusBreathVisualizer();
+    initFloatingSohamWidget();
     initThreeDotDrawer();
   });
 })();

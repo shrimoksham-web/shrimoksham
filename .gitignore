@@ -1,5 +1,6 @@
 # Scratch and temporary directories
 scratch/
+scratch_*
 *.log
 *.tmp
 *.pyc

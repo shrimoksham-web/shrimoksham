@@ -73,6 +73,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-main);
   color: var(--text-main);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -82,6 +86,8 @@ body {
   line-height: 1.8;
   overflow-x: hidden;
   position: relative;
+  width: 100%;
+  max-width: 100%;
   background-image: 
     radial-gradient(circle at 50% 0%, rgba(245, 236, 206, 0.5) 0%, transparent 60%),
     radial-gradient(circle at 100% 40%, rgba(213, 227, 236, 0.35) 0%, transparent 50%),
@@ -92,6 +98,9 @@ main {
   margin: 0 !important;
   padding: 0 !important;
   display: block;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* --------------------------------------------------------------------------
@@ -100,6 +109,14 @@ main {
 section:not(.hero-scroll-track) {
   content-visibility: auto;
   contain-intrinsic-size: 800px;
+}
+
+@media (max-width: 768px) {
+  /* Eliminate layout jumps on mobile browsers during dynamic scroll recalculation */
+  section:not(.hero-scroll-track) {
+    content-visibility: visible !important;
+    contain-intrinsic-size: none !important;
+  }
 }
 
 .hero-sticky-frame,

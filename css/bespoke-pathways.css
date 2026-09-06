@@ -64,13 +64,20 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. 4 Cards Horizontal Grid
+   2. 5 Cards Horizontal Grid (Guidance for Every Step of Your Journey)
    -------------------------------------------------------------------------- */
 .offerings-4grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
   margin-bottom: 3.5rem;
+}
+
+@media (max-width: 1280px) {
+  .offerings-4grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
 }
 
 .offering-card {
@@ -783,9 +790,17 @@
    7. Responsive Breakpoints
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
+  .grand-pathways-121-grid,
   .grand-pathways-4grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.4rem;
+  }
+  .grand-pathway-card.is-full-width {
+    min-height: 340px;
+    padding: 2rem 1.8rem;
+  }
+  .grand-pathway-card.is-half-width {
+    min-height: 360px;
   }
   .offerings-4grid {
     grid-template-columns: repeat(2, 1fr);
@@ -802,15 +817,46 @@
 }
 
 @media (max-width: 600px) {
+  .grand-pathways-121-grid,
   .grand-pathways-4grid {
     grid-template-columns: 1fr;
+    gap: 1.1rem;
+    width: 96%;
+  }
+  .grand-pathway-card {
+    min-height: 300px;
+    padding: 1.6rem 1.2rem 1.4rem 1.2rem;
+    border-radius: 20px;
+  }
+  .grand-pathway-card.is-full-width {
+    min-height: 300px;
+    padding: 1.6rem 1.2rem 1.4rem 1.2rem;
+  }
+  .grand-pathway-card.is-full-width .btn-grand-pathway,
+  .btn-grand-pathway {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+  }
+  .grand-pathway-title {
+    font-size: 1.15rem;
+  }
+  .grand-pathway-desc {
+    font-size: 0.8rem;
   }
   .offerings-4grid {
     grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .offering-card {
+    padding: 1.8rem 1.2rem;
   }
   .stats-strip-grid {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 0.9rem;
+  }
+  .stats-metric-box {
+    padding: 0.75rem 1rem;
   }
   .moksham-quote-card {
     padding: 1.5rem 1rem;

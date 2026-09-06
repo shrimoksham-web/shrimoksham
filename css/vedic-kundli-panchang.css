@@ -458,8 +458,49 @@ body.theme-midnight .graha-cell-card {
 @media (max-width: 990px) {
   .vedic-interactive-hub {
     grid-template-columns: 1fr;
+    width: 96%;
   }
   .sriyantra-3d-stage-card {
     grid-template-columns: 1fr;
+    width: 96%;
+    padding: 1.8rem 1.4rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .kundli-calculator-card,
+  .panchang-widget-card {
+    padding: 1.6rem 1.2rem;
+    border-radius: 20px;
+  }
+  .sriyantra-canvas-wrapper {
+    height: 300px;
+  }
+}
+
+@media (max-width: 560px) {
+  .kundli-form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  .kundli-calculator-card {
+    padding: 1.4rem 1rem;
+  }
+  .blueprint-result-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .blueprint-box {
+    padding: 0.75rem 0.6rem;
+  }
+  .panchang-list-grid {
+    grid-template-columns: 1fr;
+  }
+  .diya-modal-window {
+    padding: 1.5rem 1.2rem;
+    border-radius: 20px;
+  }
+  .sriyantra-canvas-wrapper {
+    height: 260px;
   }
 }

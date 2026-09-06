@@ -47,22 +47,23 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // 2. Mobile Menu Toggle
+    // 2. Mobile Menu Toggle (coordinated with animated-topbar.js)
     const mobileToggle = document.getElementById('mobileNavToggle');
     const mobileDrawer = document.getElementById('mobileNavDrawer');
     const mobileLinks = document.querySelectorAll('.mobile-links-list a');
 
-    if (mobileToggle && mobileDrawer) {
+    if (mobileToggle && mobileDrawer && !mobileToggle.dataset.navBound) {
+      mobileToggle.dataset.navBound = 'true';
       mobileToggle.addEventListener('click', () => {
         const isOpen = mobileDrawer.classList.contains('is-open');
         if (isOpen) {
           mobileDrawer.classList.remove('is-open');
           mobileToggle.classList.remove('is-open');
-          document.body.style.overflow = '';
+          document.body.classList.remove('drawer-open');
         } else {
           mobileDrawer.classList.add('is-open');
           mobileToggle.classList.add('is-open');
-          document.body.style.overflow = 'hidden';
+          document.body.classList.add('drawer-open');
         }
       });
 
@@ -70,7 +71,7 @@
         link.addEventListener('click', () => {
           mobileDrawer.classList.remove('is-open');
           mobileToggle.classList.remove('is-open');
-          document.body.style.overflow = '';
+          document.body.classList.remove('drawer-open');
         });
       });
     }

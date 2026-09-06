@@ -155,59 +155,7 @@
   border-radius: 20px;
 }
 
-/* Mobile Drawer (Hidden on Desktop by default) */
-.mobile-nav-drawer {
-  display: none !important;
-  position: fixed;
-  inset: 0;
-  background: rgba(234, 225, 210, 0.98);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  z-index: 999;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 3rem 2rem;
-  transition: all var(--transition-smooth);
-}
-
-.mobile-nav-drawer.is-open {
-  display: flex !important;
-}
-
-@media (max-width: 900px) {
-  .desktop-nav {
-    display: none;
-  }
-}
-
-.mobile-links-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.3rem;
-  margin-bottom: 2.2rem;
-}
-
-.mobile-links-list a {
-  font-family: var(--font-serif-heading);
-  font-size: 1.1rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-heading);
-}
-
-.mobile-links-list a:hover {
-  color: var(--gold-primary);
-}
-
-.mobile-drawer-actions {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 280px;
-  gap: 1rem;
-}
+/* Legacy drawer styles deferred to master animated-topbar.css */
 
 /* ==========================================================================
    Hero Section

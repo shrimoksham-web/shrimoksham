@@ -342,15 +342,31 @@
 }
 
 @media (max-width: 600px) {
+  .site-footer {
+    padding: 2.8rem 0 1.5rem 0 !important;
+  }
   .footer-master-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.8rem;
   }
   .stay-inspired-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 1.2rem;
   }
   .stay-inspired-form {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 0.65rem;
+  }
+  .stay-inspired-input {
+    width: 100%;
+  }
+  .btn-stay-inspired-submit {
     width: 100%;
   }
   .footer-bottom-flex {

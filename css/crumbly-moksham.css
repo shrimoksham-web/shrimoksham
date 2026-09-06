@@ -386,3 +386,16 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .floating-whatsapp-only {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 48px;
+    height: 48px;
+  }
+  .floating-whatsapp-only svg {
+    width: 26px;
+    height: 26px;
+  }
+}

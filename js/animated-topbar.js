@@ -148,15 +148,92 @@
     });
   }
 
+  /* --------------------------------------------------------------------------
+     4. Responsive Luxury Mobile Navigation Drawer Controller
+     -------------------------------------------------------------------------- */
+  function initMobileNavigation() {
+    const toggleBtn = document.getElementById('mobileNavToggle');
+    const drawer = document.getElementById('mobileNavDrawer');
+    const closeBtn = document.getElementById('mobileNavClose');
+    const mobileLinks = document.querySelectorAll('.mobile-links-list a');
+    const mobileSoundscapeBtn = document.getElementById('mobileSoundscapeBtn');
+    const topbarSoundscapeBtn = document.getElementById('soundscapeToggleBtn');
+
+    if (!toggleBtn || !drawer) return;
+    if (toggleBtn.dataset.navBound) return;
+    toggleBtn.dataset.navBound = 'true';
+
+    function openDrawer() {
+      drawer.classList.add('is-open');
+      toggleBtn.classList.add('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('drawer-open');
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('is-open');
+      toggleBtn.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('drawer-open');
+    }
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (drawer.classList.contains('is-open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeDrawer();
+      });
+    }
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+
+    // Sync mobile soundscape button with topbar soundscape button
+    if (mobileSoundscapeBtn && topbarSoundscapeBtn) {
+      mobileSoundscapeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        topbarSoundscapeBtn.click();
+        const isPlaying = topbarSoundscapeBtn.classList.contains('is-playing');
+        if (isPlaying) {
+          mobileSoundscapeBtn.classList.add('is-playing');
+          mobileSoundscapeBtn.innerHTML = '<span>🔊 OMM Chants Active</span>';
+        } else {
+          mobileSoundscapeBtn.classList.remove('is-playing');
+          mobileSoundscapeBtn.innerHTML = '<span>🎵 OMM Chants (432Hz)</span>';
+        }
+      });
+    }
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initSlidingPillNav();
       initHeadroomPhysics();
       initSoundscapeAudio();
+      initMobileNavigation();
     });
   } else {
     initSlidingPillNav();
     initHeadroomPhysics();
     initSoundscapeAudio();
+    initMobileNavigation();
   }
 })();
