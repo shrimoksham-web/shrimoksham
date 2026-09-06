@@ -32,11 +32,41 @@
       return `assets/video/frames/frame_${numStr}.jpg`;
     }
 
-    // Set canvas dimensions to crisp 1080p
-    if (canvas && ctx) {
-      canvas.width = 1920;
-      canvas.height = 1080;
+    // Dynamic canvas dimensions matching device pixel ratio and viewport
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const targetW = Math.max(320, Math.round((rect.width || window.innerWidth) * dpr));
+      const targetH = Math.max(480, Math.round((rect.height || window.innerHeight) * dpr));
+      if (canvas.width !== targetW || canvas.height !== targetH) {
+        canvas.width = targetW;
+        canvas.height = targetH;
+        lastDrawnIndex = -1;
+      }
     }
+
+    // High-performance Aspect-Fill Cover Renderer with zero letterbox gaps
+    function drawCover(img) {
+      if (!ctx || !canvas) return;
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const iw = img.naturalWidth || img.width;
+      const ih = img.naturalHeight || img.height;
+      if (!iw || !ih || !cw || !ch) return;
+
+      const hRatio = cw / iw;
+      const vRatio = ch / ih;
+      const ratio = Math.max(hRatio, vRatio);
+      const nw = iw * ratio;
+      const nh = ih * ratio;
+      const cx = (cw - nw) / 2;
+      const cy = (ch - nh) / 2;
+
+      ctx.drawImage(img, 0, 0, iw, ih, cx, cy, nw, nh);
+    }
+
+    resizeCanvas();
 
     // Draw specific frame onto canvas with aspect-fill cover logic
     function drawFrame(frameIdx) {
@@ -62,14 +92,23 @@
 
       if (imgToDraw && imgToDraw.complete && imgToDraw.naturalWidth > 0) {
         if (lastDrawnIndex !== frameIdx) {
-          ctx.drawImage(imgToDraw, 0, 0, canvas.width, canvas.height);
+          drawCover(imgToDraw);
           lastDrawnIndex = frameIdx;
         }
       }
     }
 
-    // Preload Strategy: Load First Frame Immediately, then Batch All Frames
+    // Preload Strategy: Load Poster & First Frame Immediately, then Batch All Frames
     function preloadAllFrames() {
+      // 0. Immediate Fallback Poster Image to ensure ZERO blank flash
+      const posterImg = new Image();
+      posterImg.src = 'assets/hero-video-poster.jpg';
+      posterImg.onload = () => {
+        if (lastDrawnIndex === -1) {
+          drawCover(posterImg);
+        }
+      };
+
       // 1. Immediate Priority: Frame 1
       const firstImg = new Image();
       firstImg.src = getFrameUrl(0);
@@ -224,8 +263,13 @@
       }
     }
 
+    function onResize() {
+      resizeCanvas();
+      onScroll();
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    window.addEventListener('resize', onResize, { passive: true });
     onScroll();
 
     if ('IntersectionObserver' in window) {
