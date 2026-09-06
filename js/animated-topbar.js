@@ -113,35 +113,6 @@
     }
     let isPlaying = false;
 
-    // Harmonic Sacred Tibetan Singing Bowl Chime on click (Web Audio API)
-    function playHarmonicBowlChime() {
-      try {
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        if (!AudioContext) return;
-        const ctx = new AudioContext();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(432, ctx.currentTime); // 432Hz Sacred tuning
-        osc.frequency.exponentialRampToValueAtTime(864, ctx.currentTime + 0.6);
-        osc.frequency.exponentialRampToValueAtTime(432, ctx.currentTime + 1.2);
-
-        gain.gain.setValueAtTime(0.28, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 2.2);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start();
-        osc.stop(ctx.currentTime + 2.3);
-      } catch (err) {
-        // Fallback gracefully
-      }
-    }
-
     function playAudio() {
       audio.volume = 0.85;
       const promise = audio.play();
@@ -162,8 +133,6 @@
     function toggleOmmChants(e) {
       if (e) e.preventDefault();
       isPlaying = !isPlaying;
-
-      playHarmonicBowlChime();
 
       if (isPlaying) {
         if (ommLauncher) {

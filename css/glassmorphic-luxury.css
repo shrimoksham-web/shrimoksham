@@ -544,15 +544,22 @@
    ========================================================================== */
 .floating-omm-container {
   position: fixed;
-  bottom: 6.5rem;
+  bottom: 7.2rem;
   left: 2rem;
   z-index: 9998;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.soham-pod-active .floating-omm-container {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.85);
 }
 
 .floating-omm-only {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #1D2B3A 0%, #0F1722 75%, #070D14 100%);
   border: 2px solid var(--gold-primary, #D4AF37);
@@ -561,8 +568,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.4), 0 0 15px rgba(212, 175, 55, 0.25), inset 0 1px 2px #FFFFFF;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45), 0 0 16px rgba(212, 175, 55, 0.25), inset 0 1px 2px #FFFFFF;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
   animation: floatOmmWidget 4.2s ease-in-out infinite alternate;
   user-select: none;
   outline: none;
@@ -570,22 +579,22 @@
 }
 
 @keyframes floatOmmWidget {
-  0% { transform: translateY(0); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.4); }
-  100% { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(212, 175, 55, 0.6), 0 0 24px rgba(212, 175, 55, 0.35); }
+  0% { transform: translateY(0); box-shadow: 0 8px 28px rgba(212, 175, 55, 0.45); }
+  100% { transform: translateY(-4px); box-shadow: 0 14px 38px rgba(212, 175, 55, 0.65), 0 0 24px rgba(212, 175, 55, 0.35); }
 }
 
 .floating-omm-only:hover {
-  transform: translateY(-3px) scale(1.08);
+  transform: translateY(-4px) scale(1.08);
   border-color: #FFF3C4;
-  box-shadow: 0 16px 45px rgba(212, 175, 55, 0.7), 0 0 30px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 16px 45px rgba(212, 175, 55, 0.75), 0 0 32px rgba(212, 175, 55, 0.5);
 }
 
 .omm-aura-pulse {
   position: absolute;
-  inset: -8px;
+  inset: -9px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.05) 65%, transparent 80%);
-  filter: blur(7px);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.05) 65%, transparent 80%);
+  filter: blur(8px);
   animation: pulseOmmAurora 3.2s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -595,69 +604,105 @@
   100% { transform: scale(1.22); opacity: 0.85; }
 }
 
-.omm-ring-halo {
+/* Continuously Rounding / Rotating Circle Ring */
+.omm-spinning-circle {
   position: absolute;
-  inset: -3px;
+  inset: -6px;
   border-radius: 50%;
-  border: 1px dashed rgba(212, 175, 55, 0.5);
-  animation: spinOmmHalo 24s linear infinite;
+  border: 2px dashed rgba(212, 175, 55, 0.85);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+  animation: spinOmmContinuousRing 7s linear infinite;
   pointer-events: none;
+  will-change: transform;
 }
 
-@keyframes spinOmmHalo {
+.omm-spinning-circle::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFF3C4;
+  box-shadow: 0 0 8px #FFF, 0 0 14px #D4AF37;
+  transform: translateX(-50%);
+}
+
+@keyframes spinOmmContinuousRing {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-.omm-icon-inner {
+.omm-avatar-frame {
   position: relative;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 1;
 }
 
-.omm-icon-symbol {
-  font-size: 1.25rem;
-  color: #D4AF37;
-  font-weight: 800;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-  margin-bottom: 2px;
-  transition: all 0.3s ease;
+.omm-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  pointer-events: none;
 }
 
-.omm-icon-text {
-  font-family: var(--font-sans);
+.floating-omm-only:hover .omm-avatar-img {
+  transform: scale(1.08);
+}
+
+.omm-badge-tag {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background: rgba(7, 17, 30, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 12px;
+  padding: 1px 7px;
+  font-family: var(--font-display);
   font-size: 0.52rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
-  color: #F5ECCE;
-  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #F5D061;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
 }
 
 .omm-equalizer-bars {
   position: absolute;
-  bottom: 6px;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
   display: none;
   gap: 2px;
   align-items: flex-end;
-  height: 10px;
-  z-index: 3;
+  height: 12px;
+  z-index: 5;
 }
 
 .omm-equalizer-bars span {
-  width: 2px;
-  background: #D4AF37;
+  width: 2.5px;
+  background: #FFF3C4;
   border-radius: 1px;
+  box-shadow: 0 0 6px #D4AF37;
   animation: ommEqualizerPulse 0.8s ease-in-out infinite alternate;
 }
 
-.omm-equalizer-bars span:nth-child(1) { height: 4px; animation-delay: 0.1s; }
-.omm-equalizer-bars span:nth-child(2) { height: 9px; animation-delay: 0.3s; }
-.omm-equalizer-bars span:nth-child(3) { height: 6px; animation-delay: 0.2s; }
-.omm-equalizer-bars span:nth-child(4) { height: 8px; animation-delay: 0.4s; }
+.omm-equalizer-bars span:nth-child(1) { height: 5px; animation-delay: 0.1s; }
+.omm-equalizer-bars span:nth-child(2) { height: 11px; animation-delay: 0.3s; }
+.omm-equalizer-bars span:nth-child(3) { height: 7px; animation-delay: 0.2s; }
+.omm-equalizer-bars span:nth-child(4) { height: 10px; animation-delay: 0.4s; }
 
 @keyframes ommEqualizerPulse {
   0% { transform: scaleY(0.3); }
@@ -671,27 +716,31 @@
   animation: floatOmmPlaying 1.8s ease-in-out infinite alternate;
 }
 
-@keyframes floatOmmPlaying {
-  0% { transform: scale(1.02); }
-  100% { transform: scale(1.1); box-shadow: 0 0 45px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.6); }
+.floating-omm-only.is-playing .omm-spinning-circle {
+  border-color: #FFF3C4;
+  border-style: solid;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.85);
+  animation-duration: 3.5s;
 }
 
-.floating-omm-only.is-playing .omm-icon-symbol {
-  color: #FFFFFF;
-  text-shadow: 0 0 18px #D4AF37, 0 0 30px #F5D061;
+@keyframes floatOmmPlaying {
+  0% { transform: scale(1.02); }
+  100% { transform: scale(1.08); box-shadow: 0 0 45px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.6); }
 }
 
 .floating-omm-only.is-playing .omm-equalizer-bars {
   display: flex;
 }
 
-.floating-omm-only.is-playing .omm-icon-text {
+.floating-omm-only.is-playing .omm-badge-tag {
   opacity: 0;
 }
 
 .omm-launcher-tooltip {
   position: absolute;
-  left: calc(100% + 12px);
+  left: calc(100% + 14px);
   top: 50%;
   transform: translateY(-50%) translateX(-6px);
   background: rgba(7, 17, 30, 0.92);
@@ -730,8 +779,8 @@
 
 .floating-soham-only {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #243447 0%, #121A24 75%, #0B1017 100%);
   border: 2px solid #D4AF37;
@@ -741,7 +790,9 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45), 0 0 15px rgba(212, 175, 55, 0.25), inset 0 1px 2px #FFFFFF;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
   animation: floatSohamWidget 4s ease-in-out infinite alternate;
   user-select: none;
   outline: none;
@@ -761,7 +812,7 @@
 
 .soham-aura-pulse {
   position: absolute;
-  inset: -8px;
+  inset: -9px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 175, 55, 0.4) 0%, rgba(212, 175, 55, 0.05) 65%, transparent 80%);
   filter: blur(8px);
@@ -774,37 +825,56 @@
   100% { transform: scale(1.25); opacity: 0.9; }
 }
 
-.soham-icon-inner {
+.soham-avatar-frame {
   position: relative;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 1;
 }
 
-.soham-icon-symbol {
-  font-size: 1.25rem;
-  color: #D4AF37;
-  font-weight: 800;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
-  margin-bottom: 2px;
+.soham-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.4s ease;
+  pointer-events: none;
 }
 
-.soham-icon-text {
+.floating-soham-only:hover .soham-avatar-img {
+  transform: scale(1.08);
+}
+
+.soham-badge-tag {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  background: rgba(11, 16, 23, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  border-radius: 12px;
+  padding: 1px 7px;
   font-family: var(--font-display);
   font-size: 0.52rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: #F5ECCE;
+  text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
 }
 
 .soham-launcher-tooltip {
   position: absolute;
-  left: calc(100% + 12px);
+  left: calc(100% + 14px);
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) translateX(-6px);
   background: rgba(18, 26, 36, 0.92);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(212, 175, 55, 0.4);
@@ -824,7 +894,7 @@
 
 .floating-soham-only:hover .soham-launcher-tooltip {
   opacity: 1;
-  transform: translateY(-50%) translateX(4px);
+  transform: translateY(-50%) translateX(0);
 }
 
 /* Floating Soham Sanctuary Modal Pod */

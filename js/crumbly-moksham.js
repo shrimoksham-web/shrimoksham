@@ -737,29 +737,35 @@
 
     if (!launcher || !pod) return;
 
+    function updatePodState(isOpen) {
+      pod.classList.toggle('is-open', isOpen);
+      document.body.classList.toggle('soham-pod-active', isOpen);
+    }
+
     launcher.addEventListener('click', (e) => {
       e.stopPropagation();
-      pod.classList.toggle('is-open');
+      const nextOpen = !pod.classList.contains('is-open');
+      updatePodState(nextOpen);
     });
 
     if (closeBtn) {
       closeBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        pod.classList.remove('is-open');
+        updatePodState(false);
       });
     }
 
     // Close when clicking outside
     document.addEventListener('click', (e) => {
       if (pod.classList.contains('is-open') && !pod.contains(e.target) && !launcher.contains(e.target)) {
-        pod.classList.remove('is-open');
+        updatePodState(false);
       }
     });
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && pod.classList.contains('is-open')) {
-        pod.classList.remove('is-open');
+        updatePodState(false);
       }
     });
   }
