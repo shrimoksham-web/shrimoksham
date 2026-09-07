@@ -297,6 +297,7 @@
       element: 'Earth • Prithvi',
       color: '#E11D48',
       icon: 'root',
+      ytStart: 6,
       desc: 'Awakens foundational stability, grounding, and vital life energy. Chanting the seed sound LAM dissolves subconscious fear, anxiety, and insecurity, firmly anchoring your awareness into deep safety and peace with Mother Earth.'
     },
     {
@@ -309,6 +310,7 @@
       element: 'Water • Jala',
       color: '#EA580C',
       icon: 'sacral',
+      ytStart: 67,
       desc: 'Harmonizes emotional fluidity, sensual balance, and creative life force. Chanting the seed sound VAM releases stagnant emotional energy and blockages, restoring joyful passion, adaptability, and pure creative flow.'
     },
     {
@@ -321,6 +323,7 @@
       element: 'Fire • Agni',
       color: '#D97706',
       icon: 'solar',
+      ytStart: 127,
       desc: 'Ignites inner willpower, metabolic fire, and righteous courage (Dharma). Chanting the seed sound RAM transmutes hesitation and fatigue into dynamic power, empowering purposeful action and radiant self-confidence.'
     },
     {
@@ -333,6 +336,7 @@
       element: 'Air • Vayu',
       color: '#059669',
       icon: 'heart',
+      ytStart: 186,
       desc: 'Unlocks unconditional divine love, deep compassion, and inner forgiveness. Chanting the seed sound YAM dissolves grief and emotional armor, expanding your heart space to resonate with universal peace and selfless empathy.'
     },
     {
@@ -345,6 +349,7 @@
       element: 'Ether • Akasha',
       color: '#0284C7',
       icon: 'throat',
+      ytStart: 246,
       desc: 'Purifies conscious speech, authentic expression, and sacred truth (Satya). Chanting the seed sound HAM frees the voice from fear of judgment, aligning your words with timeless spiritual wisdom and cosmic clarity.'
     },
     {
@@ -357,6 +362,7 @@
       element: 'Mind • Manas',
       color: '#4F46E5',
       icon: 'thirdeye',
+      ytStart: 306,
       desc: 'Awakens spiritual intuition, transcendent insight, and inner vision. Chanting the sacred sound OM pierces through mental illusions (Maya) and chatter, harmonizing dualistic thought into pure soul consciousness.'
     },
     {
@@ -369,6 +375,7 @@
       element: 'Consciousness • Brahman',
       color: '#9333EA',
       icon: 'crown',
+      ytStart: 366,
       desc: 'Opens the thousand-petaled lotus to supreme cosmic consciousness, divine grace, and Moksha. Chanting the primordial sound AUM dissolves individual ego, merging your spirit with boundless universal light and bliss.'
     }
   ];
@@ -426,8 +433,9 @@
       if (!container) return;
 
       if (forcePlay || !ytIframeActive) {
-          // Play: Inject iframe with autoplay=1
-          container.innerHTML = `<iframe width="200" height="200" src="https://www.youtube.com/embed/b7JS0O3pFS8?autoplay=1&playsinline=1" allow="autoplay" frameborder="0"></iframe>`;
+          // Play: Inject iframe with autoplay=1 and precise start time
+          const startParam = ch.ytStart ? `&start=${ch.ytStart}` : '';
+          container.innerHTML = `<iframe width="200" height="200" src="https://www.youtube.com/embed/b7JS0O3pFS8?autoplay=1&playsinline=1${startParam}" allow="autoplay" frameborder="0"></iframe>`;
           ytIframeActive = true;
           
           if (voiceBtn) {
