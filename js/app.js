@@ -208,7 +208,7 @@
       const btn = e.target.closest('.btn-open-course-modal, [data-open-course-modal]');
       if (btn) {
         e.preventDefault();
-        const track = btn.getAttribute('data-course-track') || '4-5 Month Comprehensive Masterclass';
+        const track = btn.getAttribute('data-course-track') || '4-5 Month (100 Hrs) Comprehensive Masterclass';
         if (courseModal && courseModal.classList.contains('is-active-modal')) {
           closeCourseModal();
         } else {
@@ -223,7 +223,7 @@
     // Hover support for course triggers
     document.querySelectorAll('.btn-open-course-modal, [data-open-course-modal]').forEach((btn) => {
       btn.addEventListener('mouseenter', () => {
-        const track = btn.getAttribute('data-course-track') || '4-5 Month Comprehensive Masterclass';
+        const track = btn.getAttribute('data-course-track') || '4-5 Month (100 Hrs) Comprehensive Masterclass';
         openCourseModal(track);
       });
     });
@@ -248,7 +248,7 @@
         const phone = (document.getElementById('enrollPhone') || {}).value || '';
         const age = (document.getElementById('enrollAge') || {}).value || '';
         const gender = (document.getElementById('enrollGender') || {}).value || 'Male';
-        const track = (document.getElementById('enrollTrack') || {}).value || '4-5 Month Masterclass';
+        const track = (document.getElementById('enrollTrack') || {}).value || '4-5 Month (100 Hrs) Masterclass';
         const expectations = (document.getElementById('enrollExpectations') || {}).value || '';
 
         if (!name.trim() || !phone.trim() || !age.trim()) {
