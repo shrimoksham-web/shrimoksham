@@ -23,6 +23,23 @@ body.intro-active {
   color: var(--gold-light, #EBD696);
 }
 
+/* Cinematic Widescreen Letterbox */
+.launch-letterbox {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 15vh;
+  background: #000;
+  z-index: 100;
+  transition: transform 3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.launch-letterbox.top { top: 0; transform: translateY(0); }
+.launch-letterbox.bottom { bottom: 0; transform: translateY(0); }
+
+/* The bars open up slightly during the pull to increase the epic scale */
+.phase-pull .launch-letterbox.top { transform: translateY(-100%); }
+.phase-pull .launch-letterbox.bottom { transform: translateY(100%); }
+
 /* SCENE 01: DARKNESS & ATMOSPHERE */
 .launch-atmosphere {
   position: absolute;
@@ -75,6 +92,39 @@ body.intro-active {
   transform: translateZ(-200px);
 }
 
+/* The Solar Portal Eclipse */
+.launch-solar-portal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 280px;
+  transform: translate(-50%, -50%) scale(0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 10px rgba(255,107,0,0), inset 0 0 20px rgba(255,180,0,0);
+  border: 1px solid rgba(255, 200, 100, 0);
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 4;
+}
+
+.phase-awakening .launch-solar-portal {
+  opacity: 1;
+  border: 2px solid rgba(255, 200, 100, 0.6);
+  box-shadow: 0 0 100px 30px rgba(255, 107, 0, 0.6), inset 0 0 60px rgba(255, 180, 0, 0.8);
+  animation: solar-pulse 2s infinite alternate ease-in-out;
+}
+@keyframes solar-pulse {
+  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 80px 20px rgba(255,107,0,0.6), inset 0 0 40px rgba(255,180,0,0.8); }
+  100% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 120px 40px rgba(255,140,0,0.8), inset 0 0 60px rgba(255,200,50,0.9); }
+}
+
+.phase-pull .launch-solar-portal {
+  transform: translate(-50%, -50%) scale(5); /* Pull through the ring */
+  box-shadow: 0 0 200px 80px rgba(255, 107, 0, 0.4), inset 0 0 100px rgba(255, 180, 0, 0.4);
+  opacity: 0.3; /* Fade as we pass through */
+}
+
 .launch-doorway-glow {
   width: 100%;
   height: 100%;
@@ -97,6 +147,128 @@ body.intro-active {
 
 .phase-awakening .launch-doorway-glow {
   opacity: 1;
+}
+
+/* Foreground Architectural Pillars */
+.launch-temple-pillar {
+  position: absolute;
+  top: 50%;
+  width: 250px;
+  height: 150vh;
+  background: #020305;
+  transform: translateY(-50%) translateZ(80px);
+  opacity: 0;
+  transition: opacity 1.5s ease, transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+  z-index: 3;
+}
+.pillar-left {
+  left: calc(50% - 310px);
+  box-shadow: inset -20px 0 60px rgba(255, 120, 0, 0.15);
+}
+.pillar-right {
+  left: calc(50% + 60px);
+  box-shadow: inset 20px 0 60px rgba(255, 120, 0, 0.15);
+}
+
+.phase-awakening .launch-temple-pillar {
+  opacity: 1;
+}
+
+/* Volumetric Light Rays */
+.launch-light-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vw;
+  height: 200vh;
+  transform: translate(-50%, -50%) rotate(0deg);
+  background: repeating-conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 160, 0, 0.05) 12deg,
+    transparent 24deg
+  );
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 2.5s ease;
+  animation: slow-rotate 40s linear infinite;
+  z-index: 1;
+}
+@keyframes slow-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.phase-awakening .launch-light-rays {
+  opacity: 1;
+}
+
+/* Floating Embers / Dust */
+.launch-embers {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: 
+    -30px -50px 2px 1px rgba(255,140,0,0.8),
+    40px -100px 1px 0px rgba(255,60,0,0.6),
+    -50px -180px 2px 1px rgba(255,215,0,0.7),
+    20px -250px 1px 1px rgba(255,140,0,0.9);
+  animation: embers-rise 3s infinite linear;
+  opacity: 0;
+  z-index: 5;
+}
+@keyframes embers-rise {
+  0% { transform: translateY(50px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-300px); opacity: 0; }
+}
+
+.phase-awakening .launch-embers {
+  opacity: 1;
+}
+
+/* Hyper-Drive Embers */
+.phase-pull .launch-embers {
+  transform-origin: center bottom;
+  animation: warp-drive 1s infinite linear;
+}
+@keyframes warp-drive {
+  0% { transform: translateY(50px) scaleY(1); opacity: 0; }
+  50% { transform: translateY(-150px) scaleY(20); opacity: 1; filter: blur(2px); }
+  100% { transform: translateY(-500px) scaleY(40); opacity: 0; }
+}
+
+/* Ambient Gold Dust */
+.launch-gold-dust {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  background-image: radial-gradient(circle, rgba(255,215,0,0.6) 1px, transparent 1px);
+  background-size: 150px 150px;
+  background-position: 0 0;
+  opacity: 0;
+  animation: float-dust 20s linear infinite;
+  z-index: 6;
+  mix-blend-mode: screen;
+  filter: blur(1px);
+}
+@keyframes float-dust {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 150px -150px; }
+}
+.phase-awakening .launch-gold-dust {
+  opacity: 1;
+  transition: opacity 2s ease;
+}
+.phase-pull .launch-gold-dust {
+  transform: translate(-50%, -50%) scale(3);
+  transition: transform 2s ease;
 }
 
 /* THE PULL: Rushing through the doorway */
@@ -153,17 +325,23 @@ body.intro-active {
   font-family: var(--font-serif-display, 'Cinzel Decorative', 'Cinzel', serif);
   font-size: 2.8rem;
   font-weight: 400;
-  letter-spacing: 0.3em;
+  letter-spacing: 1em; /* Start very wide for cinematic snap */
   color: #FFF;
   text-shadow: 0 0 20px rgba(255, 150, 0, 0.6);
   opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.8s ease, transform 1s ease;
+  filter: blur(10px);
+  transform: translateY(10px) scale(1.1);
+  transition: opacity 0.8s ease, 
+              filter 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              letter-spacing 1.5s cubic-bezier(0.25, 0.1, 0.25, 1), 
+              transform 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .phase-date .launch-date-text {
   opacity: 1;
-  transform: translateY(0);
+  filter: blur(0px);
+  letter-spacing: 0.3em;
+  transform: translateY(0) scale(1);
 }
 
 /* SCENE 06: SHRI MOKSHAM transitions */
@@ -228,6 +406,9 @@ body.intro-active {
 /* Responsive Scaling for Mobile */
 @media (max-width: 768px) {
   .launch-temple-doorway { width: 90px; height: 260px; }
+  .launch-temple-pillar { width: 150px; }
+  .pillar-left { left: calc(50% - 195px); }
+  .pillar-right { left: calc(50% + 45px); }
   .launch-mystic-emblem { width: 100px; height: 100px; }
   .launch-date-text { font-size: 1.8rem; top: 60%; }
   .launch-brand-title { font-size: 2rem; letter-spacing: 0.15em; }
