@@ -763,10 +763,10 @@
 }
 
 /* ==========================================================================
-   Section 8: The Dream — Rishikesh
+   Section 8: The Dream — The Dream
    ========================================================================== */
 
-.rishikesh-dream-section {
+.retreat-dream-section {
   position: relative;
   border-radius: 26px;
   overflow: hidden;
@@ -777,7 +777,7 @@
   background: #FFFFFF;
 }
 
-.rishikesh-bg-video {
+.retreat-bg-video {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -791,14 +791,14 @@
   z-index: 0;
 }
 
-.rishikesh-overlay-gradient {
+.retreat-overlay-gradient {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at center, rgba(250, 247, 242, 0.6) 0%, rgba(250, 247, 242, 0.92) 100%);
   z-index: 1;
 }
 
-.rishikesh-content-wrap {
+.retreat-content-wrap {
   position: relative;
   z-index: 2;
   max-width: 860px;
@@ -806,7 +806,7 @@
   text-align: center;
 }
 
-.rishikesh-narrative {
+.retreat-narrative {
   font-family: var(--font-serif-quote);
   font-size: clamp(1.2rem, 1.7vw, 1.45rem);
   line-height: 1.8;
@@ -814,14 +814,14 @@
   margin-bottom: 2.8rem;
 }
 
-.rishikesh-staggered-mantras {
+.retreat-staggered-mantras {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
   margin-bottom: 2.8rem;
 }
 
-.rishikesh-mantra-line {
+.retreat-mantra-line {
   font-family: var(--font-serif-heading);
   font-size: clamp(0.95rem, 1.35vw, 1.3rem);
   letter-spacing: 0.08em;

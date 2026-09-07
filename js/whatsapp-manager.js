@@ -11,7 +11,7 @@
     consultation: 'Namaste Shri Moksham, I would like to enquire about a personal Jyotish consultation for directional guidance.',
     meditation: 'Namaste Shri Moksham, I would like to enquire about the meditation and conscious breathing programmes.',
     seva: 'Namaste Shri Moksham, I would like to participate in Seva initiatives and support the spiritual vision.',
-    rishikesh: 'Namaste Shri Moksham, I would like to learn more and support the Rishikesh spiritual retreat vision.',
+    retreat: 'Namaste Shri Moksham, I would like to learn more and support the spiritual retreat vision.',
     donate: 'Namaste Shri Moksham, I would like to make a contribution / donation towards Seva.',
     general: 'Namaste Shri Moksham, I would like to connect and learn more about your offerings.'
   };

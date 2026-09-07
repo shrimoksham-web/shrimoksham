@@ -296,7 +296,7 @@
       hz: 396,
       element: 'Earth • Prithvi',
       color: '#E11D48',
-      voiceChant: 'laam',
+      icon: 'root',
       desc: 'Awakens foundational stability, grounding, and vital life energy. Chanting the seed sound LAM dissolves subconscious fear, anxiety, and insecurity, firmly anchoring your awareness into deep safety and peace with Mother Earth.'
     },
     {
@@ -308,7 +308,7 @@
       hz: 417,
       element: 'Water • Jala',
       color: '#EA580C',
-      voiceChant: 'vaam',
+      icon: 'sacral',
       desc: 'Harmonizes emotional fluidity, sensual balance, and creative life force. Chanting the seed sound VAM releases stagnant emotional energy and blockages, restoring joyful passion, adaptability, and pure creative flow.'
     },
     {
@@ -320,7 +320,7 @@
       hz: 528,
       element: 'Fire • Agni',
       color: '#D97706',
-      voiceChant: 'raam',
+      icon: 'solar',
       desc: 'Ignites inner willpower, metabolic fire, and righteous courage (Dharma). Chanting the seed sound RAM transmutes hesitation and fatigue into dynamic power, empowering purposeful action and radiant self-confidence.'
     },
     {
@@ -332,7 +332,7 @@
       hz: 639,
       element: 'Air • Vayu',
       color: '#059669',
-      voiceChant: 'yaam',
+      icon: 'heart',
       desc: 'Unlocks unconditional divine love, deep compassion, and inner forgiveness. Chanting the seed sound YAM dissolves grief and emotional armor, expanding your heart space to resonate with universal peace and selfless empathy.'
     },
     {
@@ -344,7 +344,7 @@
       hz: 741,
       element: 'Ether • Akasha',
       color: '#0284C7',
-      voiceChant: 'haam',
+      icon: 'throat',
       desc: 'Purifies conscious speech, authentic expression, and sacred truth (Satya). Chanting the seed sound HAM frees the voice from fear of judgment, aligning your words with timeless spiritual wisdom and cosmic clarity.'
     },
     {
@@ -356,7 +356,7 @@
       hz: 852,
       element: 'Mind • Manas',
       color: '#4F46E5',
-      voiceChant: 'ohm',
+      icon: 'thirdeye',
       desc: 'Awakens spiritual intuition, transcendent insight, and inner vision. Chanting the sacred sound OM pierces through mental illusions (Maya) and chatter, harmonizing dualistic thought into pure soul consciousness.'
     },
     {
@@ -368,52 +368,17 @@
       hz: 963,
       element: 'Consciousness • Brahman',
       color: '#9333EA',
-      voiceChant: 'aauummmm',
+      icon: 'crown',
       desc: 'Opens the thousand-petaled lotus to supreme cosmic consciousness, divine grace, and Moksha. Chanting the primordial sound AUM dissolves individual ego, merging your spirit with boundless universal light and bliss.'
     }
   ];
 
-  let currentChakraIndex = 0;
+  let currentChakraIndex = 0;  // State for YouTube iframe injection
+  let ytIframeActive = false;
   let chantVoiceTimer = null;
 
-  function chantMantraVoice(mantraText, chakraData, onChantEnd) {
-    if ('speechSynthesis' in window) {
-      try {
-        window.speechSynthesis.cancel();
-
-        const text = chakraData.voiceChant || mantraText;
-        const utterance = new SpeechSynthesisUtterance(text);
-        utterance.pitch = 0.9;
-        utterance.rate = 0.72;
-        utterance.volume = 1.0;
-
-        const voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) {
-          const indianVoice = voices.find(v => 
-            v.lang.includes('hi') || v.lang.includes('IN') || v.name.toLowerCase().includes('india') || v.name.toLowerCase().includes('hindi')
-          );
-          if (indianVoice) {
-            utterance.voice = indianVoice;
-          }
-        }
-
-        utterance.onend = () => {
-          if (onChantEnd) onChantEnd();
-        };
-        utterance.onerror = () => {
-          if (onChantEnd) onChantEnd();
-        };
-
-        window.speechSynthesis.speak(utterance);
-      } catch (e) {
-        if (onChantEnd) onChantEnd();
-      }
-    } else {
-      if (onChantEnd) onChantEnd();
-    }
-  }
-
   function initCrystalChakraSuite() {
+
     const gems = document.querySelectorAll('.crystal-gem-btn');
     const devaEl = document.getElementById('crystalChakraDevanagari');
     const mantraEl = document.getElementById('crystalChakraMantra');
@@ -425,6 +390,9 @@
     const voiceLabel = document.getElementById('crystalVoiceBtnLabel');
 
     if (!gems.length) return;
+
+
+    const symbolEl = document.getElementById('crystalChakraSymbol');
 
     function renderChakra(idx, playVoice = true) {
       currentChakraIndex = idx;
@@ -446,28 +414,37 @@
       if (elementEl) elementEl.textContent = ch.element;
       if (descEl) descEl.textContent = ch.desc;
       if (voiceLabel) voiceLabel.textContent = `Chant ${ch.mantra} Voice`;
+      if (symbolEl && ch.icon) symbolEl.src = `assets/chakras/${ch.icon}.svg`;
 
       if (playVoice) {
-        triggerVoiceChant(ch);
+        triggerVoiceChant(ch, true);
       }
     }
 
-    function triggerVoiceChant(ch) {
-      if (voiceBtn) {
-        voiceBtn.classList.add('is-chanting');
+    function triggerVoiceChant(ch, forcePlay = false) {
+      const container = document.getElementById('youtube-audio-player');
+      if (!container) return;
+
+      if (forcePlay || !ytIframeActive) {
+          // Play: Inject iframe with autoplay=1
+          container.innerHTML = `<iframe width="200" height="200" src="https://www.youtube.com/embed/b7JS0O3pFS8?autoplay=1&playsinline=1" allow="autoplay" frameborder="0"></iframe>`;
+          ytIframeActive = true;
+          
+          if (voiceBtn) {
+             voiceBtn.classList.add('is-chanting');
+             // YouTube video is long; we'll rely on the user to pause it manually.
+             // But we can stop the glow after a few seconds so it isn't distracting
+             clearTimeout(chantVoiceTimer);
+             chantVoiceTimer = setTimeout(() => {
+                 voiceBtn.classList.remove('is-chanting');
+             }, 3500);
+          }
+      } else {
+          // Pause: Destroy iframe
+          container.innerHTML = '';
+          ytIframeActive = false;
+          if (voiceBtn) voiceBtn.classList.remove('is-chanting');
       }
-
-      clearTimeout(chantVoiceTimer);
-
-      // Speak Seed Mantra with pure voice ONLY (no background synthesizer / musical tones)
-      chantMantraVoice(ch.mantra, ch, () => {
-        if (voiceBtn) voiceBtn.classList.remove('is-chanting');
-      });
-
-      // Safety timeout for visual wave animation
-      chantVoiceTimer = setTimeout(() => {
-        if (voiceBtn) voiceBtn.classList.remove('is-chanting');
-      }, 2500);
     }
 
     gems.forEach((gem, idx) => {
@@ -479,7 +456,7 @@
     if (voiceBtn) {
       voiceBtn.addEventListener('click', () => {
         const ch = chakrasData[currentChakraIndex];
-        if (ch) triggerVoiceChant(ch);
+        if (ch) triggerVoiceChant(ch, false);
       });
     }
 

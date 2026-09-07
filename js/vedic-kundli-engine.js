@@ -104,7 +104,7 @@
     'dharamshala': { lat: 32.2190, lon: 76.3234, tz: 5.5, country: 'India', state: 'Himachal Pradesh' },
     'dehradun': { lat: 30.3165, lon: 78.0322, tz: 5.5, country: 'India', state: 'Uttarakhand' },
     'haridwar': { lat: 29.9457, lon: 78.1642, tz: 5.5, country: 'India', state: 'Uttarakhand' },
-    'rishikesh': { lat: 30.0869, lon: 78.2676, tz: 5.5, country: 'India', state: 'Uttarakhand' },
+    'himalayas': { lat: 30.0869, lon: 78.2676, tz: 5.5, country: 'India', state: 'Uttarakhand' },
     'srinagar': { lat: 34.0837, lon: 74.7973, tz: 5.5, country: 'India', state: 'Jammu & Kashmir' },
     'jammu': { lat: 32.7266, lon: 74.8570, tz: 5.5, country: 'India', state: 'Jammu & Kashmir' },
     'guwahati': { lat: 26.1445, lon: 91.7362, tz: 5.5, country: 'India', state: 'Assam' },
@@ -545,7 +545,7 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
   }
 
   // ==========================================================================
-  // 5. HIGH-PRECISION ASTRONOMICAL DIURNAL ENGINE (RISHIKESH & WORLD)
+  // 5. HIGH-PRECISION ASTRONOMICAL DIURNAL ENGINE (HIMALAYAS & WORLD)
   // ==========================================================================
   function computeSunriseSunset(date, lat = 30.0869, lon = 78.2676, tzOffset = 5.5) {
     const startOfYear = new Date(date.getFullYear(), 0, 0);
@@ -618,7 +618,7 @@ I would like a detailed 1-on-1 Vedic Jyotish discernment and Satvik remedies.`);
     const panchangDateEl = document.getElementById('panchangDate');
     if (panchangDateEl) panchangDateEl.textContent = dateStr;
 
-    // Reference Coordinate: Sacred Rishikesh (30.0869° N, 78.2676° E, IST +5.5)
+    // Reference Coordinate: Sacred Himalayas (30.0869° N, 78.2676° E, IST +5.5)
     const rishiLat = 30.0869;
     const rishiLon = 78.2676;
     const rishiTz = 5.5;

@@ -34,9 +34,9 @@
         subject: 'seva-support',
         text: 'Namaste Shri Moksham, I would like to contribute towards Seva initiatives and support the spiritual vision.'
       },
-      rishikesh: {
-        subject: 'rishikesh-vision',
-        text: 'Namaste Shri Moksham, I would like to learn more and support the Rishikesh spiritual retreat vision.'
+      retreat: {
+        subject: 'retreat-vision',
+        text: 'Namaste Shri Moksham, I would like to learn more and support the spiritual retreat vision.'
       },
       donate: {
         subject: 'donation-pledge',
