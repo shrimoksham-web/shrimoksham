@@ -739,24 +739,47 @@ button, a, input, select {
   }
 
   .header-container {
-    padding: 0.35rem 0.65rem;
-    width: 96%;
+    padding: 0.32rem 0.5rem;
+    width: 98%;
+  }
+
+  .brand-tagline-micro {
+    display: none !important;
+  }
+
+  .brand-logo {
+    gap: 0.45rem;
+    flex-shrink: 0;
   }
 
   .brand-emblem-wrap {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
   }
 
   .brand-name {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     letter-spacing: 0.08em;
   }
 
   .btn-header-consultation {
-    padding: 0.42rem 0.8rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.04em;
+    padding: 0.38rem 0.65rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+  }
+
+  .header-actions {
+    gap: 0.4rem;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-toggle {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex !important;
   }
 
   /* Kundli Form single column */

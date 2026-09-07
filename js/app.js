@@ -282,7 +282,7 @@
       });
     }
 
-    // 7. Smooth Anchor Scrolling
+    // 7. Smooth Anchor Scrolling with Precise Topbar Offset
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
       anchor.addEventListener('click', function (e) {
         const targetId = this.getAttribute('href');
@@ -291,7 +291,8 @@
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          const headerOffset = 80;
+          const header = document.getElementById('siteHeader');
+          const headerOffset = header ? (header.offsetHeight + 10) : 90;
           const elementPosition = targetEl.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -299,6 +300,12 @@
             top: offsetPosition,
             behavior: 'smooth'
           });
+
+          // Automatically close mobile menu if opened
+          const mobileDrawer = document.getElementById('mobileNavDrawer');
+          if (mobileDrawer && mobileDrawer.classList.contains('is-open')) {
+            mobileDrawer.classList.remove('is-open');
+          }
         }
       });
     });

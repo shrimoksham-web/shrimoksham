@@ -35,6 +35,11 @@
 
     items.forEach((item) => {
       item.addEventListener('mouseenter', () => moveTo(item));
+      item.addEventListener('click', () => {
+        items.forEach((i) => i.classList.remove('is-active'));
+        item.classList.add('is-active');
+        moveTo(item);
+      });
     });
 
     navList.addEventListener('mouseleave', () => {
@@ -76,8 +81,6 @@
     const header = document.getElementById('siteHeader');
     if (!header) return;
 
-    let lastScrollY = window.scrollY;
-
     window.addEventListener('scroll', () => {
       const currentScrollY = window.scrollY;
 
@@ -88,14 +91,8 @@
         header.classList.remove('is-scrolled');
       }
 
-      // Hide when scrolling down fast, show when scrolling up
-      if (currentScrollY > 250 && currentScrollY > lastScrollY + 8) {
-        header.classList.add('is-hidden');
-      } else if (currentScrollY < lastScrollY - 6 || currentScrollY < 120) {
-        header.classList.remove('is-hidden');
-      }
-
-      lastScrollY = currentScrollY;
+      // Ensure header is never hidden so navigation and Book Consultation are always available
+      header.classList.remove('is-hidden');
     }, { passive: true });
   }
 
